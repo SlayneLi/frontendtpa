@@ -1,0 +1,40 @@
+header{
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    width: 98%;
+    justify-content: space-between;
+    font-size: 20px;
+    .mainLogo{
+        width: 3%;
+        transform: rotate(180deg) !important;
+    }
+    .search{
+        width: 60%;
+        .searchBar{
+            width: 50%;
+            justify-content: space-around;
+            .searchLogo{
+                width: 8%;
+            }
+            >input{
+                font-size: 20px;
+                width: 85%;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+    .menu{
+        width: 35%;
+        justify-content: flex-end;
+        >div{
+            width: 100%;
+            justify-content: space-around;
+        }
+    }
+    .searchBar , .menu , .option, .userControll{
+        display: flex;
+        align-items: center;
+    }
+}
