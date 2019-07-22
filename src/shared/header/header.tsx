@@ -2,6 +2,7 @@ import React from "react";
 import "./header.scss";
 import airbnb_black from "../Images/airbnb_black.svg"
 import magnifierSeach from "../Images/magnifierSeach.svg"
+import Login from "../modal/login/login";
 
 export default class HeaderComponent extends React.Component{
     render(){
@@ -21,7 +22,7 @@ export default class HeaderComponent extends React.Component{
                     </div>
                     <div className="userControll">
                         <div>Sign Up</div>
-                        <div>Login</div>
+                        <Login />
                     </div>
                 </div>
             </header>

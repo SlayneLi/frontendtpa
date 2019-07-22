@@ -1,0 +1,111 @@
+.ReactModal__Overlay{
+    background-color: rgba($color: #000000, $alpha: 0.75) !important;
+}
+
+.ReactModal__Content{
+    width: 50%;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+
+.lgnModal{
+    font-weight: 500;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100% !important;
+
+    .closeLogo{
+        width: 2.5%;
+        border-radius: 50%;
+        border: #706f6f solid 1px;
+        padding: 0.5%;
+    }
+
+    >div{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        padding: 2%;
+        margin: 1%;
+        border-radius: 10px;
+    }
+
+    .fbLogin{
+        color: white;
+        background-color: #3b5998;
+        border: #3b5998 solid 2px;
+        >img{
+            width: 4%;
+            padding: 0 1%;
+        }
+    }
+
+    .googleLogin{
+        color: #202020;
+        background-color: white;
+        border: #202020 solid 2px; 
+        >img{
+            width: 4%;
+            padding: 0 1%;
+        }
+    }
+
+    .divider{
+        display: flex;
+        justify-content: space-between !important;
+        align-items: center;
+        text-align: center;
+        padding: 0% !important;
+        width: 84%;
+        hr{
+            width: 50%;
+            background-color: #202020;
+        }
+        div{
+            width: 10%;
+        }
+    }
+
+    .emailBar, .passBar{
+        border: solid #202020 1px;
+        justify-content: space-between;
+        input{
+            font-size: 16px;
+            border:none;
+            outline: none;
+            width: 100%;
+        }
+        >img{
+            width: 4%;
+        }
+    }
+    .passBar{
+        >div{
+            display: flex;
+            justify-content: flex-end;
+            
+            img{
+                margin-left: 2%;
+                width: 10%;
+            }
+        }
+    }
+
+    .remMe{
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .loginBtn{
+        color: white;
+        background-color: #c04848;
+        //kalo di klik warnany gini gk sih?
+        //background-color: #e09494;
+        border: #c04848 solid 2px;
+
+    }
+}
