@@ -75,20 +75,20 @@
             font-size: 16px;
             border:none;
             outline: none;
-            width: 100%;
+            width: 88%;
         }
         >img{
-            width: 4%;
+            width: 5%;
         }
     }
     .passBar{
         >div{
             display: flex;
             justify-content: flex-end;
-            
+            width: 12%;
             img{
                 margin-left: 2%;
-                width: 10%;
+                width: 40%;
             }
         }
     }

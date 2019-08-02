@@ -72,9 +72,10 @@
             font-size: 16px;
             border:none;
             outline: none;
+            width: 88%;
         }
         >img{
-            width: 4%;
+            width: 5%;
         }
     }
 
@@ -82,10 +83,10 @@
         >div{
             display: flex;
             justify-content: flex-end;
-            
+            width: 12%;            
             img{
                 margin-left: 2%;
-                width: 6%;
+                width: 40%;
             }
         }
     }
