@@ -8,7 +8,7 @@ import lock from "../../Images/lock.svg";
 import eye from "../../Images/eye.svg";
 import "./login.scss";
 
-export default class Login extends React.Component<any,any>{
+export default class LoginModal extends React.Component<any,any>{
     constructor(props:any){
         super(props);
         this.state = {
@@ -37,7 +37,7 @@ export default class Login extends React.Component<any,any>{
             <div>
                 <div onClick={this.openModal}>Login</div>
                 <ReactModal
-                isOpen={this.modalState()}
+                    isOpen={this.modalState()}
                 >
                     <div className="lgnModal">
                         <img src={close} alt="close logo" onClick={this.closeModal} className="closeLogo"/>

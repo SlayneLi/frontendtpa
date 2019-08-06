@@ -2,7 +2,8 @@ import React from "react";
 import "./header.scss";
 import airbnb_black from "../Images/airbnb_black.svg"
 import magnifierSeach from "../Images/magnifierSeach.svg"
-import Login from "../modal/login/login";
+import LoginModal from "../modal/login/login";
+import SignUpModal from "../modal/signup/signUp";
 
 export default class HeaderComponent extends React.Component{
     render(){
@@ -21,8 +22,8 @@ export default class HeaderComponent extends React.Component{
                         <div>Help</div>     
                     </div>
                     <div className="userControll">
-                        <div>Sign Up</div>
-                        <Login />
+                        <SignUpModal/>
+                        <LoginModal />
                     </div>
                 </div>
             </header>
