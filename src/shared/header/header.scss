@@ -1,4 +1,5 @@
 header{
+    z-index: 1!important;
     padding: 1%;
     display: flex;
     align-items: center;
@@ -12,7 +13,7 @@ header{
     .search{
         width: 60%;
         .searchBar{
-            width: 50%;
+            width: 40%;
             justify-content: space-around;
             .searchLogo{
                 width: 8%;
@@ -22,11 +23,12 @@ header{
                 width: 85%;
                 border: none;
                 outline: none;
+                background: transparent;
             }
         }
     }
     .menu{
-        width: 35%;
+        width: 45%;
         justify-content: flex-end;
         >div{
             width: 100%;

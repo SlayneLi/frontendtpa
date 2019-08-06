@@ -19,7 +19,19 @@ export default class HeaderComponent extends React.Component{
                 <div className="menu">
                     <div className="option">
                         <div>Become Host</div>
-                        <div>Help</div>     
+                        <div>Help</div> 
+                        <div><select name="currBar">
+                                <option value="usd">USD</option>
+                                <option value="jpy">JPY</option>
+                                <option value="idr">IDR</option>
+                                <option value="sgd">SGD</option>
+                                <option value="krw">KRW</option>
+                                <option value="thb">THB</option>
+                                <option value="cad">CAD</option>
+                                <option value="cny">CNY</option>
+                                <option value="php">PHP</option>
+                                <option value="gbp">GBP</option>
+                            </select></div>   
                     </div>
                     <div className="userControll">
                         <SignUpModal/>
