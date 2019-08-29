@@ -44,11 +44,28 @@ export default class SignUpModal extends React.Component<any,any>{
 
     initDate(){
         var date = [];
-
+        // var month = document.getElementById("month") as HTMLSelectElement;
+        // var year = document.getElementById("")
         for (let i = 1; i <= 31; i++) {
+            // if(month.value == "2" && i == 29){
+            //     break;
+            // }
+            // else if(+month.value % 2 == 0 && i == 30){
+            //     break;
+            // }
             date.push(<option value={i}>{i}</option>);
         }
         return date;
+    }
+
+    showPassword(){
+        var passField = document.getElementById("pass") as HTMLInputElement;
+        if(passField.type == "text"){
+            passField.type = "password";
+        }
+        else{
+            passField.type = "text";
+        }
     }
 
     render(){
@@ -86,7 +103,7 @@ export default class SignUpModal extends React.Component<any,any>{
                             <img src={person} alt="person"/>
                         </div>
                         <div className="passBar">
-                            <input type="password" name="" id="" placeholder="Password" />
+                            <input type="password" name="" id="pass" onClick={this.showPassword} placeholder="Password" />
                             <div>
                                 <img src={eye} alt="eyeLogo"/>
                                 <img src={lock} alt="lockLogo"/>
@@ -97,7 +114,7 @@ export default class SignUpModal extends React.Component<any,any>{
                             <div>To sign up, you must be 18 or older. Other people won’t see your birthday.</div>
                         </div>
                         <div className="birthdayBar">
-                            <select name="month" id="month">
+                            <select name="month" id="month" >
                                 <option value="" disabled selected>Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>

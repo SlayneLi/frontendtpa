@@ -32,9 +32,14 @@ export default class LoginModal extends React.Component<any,any>{
         return currState["showModal"];
     }
 
-    dummySubmit = async(values: any) =>{
-        console.log(values);
-        return null;
+    showPassword(){
+        var passField = document.getElementById("pass") as HTMLInputElement;
+        if(passField.type == "text"){
+            passField.type = "password";
+        }
+        else{
+            passField.type = "text";
+        }
     }
 
     render(){
@@ -64,9 +69,9 @@ export default class LoginModal extends React.Component<any,any>{
                         <img src={email} alt="emailLogo"/>
                     </div>
                     <div className="passBar">
-                        <input type="password" name="pass" placeholder="Password"/>
+                        <input id="pass" type="password" name="pass" placeholder="Password"/>
                         <div>
-                            <img src={eye} alt="eyeLogo"/>
+                            <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                             <img src={lock} alt="lockLogo"/>
                         </div>
                     </div>
