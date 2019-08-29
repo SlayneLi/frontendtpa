@@ -8,20 +8,20 @@
     transform: translateX(-50%) !important;
 }
 
-.lgnModal{
+.closeLogo{
+    width: 2.5%;
+    border-radius: 50%;
+    border: #706f6f solid 1px;
+    padding: 0.5%;
+}
+
+.login{
     font-weight: 500;
     display: flex !important;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100% !important;
-
-    .closeLogo{
-        width: 2.5%;
-        border-radius: 50%;
-        border: #706f6f solid 1px;
-        padding: 0.5%;
-    }
 
     >div{
         width: 80%;
@@ -106,6 +106,14 @@
         //kalo di klik warnany gini gk sih?
         //background-color: #e09494;
         border: #c04848 solid 2px;
+        padding: 0;
+        >button{
+            color: white;
+            background-color: #c04848;
+            border: #c04848 solid 2px;
+            width: 100%;
+            padding: 2%;
+        }
 
     }
 }
