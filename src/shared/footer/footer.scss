@@ -1,3 +1,7 @@
+*{
+    transition: 2s ease-in-out;
+}  
+
 .container{
     width: 100%;
     display: flex;
@@ -13,7 +17,7 @@
             text-decoration: underline;
         }
         .logo{
-             a > img{
+            a > img{
                 margin-right: 7%;
                 width: 15%;
             }
@@ -42,7 +46,8 @@
                 .i-block{
                     background: green;
                     border-radius: 4px 4px 4px 4px;
-                    padding: 1.7% 1.7% 1.7% 2%;
+                    padding: 1.7%;
+                    width: max-content;
                     margin-left: 4%;
                 }
             }
@@ -54,6 +59,7 @@
                 justify-content: flex-start;
                 align-items: center;
                 .i-block{
+                    width: max-content;
                     background: green;
                     border-radius: 4px 4px 4px 4px;
                     padding: 1.7%;
@@ -67,5 +73,6 @@
 .copyright{
     >img{
         width: 1.25%;
+        transform: rotate(180deg) !important;
     }
 }

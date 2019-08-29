@@ -78,7 +78,7 @@ export default class FooterComponent extends React.Component{
                 </div>
                 <hr/>
                 <div className="copyright">
-                    <img src={airbnbImg} alt="airbnb-svg"/> &copy; 2019 Airbnb, Inc. All rights reserved.
+                    <img src={airbnbImg} alt="airbnb-svg"/> &copy; 2019 Aivbnb, Inc. All rights reserved.
                 </div>
             </React.Fragment>
         );
