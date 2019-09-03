@@ -19,5 +19,28 @@
             font-size: 80%;
             font-weight: bold;
         }
+        .place-search{
+            padding: 1% 7%;
+            width: 86%;
+            >input{
+                width: 98%;
+                padding: 1%;
+            }
+        }
+        .check-container{
+            display: flex;
+            width: 86%;
+            justify-content: space-between;
+            padding: 1% 7%;
+            >div{
+                text-align: left;
+                width: 50%;
+                >input{
+                    width: 95%;
+                    border: none;
+                    padding: 3% 0;
+                }
+            }
+        }
     }
 }

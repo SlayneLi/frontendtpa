@@ -60,7 +60,7 @@ export default class SignUpModal extends React.Component<any,any>{
 
     showPassword(){
         var passField = document.getElementById("pass") as HTMLInputElement;
-        if(passField.type == "text"){
+        if(passField.type === "text"){
             passField.type = "password";
         }
         else{
@@ -103,9 +103,9 @@ export default class SignUpModal extends React.Component<any,any>{
                             <img src={person} alt="person"/>
                         </div>
                         <div className="passBar">
-                            <input type="password" name="" id="pass" onClick={this.showPassword} placeholder="Password" />
+                            <input type="password" name="" id="pass" placeholder="Password" />
                             <div>
-                                <img src={eye} alt="eyeLogo"/>
+                                <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                                 <img src={lock} alt="lockLogo"/>
                             </div>
                         </div>

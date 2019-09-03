@@ -34,7 +34,7 @@ export default class LoginModal extends React.Component<any,any>{
 
     showPassword(){
         var passField = document.getElementById("pass") as HTMLInputElement;
-        if(passField.type == "text"){
+        if(passField.type === "text"){
             passField.type = "password";
         }
         else{
