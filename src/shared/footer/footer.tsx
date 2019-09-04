@@ -21,10 +21,7 @@ export default class FooterComponent extends React.Component{
                             <a href="https://www.airbnb.com/help/topic/250/terms-policies">Policies</a>
                             <a href="https://www.airbnb.com/help?from=footer">Help</a>
                             <a href="https://www.airbnb.com/diversity">Diversity &amp; Belonging</a>
-                            <div className="with-box">
-                                <a href="https://www.airbnb.com/d/accessibility">Accessibility</a>
-                                <div className="i-block">New</div> 
-                            </div>
+                            <a href="https://www.airbnb.com/d/accessibility">Accessibility</a>
                         </div>
                     </div>
                     <div className="links-vertical">
@@ -38,10 +35,7 @@ export default class FooterComponent extends React.Component{
                             <a href="https://www.airbnb.com/gift?s=footer">Gift Cards</a>
                             <a href="https://www.airbnbcitizen.com/?utm_source=airbnb&utm_medium=footer&utm_campaign=product">Airbnb Citizen</a>
                             <a href="https://www.airbnbforwork.com/?utm_source=airbnb&utm_medium=footer&utm_campaign=product">Business Travel</a>
-                            <div className="with-box">
-                                <a href="https://www.airbnb.com/things-to-do">Things To Do</a>
-                                <div className="i-block">New</div> 
-                            </div>
+                            <a href="https://www.airbnb.com/things-to-do">Things To Do</a>
                             <a href="https://www.airbnb.com/magazine">Airbnbmag</a>
                         </div>
                     </div>
@@ -55,10 +49,7 @@ export default class FooterComponent extends React.Component{
                             <a href="https://www.airbnb.com/hospitality">Hospitality</a>
                             <a href="https://www.airbnb.com/help/article/1376/responsible-hosting-in-the-united-states">Responsible Hosting</a>
                             <a href="https://community.withairbnb.com/t5/Community-Center/ct-p/community-center">Community Center</a>
-                            <div className="with-exp">
-                                <a href="https://www.airbnb.com/host/experiences?from_footer=1">Host an Experience</a>
-                                <div className="i-block">New</div> 
-                            </div>
+                            <a href="https://www.airbnb.com/host/experiences?from_footer=1">Host an Experience</a>
                             <a href="https://www.airbnb.com/openhomes?from_footer=1">Open Homes</a>
                         </div>
                     </div>
