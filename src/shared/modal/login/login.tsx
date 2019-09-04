@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import close from "../../Images/close.svg";
-import facebook from "../../Images/fbBlue.svg";
 import google from "../../Images/GoogleLogo.svg";
 import email from "../../Images/email.svg";
 import eye from "../../Images/eye.svg";
 import lock from "../../Images/lock.svg";
 import "./login.scss";
+import Input from '../../component-template/input/input';
 
 export default class LoginModal extends React.Component<any,any>{
     constructor(props:any){
@@ -49,15 +48,14 @@ export default class LoginModal extends React.Component<any,any>{
                 <ReactModal
                     isOpen={this.modalState()}
                 >
-                    <img src={close} alt="close logo" onClick={this.closeModal} className="closeLogo"/>                    
+                    <i className="fa fa-close closeLogo" onClick={this.closeModal}></i>
                     <form className="login">
                     <div className="fbLogin">
-                        <img src={facebook} alt="fb logo" className="fbLogo"/>
-                        <div>Login with Facebook</div>
+                        <div><i className="fa fa-facebook fbLogo"></i> Login with Facebook</div>
                     </div>
                     <div className="googleLogin">
                         <img src={google} alt="google logo" className="gLogo"/>
-                        <div>Login with Google</div>
+                        <div>Sign Up with Google</div>
                     </div>
                     <div className="divider">
                         <hr/>
@@ -65,18 +63,18 @@ export default class LoginModal extends React.Component<any,any>{
                         <hr/>
                     </div>
                     <div className="emailBar" >
-                        <input type="text" name="email" placeholder="Email"/>
+                        <Input type="text" name="email" placeholder="Email"/>
                         <img src={email} alt="emailLogo"/>
                     </div>
                     <div className="passBar">
-                        <input id="pass" type="password" name="pass" placeholder="Password"/>
+                        <Input id="pass" type="password" name="pass" placeholder="Password"/>
                         <div>
                             <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                             <img src={lock} alt="lockLogo"/>
                         </div>
                     </div>
                     <div className="remMe">
-                        <input type="checkbox" name="remMe"/>
+                        <Input type="checkbox" name="remMe"/>
                         <div>Remember me</div>
                     </div>
                     <div className="loginBtn">

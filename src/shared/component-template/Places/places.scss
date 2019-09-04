@@ -1,0 +1,31 @@
+.place-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    .img-plc{
+        width: 100%;
+        height: 33%;
+        >img{
+            width: 50%;
+        }
+    }
+    .place-details{
+        display: flex;
+        width: 60%;
+        padding: 0 20%;
+        justify-content: space-around;
+        >div{
+            font-size: 1.15em;
+        }
+    }
+    .name-plc{
+        font-size: 2em;
+    }
+    .price-plc{
+        font-size: 1.25em;
+        text-align: left;
+        width: 70%;
+        padding: 0 15%;
+    }
+}

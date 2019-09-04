@@ -8,6 +8,7 @@ import eye from "../../Images/eye.svg";
 import lock from "../../Images/lock.svg";
 import person from "../../Images/person.svg";
 import "./signUp.scss";
+import Input from "../../component-template/input/input";
 
 export default class SignUpModal extends React.Component<any,any>{
     constructor(props:any){
@@ -44,15 +45,7 @@ export default class SignUpModal extends React.Component<any,any>{
 
     initDate(){
         var date = [];
-        // var month = document.getElementById("month") as HTMLSelectElement;
-        // var year = document.getElementById("")
         for (let i = 1; i <= 31; i++) {
-            // if(month.value == "2" && i == 29){
-            //     break;
-            // }
-            // else if(+month.value % 2 == 0 && i == 30){
-            //     break;
-            // }
             date.push(<option value={i}>{i}</option>);
         }
         return date;
@@ -66,6 +59,25 @@ export default class SignUpModal extends React.Component<any,any>{
         else{
             passField.type = "text";
         }
+    }
+
+    changeDate(){
+        var month = document.getElementById("month") as HTMLSelectElement;
+        var year = document.getElementById("year") as HTMLSelectElement;
+        //var date = document.getElementById("day") as HTMLSelectElement
+        if(month.value === "2"){
+            
+            if(+year.value % 4 === 0){
+
+            }
+        }
+        else if(+month.value % 2 === 0){
+
+        }
+    }
+
+    validate(){
+
     }
 
     render(){
@@ -91,19 +103,22 @@ export default class SignUpModal extends React.Component<any,any>{
                             <hr/>
                         </div>
                         <div className="emailBar">
-                            <input type="email" name="" id="" placeholder="Email"/>
+                            <Input
+                                type="email"
+                                placeholder="Email"
+                            />
                             <img src={email} alt="emailLogo"/>
                         </div>
                         <div className="firstNameBar">
-                            <input type="text" name="" id="" placeholder="First Name"/>
+                            <Input type="text" name="" id="" placeholder="First Name"/>
                             <img src={person} alt="person"/>
                         </div>
                         <div className="lastNameBar">
-                            <input type="text" name="" id="" placeholder="Last Name"/>
+                            <Input type="text" name="" id="" placeholder="Last Name"/>
                             <img src={person} alt="person"/>
                         </div>
                         <div className="passBar">
-                            <input type="password" name="" id="pass" placeholder="Password" />
+                            <Input type="password" name="" id="pass" placeholder="Password" />
                             <div>
                                 <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                                 <img src={lock} alt="lockLogo"/>
@@ -114,7 +129,7 @@ export default class SignUpModal extends React.Component<any,any>{
                             <div>To sign up, you must be 18 or older. Other people won’t see your birthday.</div>
                         </div>
                         <div className="birthdayBar">
-                            <select name="month" id="month" >
+                            <select name="month" id="month">
                                 <option value="" disabled selected>Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
