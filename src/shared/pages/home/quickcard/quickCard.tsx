@@ -1,5 +1,6 @@
 import React from 'react'
 import './quickCard.scss'
+import Guest from '../../../component-template/guest/guest';
 
 export default class QuickCard extends React.Component{
     render(){
@@ -26,7 +27,7 @@ export default class QuickCard extends React.Component{
                         </div>
                     </div>
                     <div className="guest-type">
-                        
+                        {/* <Guest adultCount={0} childCount={0} infantCount={0}/> */}
                     </div>
                 </div>
             </div>

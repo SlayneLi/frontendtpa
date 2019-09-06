@@ -1,10 +1,10 @@
-.place-content{
+.exp-content{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
-    .img-plc{
+    .exp-img{
         width: 100%;
         height: 50%;
         >img{
@@ -12,7 +12,7 @@
             height: 100%;
         }
     }
-    .place-details{
+    .exp-details{
         display: flex;
         width: 100%;
         justify-content: flex-start;
@@ -21,20 +21,22 @@
             font-size: calc(12px + 0.2em);
         }
     }
-    .name-plc{
+
+    .exp-name{
         font-size: calc(18px + 0.6em);
         text-align: left;
         width: 94%;
         padding: 0 3%;
-        height: 30%;
+        height: 30%;   
     }
-    .price-plc{
+    .exp-price{
         font-size: calc(14px + 0.4em);
         text-align: left;
         width: 94%;
         padding: 0 3%;
     }
-    .rating-plc{
+
+    .exp-rating{
         display: flex;
         width: 94%;
         padding: 0 3%;

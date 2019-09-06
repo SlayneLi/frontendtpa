@@ -1,8 +1,38 @@
+.recomended-place{
+    font-size: 3em;
+    font-weight: bolder;
+    text-align: left;
+    margin: 2% 10%;
+    width: 80%;
+    text-decoration: underline;
+}
+
 .place-around-section{
     width: 80%;
-    margin: 10%;
+    margin: 2% 10%;
     display: flex;
     .place-container{
+        border: 1px solid black;
+        width: 23%;
+        margin: 2%;
+    }
+}
+
+.experiences-in-the-spotlight{
+    font-size: 3em;
+    font-weight: bolder;
+    text-align: left;
+    margin: 2% 10%;
+    margin-top: 5% !important;
+    width: 80%;
+    text-decoration: underline;
+}
+
+.experience-section{
+    width: 80%;
+    margin: 2% 10%;
+    display: flex;
+    .exp-container{
         border: 1px solid black;
         width: 23%;
         margin: 2%;

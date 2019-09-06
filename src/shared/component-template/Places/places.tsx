@@ -7,7 +7,7 @@ export default class Place extends React.Component<any,any>{
         return(
             <div className = "place-content">
                 <div className="img-plc">
-                    <img src={this.props.src} alt={this.props.alt} id={this.props.id} className="imgPlcContent"/>
+                    <img src={this.props.src[0]} alt="plc" id={this.props.id} className="imgPlcContent"/>
                 </div>
                 <div className="place-details">
                     <div className="category-plc">{this.props.category}</div>
@@ -19,8 +19,9 @@ export default class Place extends React.Component<any,any>{
                 <div className="price-plc">
                     {this.props.price} / night
                 </div>
-                <div>
-                    <StarRatings rating={this.props.rating} name={this.props.ratName} starDimension={this.props.dimension} starSpacing={this.props.spacing} starRatedColor = {this.props.rateColor} starHoverColor={this.props.hoverColor}/>
+                <div className="rating-plc">
+                    <StarRatings rating={this.props.rating} name={this.props.ratName} starDimension={this.props.D} starSpacing={this.props.spacing} starRatedColor = {this.props.rateColor} starHoverColor={this.props.hoverColor}/>
+                    <div>({this.props.totalRating})</div>
                 </div>
 
             </div>

@@ -1,0 +1,22 @@
+.indecre-container{
+    display: flex;
+    width: 95%;
+    padding: 0 2.5%;
+    align-content: center;
+    justify-content: space-between;
+    .age-clasify{
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+    }
+    .guest-counter{
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        .crement-counter{
+            border-radius: 50%;
+            border: black solid 2px;
+            padding: 3%;
+        }
+    }
+}
