@@ -10,7 +10,7 @@ export default class Place extends React.Component<any,any>{
                     <img src={this.props.src[0]} alt="plc" id={this.props.id} className="imgPlcContent"/>
                 </div>
                 <div className="place-details">
-                    <div className="category-plc">{this.props.category}</div>
+                    <div className="category-plc">{this.props.category}&bull;</div>
                     <div className="loc-plc">{this.props.loc}</div>
                 </div>
                 <div className="name-plc">
@@ -23,7 +23,6 @@ export default class Place extends React.Component<any,any>{
                     <StarRatings rating={this.props.rating} name={this.props.ratName} starDimension={this.props.D} starSpacing={this.props.spacing} starRatedColor = {this.props.rateColor} starHoverColor={this.props.hoverColor}/>
                     <div>({this.props.totalRating})</div>
                 </div>
-
             </div>
         )
     }

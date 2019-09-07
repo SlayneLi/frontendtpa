@@ -8,13 +8,15 @@
 }
 
 .place-around-section{
-    width: 80%;
-    margin: 2% 10%;
+    width: 90%;
+    margin: 1% 5% 0% 8.5%;
     display: flex;
-    .place-container{
-        border: 1px solid black;
+    >a{
         width: 23%;
-        margin: 2%;
+        text-decoration: none;
+        color: black;
+        // border: 1px solid black;
+        margin: 2%;  
     }
 }
 
@@ -29,12 +31,14 @@
 }
 
 .experience-section{
-    width: 80%;
-    margin: 2% 10%;
+    width: 90%;
+    margin: 1% 5% 0% 8.5%;
     display: flex;
-    .exp-container{
-        border: 1px solid black;
+    >a{
         width: 23%;
+        text-decoration: none;
+        color: black;
+        // border: 1px solid black;
         margin: 2%;
     }
 }
