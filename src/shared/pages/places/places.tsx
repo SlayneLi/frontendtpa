@@ -1,4 +1,5 @@
 import React from 'react';
+import PlaceHori from '../../component-template/Places/placeHori';
 
 export default class AllPlace extends React.Component <any,any>{
     state = {
@@ -11,7 +12,9 @@ export default class AllPlace extends React.Component <any,any>{
                 <div className="places-container">
                 {this.state.place.map((p:any) =>{
                         return(
-                            <div></div>
+                            <div>
+                                <PlaceHori />
+                            </div>
                         )
                     })}
                 </div>
