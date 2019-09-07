@@ -6,7 +6,7 @@ export default class QuickCard extends React.Component{
     render(){
         return (
             <div className="quickcard-section">
-                <div className="quickcard-box">
+                <form className="quickcard-box">
                     <div className="title">
                         <h1>Book unique places to stay and things to do.</h1>
                     </div>
@@ -27,9 +27,9 @@ export default class QuickCard extends React.Component{
                         </div>
                     </div>
                     <div className="guest-type">
-                        {/* <Guest adultCount={0} childCount={0} infantCount={0}/> */}
+                        <Guest adultCount={0} childCount={0} infantCount={0} maxGuest={16}/>
                     </div>
-                </div>
+                </form>
             </div>
         )
     }

@@ -1,34 +1,22 @@
 import React from 'react'
-import IndecreGuest from './indecre-but/indecre';
+import './indecre-but/indecre.scss'
 
 export default class Guest extends React.Component<any,any>{
-    componentDidMount(){
-        this.increA = this.increA.bind(this);
-        this.increC = this.increC.bind(this);
-        this.increI = this.increI.bind(this);
-        this.decreA = this.decreA.bind(this);
-        this.decreC = this.decreC.bind(this);
-        this.decreI = this.decreI.bind(this);
-    }
-    
-    componentWillReceiveProps(){
-        this.increA = this.increA.bind(this);
-        this.increC = this.increC.bind(this);
-        this.increI = this.increI.bind(this);
-        this.decreA = this.decreA.bind(this);
-        this.decreC = this.decreC.bind(this);
-        this.decreI = this.decreI.bind(this);
-    }
 
     increA(adultCount:number, guestCount:number){
-        adultCount++;
+        adultCount+= 1;
+        console.log(adultCount);
+        console.log(this.props.maxGuest)
         var counter = document.getElementById("adult-counter") as HTMLDivElement;
         if(counter=== null){
             return;
         }
         counter.innerHTML = adultCount+"";
         guestCount = adultCount + this.props.childCount;
-        if(this.props.guestCount === this.props.maxGuest){
+        if(guestCount >= this.props.maxGuest){
+            if(guestCount>this.props.maxGuest){
+                adultCount--;
+            }
             var incre = document.getElementById("adult-in") as HTMLButtonElement;
             if(incre=== null){
                 return;
@@ -50,17 +38,21 @@ export default class Guest extends React.Component<any,any>{
             return;
         }
         decre.disabled = false;
+        
     }
 
     increC(childCount:number, guestCount:number){
-        childCount++;
+        childCount+=1;
         var counter = document.getElementById("child-counter") as HTMLDivElement;       
         if(counter=== null){
             return;
         }
         counter.innerHTML = childCount+"";
         guestCount = childCount + this.props.adultCount;
-        if(this.props.guestCount === this.props.maxGuest){
+        if(guestCount >= this.props.maxGuest){
+            if(guestCount > this.props.maxGuest){
+                childCount--;
+            }
             var incre = document.getElementById("adult-in") as HTMLButtonElement;
             if(incre=== null){
                 return;
@@ -85,13 +77,14 @@ export default class Guest extends React.Component<any,any>{
     }
 
     increI(infantCount:number){
-        infantCount++;
+        infantCount+=1;
         var counter = document.getElementById("infant-counter") as HTMLDivElement;
         if(counter === null){
             return;
         }
         counter.innerHTML = infantCount+"";
-        if(infantCount === 5){
+        if(infantCount >= 5){
+            infantCount = 5;
             var incre = document.getElementById("infant-in") as HTMLButtonElement;
             if(incre=== null){
                 return;
@@ -106,14 +99,15 @@ export default class Guest extends React.Component<any,any>{
     }
 
     decreA(adultCount:number , guestCount:number){
-        adultCount--;
+        adultCount-=1;
         var counter = document.getElementById("adult-counter") as HTMLDivElement;
         if(counter=== null){
             return;
         }
         counter.innerHTML = adultCount+"";
         guestCount = adultCount + this.props.childCount;
-        if(this.props.guestCount === 0){
+        if(guestCount <= 0){
+            adultCount = 0;
             var decre = document.getElementById("adult-de") as HTMLButtonElement;
             if(decre=== null){
                 return;
@@ -138,14 +132,15 @@ export default class Guest extends React.Component<any,any>{
     }
 
     decreC(childCount:number , guestCount:number){
-        childCount--;
+        childCount-=1;
         var counter = document.getElementById("child-counter") as HTMLDivElement;
         if(counter=== null){
             return;
         }
         counter.innerHTML = childCount+"";
         guestCount = childCount + this.props.adultCount;
-        if(this.props.guestCount === 0){
+        if(guestCount <= 0){
+            childCount = 0;
             var decre = document.getElementById("adult-de") as HTMLButtonElement;
             if(decre=== null){
                 return;
@@ -170,13 +165,14 @@ export default class Guest extends React.Component<any,any>{
     }
 
     decreI(infantCount:number){
-        infantCount--;
+        infantCount-=1;
         var counter = document.getElementById("infant-counter") as HTMLDivElement;
         if(counter === null){
             return;
         }
         counter.innerHTML = infantCount+"";
-        if(infantCount === 5){
+        if(infantCount <= 0){
+            infantCount = 0;
             var decre = document.getElementById("infant-de") as HTMLButtonElement;
             if(decre=== null){
                 return;
@@ -194,32 +190,54 @@ export default class Guest extends React.Component<any,any>{
     render(){
         return(
             <div className="guest-container">
-                <IndecreGuest 
-                    name="Adults" 
-                    validateIncre = {this.increA(this.props.adultCount, this.props.guestCount)} 
-                    validateDecre={this.decreA(this.props.adultCount, this.props.guestCount)} 
-                    count={this.props.adultCount}
-                    co="adult-counter"
-                    de="adult-de" 
-                    in="adult-in"/>
-                <IndecreGuest 
-                    name="Children" 
-                    info="Ages 2-12"
-                    validateIncre = {this.increC(this.props.childCount, this.props.guestCount)}
-                    validateDecre = {this.decreC(this.props.childCount, this.props.guestCount)}
-                    count={this.props.childCount}
-                    co="child-counter"
-                    de="child-de"
-                    in="child-in"/>
-                <IndecreGuest 
-                    name="Infants" 
-                    info="Under 2"
-                    validateIncre = {this.increI(this.props.infantCount)}
-                    validateDecre = {this.decreI(this.props.infantCount)}
-                    count={this.props.infantCount}
-                    co="infant-counter"
-                    de="infant-de"
-                    in="infant-in"/>
+                <div className="indecre-container">
+                    <div className="age-clasify">
+                        <div>
+                            Adults
+                        </div>
+                    </div>
+                    <div className="guest-counter" >
+                        <button className="crement-counter" id="adult-de" onClick={() => this.decreA(this.props.adultCount , this.props.guestCount)}> - </button>
+                        <div id="adult-counter">
+                            {this.props.adultCount}
+                        </div>
+                        <button className="crement-counter" id="adult-in" onClick={() => this.increA(this.props.adultCount, this.props.guestCount)}> + </button>
+                    </div>
+                </div>
+                <div className="indecre-container">
+                    <div className="age-clasify">
+                        <div>
+                            Children
+                        </div>
+                        <div>
+                            Ages 2-12
+                        </div>
+                    </div>
+                    <div className="guest-counter" >
+                        <button className="crement-counter" id="child-de" onClick={() => this.decreC(this.props.childCount, this.props.guestCount)}> - </button>
+                        <div id="child-counter">
+                            {this.props.childCount}
+                        </div>
+                        <button className="crement-counter" id="child-in" onClick={() => this.increC(this.props.childCount, this.props.guestCount)}> + </button>
+                    </div>
+                </div>
+                <div className="indecre-container">
+                    <div className="age-clasify">
+                        <div>
+                            Infants
+                        </div>
+                        <div>
+                            Under 2
+                        </div>
+                    </div>
+                    <div className="guest-counter" >
+                        <button className="crement-counter" id="infant-de" onClick={() => this.decreI(this.props.infantCount)}> - </button>
+                        <div id="infant-counter">
+                            {this.props.infantCount}
+                        </div>
+                        <button className="crement-counter" id="infant-in" onClick={() => this.increI(this.props.childCount)}> + </button>
+                    </div>
+                </div>
             </div>
         )   
     }

@@ -4,12 +4,17 @@ import airbnb_black from "../Images/airbnb_black.svg"
 import magnifierSeach from "../Images/magnifierSeach.svg"
 import LoginModal from "../modal/login/login";
 import SignUpModal from "../modal/signup/signUp";
+import { Link } from "react-router-dom";
+// import Link from "react-router-dom";
 
-export default class HeaderComponent extends React.Component{
+export default class HeaderComponent extends React.Component<any,any>{
+    
     render(){
         return(
             <header>
-                <img src={airbnb_black} alt="mainLogo" className="mainLogo"/>
+                <Link to={`/`}>
+                    <img src={airbnb_black} alt="mainLogo" className="mainLogo"/>
+                </Link>
                 <div className="search">
                     <div className="searchBar">
                         <img src={magnifierSeach} alt="searchLogo" className="searchLogo"/>

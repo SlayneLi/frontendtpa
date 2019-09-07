@@ -12,15 +12,16 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <HeaderComponent />
       <Router>
+      <HeaderComponent />
         <Switch>
           <Route path="/" exact component={HomeComponent}/>
           <Route path="/place/:id" exact component={PlaceDetail}/>
           <Route path="/experience/:id" exact component={ExperienceDetail} />
+          <Route path="/places/" />
         </Switch>
-      </Router>
       <FooterComponent />
+      </Router>
     </div>
   );
 }

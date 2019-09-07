@@ -1,6 +1,6 @@
 import React from 'react';
 import StarRatings  from 'react-star-ratings'
-import './places.scss'
+import './placesCard.scss'
 
 export default class Place extends React.Component<any,any>{
     render(){

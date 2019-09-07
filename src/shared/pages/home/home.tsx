@@ -1,7 +1,7 @@
 import React from "react";
 import './home.scss';
 import QuickCard from "./quickcard/quickCard";
-import Place from "../../component-template/Places/places";
+import Place from "../../component-template/Places/placeCard";
 import axios from 'axios';
 import Experience from "../../component-template/experiences/experience";
 import { Link } from "react-router-dom";

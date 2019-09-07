@@ -21,7 +21,7 @@ export default class Experience extends React.Component<any,any>{
                     {this.props.name}
                 </div>
                 <div className="exp-price">
-                    {this.props.price} / night
+                    {this.props.price} / person
                 </div>
                 <div className="exp-rating">
                     <StarRatings rating={this.props.rating} name={this.props.ratName} starDimension={this.props.D} starSpacing={this.props.spacing} starRatedColor = {this.props.rateColor} starHoverColor={this.props.hoverColor} />
