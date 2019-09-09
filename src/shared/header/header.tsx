@@ -6,9 +6,15 @@ import LoginModal from "../modal/login/login";
 import SignUpModal from "../modal/signup/signUp";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import firebase from 'firebase'
 
 class HeaderComponent extends React.Component<any,any>{
     
+    signOut(){
+        firebase.auth().signOut(); 
+        this.props.onLogout();
+    }
+
     usercontrol(){
         if(this.props.email !== ""){
             return(
@@ -18,6 +24,9 @@ class HeaderComponent extends React.Component<any,any>{
                     </div>
                     <div>
                         Hello, {this.props.firstname}
+                    </div>
+                    <div>
+                        <button onClick={() => this.signOut()}>SIGNOUT!!</button>
                     </div>
                 </React.Fragment>
             )
@@ -72,4 +81,10 @@ const mapStateToProps = (state:any) =>{
     }
 }
 
-export default connect(mapStateToProps)(HeaderComponent);
+const mapDispatchToProps = (dispatch:any) =>{
+    return{
+        onLogout: () => dispatch({type: 'LOGOUT'})
+    };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HeaderComponent);

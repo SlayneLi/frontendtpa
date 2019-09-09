@@ -13,6 +13,13 @@ const reducer = (state = initState,action:any) =>{
                 firstname: action.fName,
                 lastname: action.lName
             }
+        case 'LOGOUT':
+            return{
+                ...state,
+                email: "",
+                firstname: "",
+                lastname: ""
+            }
     }
     return state;
 
