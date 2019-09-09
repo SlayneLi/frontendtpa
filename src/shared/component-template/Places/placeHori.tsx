@@ -1,12 +1,20 @@
 import React from 'react';
+import AliceCarousel from 'react-alice-carousel';
 import StarRatings from 'react-star-ratings'
+import './placeHori.scss'
 
 export default class PlaceHori extends React.Component <any,any>{
     render(){
         return(
             <div className="place-hori-container">
                 <div className="place-hori-image">
-                    <img src={this.props.src[0]} alt="placehori"/>
+                    <AliceCarousel >
+                    {this.props.src.slice(0,6).map((i:any) =>{
+                            return(
+                                <img src={i} alt="place"/>
+                            )
+                    })}
+                    </AliceCarousel>
                 </div>
                 <div className="place-hori-detail">
                     <div>

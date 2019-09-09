@@ -23,7 +23,7 @@ export default class Input extends React.Component<any,{}>{
         return (
             <React.Fragment>
                 <input type={this.props.type} name={this.props.name} id={this.props.id} className={this.props.className} placeholder={this.props.placeholder} value={this.props.value}/>
-                <div className="error-label" hidden>{this.props.errorText}</div>
+                <div className="error-label" hidden id={this.props.errId}>{this.props.errorText}</div>
             </React.Fragment>
         )
     }

@@ -33,14 +33,14 @@ header{
     }
     .menu{
         width: 45%;
-        justify-content: flex-end;
         >div{
             width: 100%;
             justify-content: space-around;
         }
     }
-    .searchBar , .menu , .option, .userControll{
+    .searchBar , .menu{
         display: flex;
+        justify-content: space-between;
         align-items: center;
     }
 }
