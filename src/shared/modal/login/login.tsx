@@ -47,10 +47,11 @@ class LoginModal extends React.Component<any,any>{
         console.log("bing bong");
         var email = document.getElementById("email-login") as HTMLInputElement;
         var password = document.getElementById("password-login") as HTMLInputElement;
+        var flag = 0;
         if(email.value === ""){
             var emailErr = document.getElementById("emailErr") as HTMLDivElement;
             emailErr.hidden = false;
-            return;
+            flag++;
         }
         else{
             var emailErr = document.getElementById("emailErr") as HTMLDivElement;
@@ -59,11 +60,14 @@ class LoginModal extends React.Component<any,any>{
         if(password.value === ""){
             var passErr = document.getElementById("passErr") as HTMLDivElement;
             passErr.hidden = false;
-            return;
+            flag++;
         }
         else{
             var passErr = document.getElementById("passErr") as HTMLDivElement;
             passErr.hidden = true;
+        }
+        if(flag>=1){
+            return;
         }
         var fName = "dummy";
         var lName = "dummy";
@@ -97,7 +101,7 @@ class LoginModal extends React.Component<any,any>{
                         </div>
                         <div className="passBar">
                             <Input type="password" id="password-login" name="pass" placeholder="Password" errId="passErr" errorText="Invalid Password"/>
-                            <div>
+                            <div className="passwordLogo">
                                 <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                                 <img src={lock} alt="lockLogo"/>
                             </div>
