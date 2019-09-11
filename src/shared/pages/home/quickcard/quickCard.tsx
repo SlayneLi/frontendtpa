@@ -27,7 +27,7 @@ export default class QuickCard extends React.Component{
                         </div>
                     </div>
                     <div className="guest-type">
-                        <Guest adultCount={0} childCount={0} infantCount={0} maxGuest={16}/>
+                        <Guest maxGuest={16}/>
                     </div>
                 </form>
             </div>
