@@ -8,6 +8,8 @@ import PlaceDetail from './shared/component-template/Places/placedetail';
 import ExperienceDetail from './shared/component-template/experiences/experiencedetail';
 
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import EditPic from './shared/pages/becomeAHost/editPic/editPic';
+import AllPlace from './shared/pages/places/places';
 
 const App: React.FC = () => {
   return (
@@ -18,7 +20,8 @@ const App: React.FC = () => {
           <Route path="/" exact component={HomeComponent}/>
           <Route path="/place/:id" exact component={PlaceDetail}/>
           <Route path="/experience/:id" exact component={ExperienceDetail} />
-          <Route path="/places/" />
+          <Route path="/edit-image/" exact component={EditPic}/>
+          <Route path="/places/" exact component={AllPlace} />
         </Switch>
       <FooterComponent />
       </Router>

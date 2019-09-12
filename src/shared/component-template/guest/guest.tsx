@@ -1,244 +1,199 @@
 import React from 'react'
-import './indecre-but/indecre.scss'
+import './guest.scss'
+import { connect } from 'react-redux';
+import IndecreGuest from './indecre-but/indecre';
 
-export default class Guest extends React.Component<any,any>{
+class Guest extends React.Component<any,{}>{
 
-    increA(adultCount:number, guestCount:number){
-        adultCount+= 1;
-        console.log(adultCount);
-        console.log(this.props.maxGuest)
-        var counter = document.getElementById("adult-counter") as HTMLDivElement;
-        if(counter=== null){
-            return;
+    state ={
+        isOpen: false,
+        currStyle: {
+            display: 'none'
         }
-        counter.innerHTML = adultCount+"";
-        guestCount = adultCount + this.props.childCount;
-        if(guestCount >= this.props.maxGuest){
-            if(guestCount>this.props.maxGuest){
-                adultCount--;
-            }
-            var incre = document.getElementById("adult-in") as HTMLButtonElement;
-            if(incre=== null){
-                return;
-            }
-            incre.disabled = true;
-            incre = document.getElementById("child-in") as HTMLButtonElement;
-            if(incre=== null){
-                return;
-            }
-            incre.disabled = true;
-        }
-        var decre = document.getElementById("adult-de") as HTMLButtonElement;
-        if(decre=== null){
-            return;
-        }
-        decre.disabled = false;
-        decre = document.getElementById("child-de") as HTMLButtonElement;
-        if(decre=== null){
-            return;
-        }
-        decre.disabled = false;
-        
     }
 
-    increC(childCount:number, guestCount:number){
-        childCount+=1;
-        var counter = document.getElementById("child-counter") as HTMLDivElement;       
-        if(counter=== null){
-            return;
+    countGuest(){
+        if(this.props.adultCount + this.props.childCount + this.props.infantCount !== 0){
+            var text = (this.props.adultCount + this.props.childCount) + " guest (s)"
+            if(this.props.infantCount !== 0)
+                text += ", "+ this.props.infantCount+" infant (s)"
+            return text;
         }
-        counter.innerHTML = childCount+"";
-        guestCount = childCount + this.props.adultCount;
-        if(guestCount >= this.props.maxGuest){
-            if(guestCount > this.props.maxGuest){
-                childCount--;
-            }
-            var incre = document.getElementById("adult-in") as HTMLButtonElement;
-            if(incre=== null){
-                return;
-            }
-            incre.disabled = true;
-            incre = document.getElementById("child-in") as HTMLButtonElement;
-            if(incre=== null){
-                return;
-            }
-            incre.disabled = true;
-        }
-        var decre = document.getElementById("adult-de") as HTMLButtonElement;
-        if(decre=== null){
-            return;
-        }
-        decre.disabled = false;
-        decre = document.getElementById("child-de") as HTMLButtonElement;
-        if(decre=== null){
-            return;
-        }
-        decre.disabled = false;
+        return "Guests"
     }
 
-    increI(infantCount:number){
-        infantCount+=1;
-        var counter = document.getElementById("infant-counter") as HTMLDivElement;
-        if(counter === null){
-            return;
-        }
-        counter.innerHTML = infantCount+"";
-        if(infantCount >= 5){
-            infantCount = 5;
-            var incre = document.getElementById("infant-in") as HTMLButtonElement;
-            if(incre=== null){
+    increA = (e:any)=>{
+        e.preventDefault();
+        if(this.props.adultCount + this.props.childCount >= this.props.maxGuest - 1){
+            let in1 = document.getElementById("a-in") as HTMLButtonElement
+            let in2 = document.getElementById("c-in") as HTMLButtonElement
+            in1.disabled = true;
+            in2.disabled = true;
+            if(this.props.adultCount + this.props.childCount == this.props.maxGuest){
                 return;
             }
-            incre.disabled = true;
         }
-        var decre = document.getElementById("infant-de") as HTMLButtonElement;
-        if(decre=== null){
-            return;
-        }
-        decre.disabled = false;
+        let de1 = document.getElementById("a-de") as HTMLButtonElement
+        let de2 = document.getElementById("c-de") as HTMLButtonElement
+        de1.disabled = false;
+        de2.disabled = false;
+        this.props.onAIncre();
     }
 
-    decreA(adultCount:number , guestCount:number){
-        adultCount-=1;
-        var counter = document.getElementById("adult-counter") as HTMLDivElement;
-        if(counter=== null){
+    decreA = (e:any)=>{
+        e.preventDefault();
+        if(this.props.adultCount === 0 || this.props.childCount + this.props.infantCount !=0){
+            let de1 = document.getElementById("a-de") as HTMLButtonElement
+            de1.disabled = true;
             return;
         }
-        counter.innerHTML = adultCount+"";
-        guestCount = adultCount + this.props.childCount;
-        if(guestCount <= 0){
-            adultCount = 0;
-            var decre = document.getElementById("adult-de") as HTMLButtonElement;
-            if(decre=== null){
+        if(this.props.adultCount + this.props.childCount <= 1){
+            let de1 = document.getElementById("a-de") as HTMLButtonElement
+            let de2 = document.getElementById("c-de") as HTMLButtonElement
+            de1.disabled = true;
+            de2.disabled = true;
+            if(this.props.adultCount + this.props.childCount === 0){
                 return;
             }
-            decre.disabled = true;
-            decre = document.getElementById("child-de") as HTMLButtonElement;
-            if(decre=== null){
-                return;
-            }
-            decre.disabled = true;
         }
-        var incre = document.getElementById("adult-in") as HTMLButtonElement;
-        if(incre=== null){
-            return;
-        }
-        incre.disabled = false;
-        incre = document.getElementById("child-in") as HTMLButtonElement;
-        if(incre=== null){
-            return;
-        }
-        incre.disabled = false;
+        let in1 = document.getElementById("a-in") as HTMLButtonElement
+        let in2 = document.getElementById("c-in") as HTMLButtonElement
+        in1.disabled = false;
+        in2.disabled = false;
+        this.props.onADecre();
     }
 
-    decreC(childCount:number , guestCount:number){
-        childCount-=1;
-        var counter = document.getElementById("child-counter") as HTMLDivElement;
-        if(counter=== null){
-            return;
+    increC = (e:any)=>{
+        e.preventDefault();
+        if(this.props.adultCount === 0){
+            this.props.onAIncre();
         }
-        counter.innerHTML = childCount+"";
-        guestCount = childCount + this.props.adultCount;
-        if(guestCount <= 0){
-            childCount = 0;
-            var decre = document.getElementById("adult-de") as HTMLButtonElement;
-            if(decre=== null){
+        if(this.props.adultCount + this.props.childCount >= this.props.maxGuest - 1){
+            let in1 = document.getElementById("a-in") as HTMLButtonElement
+            let in2 = document.getElementById("c-in") as HTMLButtonElement
+            in1.disabled = true;
+            in2.disabled = true;
+            if(this.props.adultCount + this.props.childCount == this.props.maxGuest){
                 return;
             }
-            decre.disabled = true;
-            decre = document.getElementById("child-de") as HTMLButtonElement;
-            if(decre=== null){
-                return;
-            }
-            decre.disabled = true;
         }
-        var incre = document.getElementById("adult-in") as HTMLButtonElement;
-        if(incre=== null){
-            return;
-        }
-        incre.disabled = false;
-        incre = document.getElementById("child-in") as HTMLButtonElement;
-        if(incre=== null){
-            return;
-        }
-        incre.disabled = false;
+        let de1 = document.getElementById("a-de") as HTMLButtonElement
+        let de2 = document.getElementById("c-de") as HTMLButtonElement
+        de1.disabled = false;
+        de2.disabled = false;
+        this.props.onCIncre();
     }
 
-    decreI(infantCount:number){
-        infantCount-=1;
-        var counter = document.getElementById("infant-counter") as HTMLDivElement;
-        if(counter === null){
+    decreC = (e:any)=>{
+        e.preventDefault();
+        if(this.props.childCount === 0){
+            let de2 = document.getElementById("c-de") as HTMLButtonElement
+            de2.disabled = true;
+            if(this.props.adultCount !==0){
+                let de1 = document.getElementById("a-de") as HTMLButtonElement
+                de1.disabled = false;
+            }
             return;
         }
-        counter.innerHTML = infantCount+"";
-        if(infantCount <= 0){
-            infantCount = 0;
-            var decre = document.getElementById("infant-de") as HTMLButtonElement;
-            if(decre=== null){
+        if(this.props.adultCount !==0 && this.props.childCount===1){
+            let de1 = document.getElementById("a-de") as HTMLButtonElement
+            de1.disabled = false;
+        }
+        if(this.props.adultCount + this.props.childCount <= 1){
+            let de1 = document.getElementById("a-de") as HTMLButtonElement
+            let de2 = document.getElementById("c-de") as HTMLButtonElement
+            de1.disabled = true;
+            de2.disabled = true;
+            if(this.props.adultCount + this.props.childCount === 0){
                 return;
             }
-            decre.disabled = true;
         }
-        var incre = document.getElementById("infant-in") as HTMLButtonElement;
-        if(incre=== null){
-            return;
-        }
-        incre.disabled = false;
+        let in1 = document.getElementById("a-in") as HTMLButtonElement
+        let in2 = document.getElementById("c-in") as HTMLButtonElement
+        in1.disabled = false;
+        in2.disabled = false;
+        this.props.onCDecre();
     }
 
+    increI = (e:any) =>{
+        e.preventDefault();
+        if(this.props.adultCount === 0){
+            this.props.onAIncre();
+        }
+        if(this.props.infantCount >= 4 ){
+            let in1 = document.getElementById("i-in") as HTMLButtonElement;
+            in1.disabled = true;
+        }
+        let de = document.getElementById("i-de") as HTMLButtonElement;
+        de.disabled = false;
+        this.props.onIIncre();
+    }
+
+    decreI = (e:any) =>{
+        e.preventDefault()
+        if(this.props.infantCount===0){
+            let de = document.getElementById("i-de") as HTMLButtonElement;
+            de.disabled = true;
+            if(this.props.adultCount !==0){
+                let de1 = document.getElementById("a-de") as HTMLButtonElement
+                de1.disabled = false;
+            }
+            return;
+        }
+        if(this.props.adultCount !==0 && this.props.infantCount === 1){
+            let de1 = document.getElementById("a-de") as HTMLButtonElement
+            de1.disabled = false;
+        }
+        let in1 = document.getElementById("i-in") as HTMLButtonElement;
+            in1.disabled = false;
+        this.props.onIDecre();
+    }
+
+    showDetail = ()=>{
+        console.log(this.props)
+        if(this.state.isOpen === false){
+            this.setState({currStyle: {display:'flex'},
+                        isOpen: true})
+        }
+        else{
+            this.setState({currStyle: {display:'none'},
+                        isOpen: false})
+        }
+    }
 
     render(){
         return(
             <div className="guest-container">
-                <div className="indecre-container">
-                    <div className="age-clasify">
-                        <div>
-                            Adults
-                        </div>
-                    </div>
-                    <div className="guest-counter" >
-                        <button className="crement-counter" id="adult-de" onClick={() => this.decreA(this.props.adultCount , this.props.guestCount)}> - </button>
-                        <div id="adult-counter">
-                            {this.props.adultCount}
-                        </div>
-                        <button className="crement-counter" id="adult-in" onClick={() => this.increA(this.props.adultCount, this.props.guestCount)}> + </button>
-                    </div>
+                <div className="guest-counter" onClick={() => this.showDetail()}>
+                    {this.countGuest()}
                 </div>
-                <div className="indecre-container">
-                    <div className="age-clasify">
-                        <div>
-                            Children
-                        </div>
-                        <div>
-                            Ages 2-12
-                        </div>
-                    </div>
-                    <div className="guest-counter" >
-                        <button className="crement-counter" id="child-de" onClick={() => this.decreC(this.props.childCount, this.props.guestCount)}> - </button>
-                        <div id="child-counter">
-                            {this.props.childCount}
-                        </div>
-                        <button className="crement-counter" id="child-in" onClick={() => this.increC(this.props.childCount, this.props.guestCount)}> + </button>
-                    </div>
-                </div>
-                <div className="indecre-container">
-                    <div className="age-clasify">
-                        <div>
-                            Infants
-                        </div>
-                        <div>
-                            Under 2
-                        </div>
-                    </div>
-                    <div className="guest-counter" >
-                        <button className="crement-counter" id="infant-de" onClick={() => this.decreI(this.props.infantCount)}> - </button>
-                        <div id="infant-counter">
-                            {this.props.infantCount}
-                        </div>
-                        <button className="crement-counter" id="infant-in" onClick={() => this.increI(this.props.childCount)}> + </button>
-                    </div>
+                <div className="indecre-overlay" style={this.state.currStyle}>
+                    <IndecreGuest name="Adult" validateDecre={this.decreA} validateIncre={this.increA} count={this.props.adultCount} de="a-de" in="a-in" />
+                    <IndecreGuest name="Children" info="2-12" validateDecre={this.decreC} validateIncre={this.increC} count={this.props.childCount} de="c-de" in="c-in" />
+                    <IndecreGuest name="Infants" info="Under 2" validateDecre={this.decreI} validateIncre={this.increI} count={this.props.infantCount} de="i-de" in="i-in" />
                 </div>
             </div>
         )   
     }
 }
+
+const mapStateToProps = (state:any) => {
+    return{
+        adultCount: state.adultCount,
+        childCount: state.childCount,
+        infantCount: state.infantCount
+    };
+}
+
+const mapDispatchToProps = (dispatch:any) =>{
+    return{
+        onAIncre: () => dispatch({type:'ADULT_COUNT_INCREMENT'}),
+        onCIncre: () => dispatch({type:'CHILD_COUNT_INCREMENT'}),
+        onIIncre: () => dispatch({type:'INFANT_COUNT_INCREMENT'}),
+        onADecre: () => dispatch({type:'ADULT_COUNT_DECREMENT'}),
+        onCDecre: () => dispatch({type:'CHILD_COUNT_DECREMENT'}),
+        onIDecre: () => dispatch({type:'INFANT_COUNT_DECREMENT'}),
+    };
+}
+
+export default connect(mapStateToProps , mapDispatchToProps )(Guest);

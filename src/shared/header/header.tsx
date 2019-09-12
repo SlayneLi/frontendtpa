@@ -6,9 +6,15 @@ import LoginModal from "../modal/login/login";
 import SignUpModal from "../modal/signup/signUp";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import firebase from 'firebase'
 
 class HeaderComponent extends React.Component<any,any>{
     
+    signOut(){
+        firebase.auth().signOut(); 
+        this.props.onLogout();
+    }
+
     usercontrol(){
         if(this.props.email !== ""){
             return(
@@ -18,6 +24,9 @@ class HeaderComponent extends React.Component<any,any>{
                     </div>
                     <div>
                         Hello, {this.props.firstname}
+                    </div>
+                    <div>
+                        <button onClick={() => this.signOut()}>SIGNOUT!!</button>
                     </div>
                 </React.Fragment>
             )
@@ -32,9 +41,17 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
+
+    checkCache = () =>{
+        console.log(localStorage)
+        if(localStorage.getItem("email") !== null && localStorage.getItem("email")!== ""){
+            this.props.onLogin(localStorage.getItem("email"),localStorage.getItem("firstname"),localStorage.getItem("lastname"))
+        }
+    }
+
     render(){
         return(
-            <header>
+            <header onLoad={this.checkCache}>
                 <Link to={`/`}>
                     <img src={airbnb_black} alt="mainLogo" className="mainLogo"/>
                 </Link>
@@ -72,4 +89,11 @@ const mapStateToProps = (state:any) =>{
     }
 }
 
-export default connect(mapStateToProps)(HeaderComponent);
+const mapDispatchToProps = (dispatch:any) =>{
+    return{
+        onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname }),
+        onLogout: () => dispatch({type: 'LOGOUT'})
+    };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HeaderComponent);
