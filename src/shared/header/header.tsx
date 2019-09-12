@@ -6,12 +6,19 @@ import LoginModal from "../modal/login/login";
 import SignUpModal from "../modal/signup/signUp";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import firebase from 'firebase'
 
 class HeaderComponent extends React.Component<any,any>{
     
+<<<<<<< HEAD
     constructor(props:any){
         super(props);
         this.streamHandle = this.streamHandle.bind(this);
+=======
+    signOut(){
+        firebase.auth().signOut(); 
+        this.props.onLogout();
+>>>>>>> 84031c57aed38334789c78d10aeea32a9847b8b8
     }
 
     usercontrol(){
@@ -23,6 +30,9 @@ class HeaderComponent extends React.Component<any,any>{
                     </div>
                     <div>
                         Hello, {this.props.firstname}
+                    </div>
+                    <div>
+                        <button onClick={() => this.signOut()}>SIGNOUT!!</button>
                     </div>
                 </React.Fragment>
             )
@@ -37,13 +47,22 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
+<<<<<<< HEAD
     public streamHandle(event:any){
 
+=======
+
+    checkCache = () =>{
+        console.log(localStorage)
+        if(localStorage.getItem("email") !== null && localStorage.getItem("email")!== ""){
+            this.props.onLogin(localStorage.getItem("email"),localStorage.getItem("firstname"),localStorage.getItem("lastname"))
+        }
+>>>>>>> 84031c57aed38334789c78d10aeea32a9847b8b8
     }
 
     render(){
         return(
-            <header>
+            <header onLoad={this.checkCache}>
                 <Link to={`/`}>
                     <img src={airbnb_black} alt="mainLogo" className="mainLogo"/>
                 </Link>
@@ -81,4 +100,11 @@ const mapStateToProps = (state:any) =>{
     }
 }
 
-export default connect(mapStateToProps)(HeaderComponent);
+const mapDispatchToProps = (dispatch:any) =>{
+    return{
+        onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname }),
+        onLogout: () => dispatch({type: 'LOGOUT'})
+    };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HeaderComponent);

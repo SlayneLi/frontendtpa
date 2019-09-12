@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import google from "../../Images/GoogleLogo.svg";
 import email from "../../Images/email.svg";
 import eye from "../../Images/eye.svg";
 import lock from "../../Images/lock.svg";
 import "./login.scss";
 import Input from '../../component-template/input/input';
 import {connect} from 'react-redux'
+import Authenticate from '../authentication'
+import Axios from 'axios';
 
-class LoginModal extends React.Component<any,any>{
+class LoginModal extends React.Component<any,any>{    
     constructor(props:any){
         super(props);
         this.state = {
             showModal: false
-        };
-
+        }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
@@ -69,9 +69,12 @@ class LoginModal extends React.Component<any,any>{
         if(flag>=1){
             return;
         }
+
+        // Axios.get("")
         var fName = "dummy";
         var lName = "dummy";
         this.props.onLogin(email.value,fName,lName);
+
     }
 
     render(){
@@ -82,14 +85,16 @@ class LoginModal extends React.Component<any,any>{
                     isOpen={this.modalState()}
                 >
                     <i className="fa fa-close closeLogo" onClick={this.closeModal}></i>
+                    <Authenticate />
                     <form className="login" method="POST">
-                        <div className="fbLogin">
+                        {/* <div className="fbLogin">
                             <div><i className="fa fa-facebook fbLogo"></i> Login with Facebook</div>
                         </div>
                         <div className="googleLogin">
                             <img src={google} alt="google logo" className="gLogo"/>
-                            <div>Sign Up with Google</div>
-                        </div>
+                            <div>Login with Google</div>
+                        </div> */}
+                        
                         <div className="divider">
                             <hr/>
                             <div>Or</div>
@@ -101,7 +106,7 @@ class LoginModal extends React.Component<any,any>{
                         </div>
                         <div className="passBar">
                             <Input type="password" id="password-login" name="pass" placeholder="Password" errId="passErr" errorText="Invalid Password"/>
-                            <div className="passwordLogo">
+                            <div className="pass-logo">
                                 <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                                 <img src={lock} alt="lockLogo"/>
                             </div>

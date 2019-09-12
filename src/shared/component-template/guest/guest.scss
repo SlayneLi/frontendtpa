@@ -1,0 +1,12 @@
+.guest-container{
+    display: flex;
+    flex-direction: column;
+    margin : 5% 15%;
+    width: 70%;
+    padding: 1% 0;
+    border: 5px solid #FF5A5F;
+    border-radius: 10px;
+    .indecre-overlay{
+        flex-direction: column;
+    }
+}
