@@ -9,6 +9,11 @@ import { connect } from "react-redux";
 
 class HeaderComponent extends React.Component<any,any>{
     
+    constructor(props:any){
+        super(props);
+        this.streamHandle = this.streamHandle.bind(this);
+    }
+
     usercontrol(){
         if(this.props.email !== ""){
             return(
@@ -32,6 +37,10 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
+    public streamHandle(event:any){
+
+    }
+
     render(){
         return(
             <header>
@@ -41,7 +50,7 @@ class HeaderComponent extends React.Component<any,any>{
                 <div className="search">
                     <div className="searchBar">
                         <img src={magnifierSeach} alt="searchLogo" className="searchLogo"/>
-                        <input type="text" name="stays" id="stays" placeholder="Stays"/>
+                        <input type="text" name="stays" id="stays" placeholder="Stays" onChange={this.streamHandle}/>
                     </div>
                 </div>
                 <div className="menu">
