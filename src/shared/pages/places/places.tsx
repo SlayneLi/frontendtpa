@@ -5,6 +5,7 @@ import {Map as LeafletMap,TileLayer,Marker,Popup} from 'react-leaflet';
 import './places.scss'
 
 export default class AllPlace extends React.Component <any,any>{
+
     state = {
         lat: 0.0,
         lng: 0.0,
@@ -35,7 +36,7 @@ export default class AllPlace extends React.Component <any,any>{
                     console.log(res);
                 })
     }
-
+    
     render(){
         const position = [this.state.lat, this.state.lng]
         return(
@@ -60,10 +61,8 @@ export default class AllPlace extends React.Component <any,any>{
                         doubleClickZoom={true}
                         scrollWheelZoom={true}
                         dragging={true}
-                        animate={true}
-                        easeLinearity={0.25}
                     >
-                        <TileLayer url='http://b.tile.osm.org/18/-6.20201/106.78113.png'/>
+                        <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'/>
                         <Marker position = {[this.state.lat,this.state.lng]}>
                             <Popup>
                                 Popup for any custom information.

@@ -61,7 +61,9 @@ export default class EditPic extends React.Component <any,any>{
     }
 
     saveImg(){
-        
+        //ambil className canvas
+        //toDataUrl -> function
+        //base64
     }
 
     render(){

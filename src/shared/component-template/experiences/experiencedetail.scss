@@ -1,0 +1,98 @@
+.experience-detail-container{
+    width: 100%;
+
+    hr{
+        width: 80%;
+        margin: 1% 10%;
+    }
+    .overview-detail-exp{
+        width: 80%;
+        margin: 0 10%;
+        display: flex;
+        .stories-detail-exp{
+            width: 30%;
+            margin-right: 5%;
+        }
+        .exp-summary-detail{
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            >div{
+                margin: 2% 0;
+            }
+            .summary-header{
+                display: flex;
+                justify-content: space-between;
+                .misc{
+                    display: flex;
+                    >div{
+                        padding: 0 8%;
+                    }
+                }
+            }
+            .summary-info{
+                display: flex;
+                flex-direction: column;
+                align-content: flex-start;
+                .name-info{
+                    font-size: calc(28px + 0.8em);
+                    font-weight: 600;
+                    text-align: left;
+                }
+                .main-info{
+                    margin: 3% 0;
+                    text-align: left;
+                    div{
+                        font-size: calc(14px + 0.4em);
+                    }
+                }
+            }
+            .about-host{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                >div{
+                    width: 33.33%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-content: space-between;
+                    img{
+                        border-radius: 50%;
+                        width: 50%;
+                    }
+                }
+                .host-language{
+                    text-align: left;
+                }
+            }
+            .exp-desc, .what-to-bring , .exp-rundown{
+                text-align: left;
+            }
+        }
+    }
+    .galery-section{
+        width: 80%;
+        margin: 0 10%;
+        display: flex;
+        .galery-section-side{
+            width: 30%;
+            margin-right: 5%;
+        }
+        .photos-exp{
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            >div{
+                display: flex;
+                width: 100%;
+                height: 35%;
+                img{
+                    margin: 1%;
+                    object-fit: fill;
+                    width: 33%;
+                }
+            }
+        }
+    }
+}

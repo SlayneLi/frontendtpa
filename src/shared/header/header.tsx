@@ -41,9 +41,17 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
+
+    checkCache = () =>{
+        console.log(localStorage)
+        if(localStorage.getItem("email") !== null && localStorage.getItem("email")!== ""){
+            this.props.onLogin(localStorage.getItem("email"),localStorage.getItem("firstname"),localStorage.getItem("lastname"))
+        }
+    }
+
     render(){
         return(
-            <header>
+            <header onLoad={this.checkCache}>
                 <Link to={`/`}>
                     <img src={airbnb_black} alt="mainLogo" className="mainLogo"/>
                 </Link>
@@ -83,6 +91,7 @@ const mapStateToProps = (state:any) =>{
 
 const mapDispatchToProps = (dispatch:any) =>{
     return{
+        onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname }),
         onLogout: () => dispatch({type: 'LOGOUT'})
     };
 }

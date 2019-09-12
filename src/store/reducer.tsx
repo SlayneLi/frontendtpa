@@ -10,6 +10,9 @@ const initState = {
 const reducer = (state = initState,action:any) =>{
     switch (action.type){
         case 'LOGIN':
+            localStorage.setItem("email",action.email);
+            localStorage.setItem("firstname",action.fName);
+            localStorage.setItem("lastname",action.lName);
             return{
                 ...state,
                 email: action.email,
@@ -17,6 +20,9 @@ const reducer = (state = initState,action:any) =>{
                 lastname: action.lName
             }
         case 'LOGOUT':
+            localStorage.removeItem("email");
+            localStorage.removeItem("firstname");
+            localStorage.removeItem("lastname");
             return{
                 ...state,
                 email: "",

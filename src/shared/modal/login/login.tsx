@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import google from "../../Images/GoogleLogo.svg";
 import email from "../../Images/email.svg";
 import eye from "../../Images/eye.svg";
 import lock from "../../Images/lock.svg";
@@ -75,6 +74,7 @@ class LoginModal extends React.Component<any,any>{
         var fName = "dummy";
         var lName = "dummy";
         this.props.onLogin(email.value,fName,lName);
+
     }
 
     render(){
