@@ -29,7 +29,7 @@ class Guest extends React.Component<any,{}>{
             let in2 = document.getElementById("c-in") as HTMLButtonElement
             in1.disabled = true;
             in2.disabled = true;
-            if(this.props.adultCount + this.props.childCount == this.props.maxGuest){
+            if(this.props.adultCount + this.props.childCount === this.props.maxGuest){
                 return;
             }
         }
@@ -42,7 +42,7 @@ class Guest extends React.Component<any,{}>{
 
     decreA = (e:any)=>{
         e.preventDefault();
-        if(this.props.adultCount === 0 || this.props.childCount + this.props.infantCount !=0){
+        if(this.props.adultCount === 0 || this.props.childCount + this.props.infantCount !==0){
             let de1 = document.getElementById("a-de") as HTMLButtonElement
             de1.disabled = true;
             return;
@@ -73,7 +73,7 @@ class Guest extends React.Component<any,{}>{
             let in2 = document.getElementById("c-in") as HTMLButtonElement
             in1.disabled = true;
             in2.disabled = true;
-            if(this.props.adultCount + this.props.childCount == this.props.maxGuest){
+            if(this.props.adultCount + this.props.childCount === this.props.maxGuest){
                 return;
             }
         }

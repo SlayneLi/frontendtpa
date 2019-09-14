@@ -43,7 +43,6 @@ class HeaderComponent extends React.Component<any,any>{
 
 
     checkCache = () =>{
-        console.log(localStorage)
         if(localStorage.getItem("email") !== null && localStorage.getItem("email")!== ""){
             this.props.onLogin(localStorage.getItem("email"),localStorage.getItem("firstname"),localStorage.getItem("lastname"))
         }

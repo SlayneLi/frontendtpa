@@ -7,7 +7,7 @@ import "./login.scss";
 import Input from '../../component-template/input/input';
 import {connect} from 'react-redux'
 import Authenticate from '../authentication'
-import Axios from 'axios';
+// import Axios from 'axios';
 
 class LoginModal extends React.Component<any,any>{    
     constructor(props:any){
@@ -49,21 +49,21 @@ class LoginModal extends React.Component<any,any>{
         var password = document.getElementById("password-login") as HTMLInputElement;
         var flag = 0;
         if(email.value === ""){
-            var emailErr = document.getElementById("emailErr") as HTMLDivElement;
+            let emailErr = document.getElementById("emailErr") as HTMLDivElement;
             emailErr.hidden = false;
             flag++;
         }
         else{
-            var emailErr = document.getElementById("emailErr") as HTMLDivElement;
+            let emailErr = document.getElementById("emailErr") as HTMLDivElement;
             emailErr.hidden = true;
         }
         if(password.value === ""){
-            var passErr = document.getElementById("passErr") as HTMLDivElement;
+            let passErr = document.getElementById("passErr") as HTMLDivElement;
             passErr.hidden = false;
             flag++;
         }
         else{
-            var passErr = document.getElementById("passErr") as HTMLDivElement;
+            let passErr = document.getElementById("passErr") as HTMLDivElement;
             passErr.hidden = true;
         }
         if(flag>=1){
