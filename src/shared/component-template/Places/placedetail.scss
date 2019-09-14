@@ -1,5 +1,21 @@
 .place-detail-container{
     width: 100%;
+    .flying-button{
+        display: flex;
+        position: absolute !important;
+        justify-content: flex-end;
+        top: calc(75px + 1em);
+        right: calc(10px + 1em);
+        z-index: 1;
+        >div{
+            width: calc(100px + 1em);
+            padding: 2%;
+            margin: 0 3%;
+            border: 1px black solid;
+            border-radius: 10px;
+            background: white;
+        }
+    }
     .place-detail-image{
         width: 100%;
         display: flex;
@@ -38,6 +54,44 @@
                     img{
                         width: 70%;
                         border-radius: 50%;
+                    }
+                }
+            }
+            .spec-info{
+                >div{
+                    display: flex;
+                    flex-direction: column;
+                    .text-spec{
+                        text-align: left;
+                        margin: 0 13%;
+                    }
+                }
+            }
+            .Review-Header{
+                margin: 2%;
+                display: flex;
+                justify-content: space-between;
+                div{
+                    font-size: calc(24px + 0.6em);
+                    font-weight: 600;
+                }
+            }
+            .category-review{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                >div{
+                    width: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                    font-size: calc(18px + 0.6em);
+                    >div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        margin: 1%;
                     }
                 }
             }

@@ -55,9 +55,9 @@ class Authentication extends Component <any,any> {
                         <br/>
                         {this.state.name}
                         <br/>
-                        <img src={this.state.photo} alt="img"/>
+                        <img src={this.state.photo} alt="signed-in"/>
                     </h1>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/8/88/DuckDuckGo_logo.svg" />
+                    <img src="https://upload.wikimedia.org/wikipedia/en/8/88/DuckDuckGo_logo.svg"  alt="profile"/>
                     <button onClick={() => firebase.auth().signOut()}>SIGNOUT!!</button>
                 </div>
             ) }

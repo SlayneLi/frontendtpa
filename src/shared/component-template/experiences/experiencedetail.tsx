@@ -6,6 +6,9 @@ import Save from '../save/save';
 import Stories from 'react-insta-stories';
 import './experiencedetail.scss'
 import ReactModal from 'react-modal'
+import PhotoModal from '../../modal/photos/photo';
+import StarRatings from 'react-star-ratings'
+import UserReview from '../review/userReview';
 
 function ShuffleArray(arr:any){
     let temp,num;
@@ -19,25 +22,24 @@ function ShuffleArray(arr:any){
     return arr;
 }
 
-export default class experiencedetail extends Component<any,{}> {
+export default class experiencedetail extends Component<any,any> {
+    private instaStoryRef: React.RefObject<Component>
+    constructor(props:any){
+        super(props);
+
+        this.instaStoryRef = React.createRef();
+    }
 
     openModal = () =>{
-        this.setState({showModal:true});
+        this.setState({openAllAme:true});
     }
     
     closeModal = () => {
-        this.setState({showModal:false});
+        this.setState({openAllAme:false});
     }
 
-    public modalState = ()=>{
-        const currState = this.state;
-        return currState["showModal"];
-    }
-    
-    
-    
     state = {
-        showModal: false,
+        playPause: "pause",
         id : "",
         data : {
             experience_type: "",
@@ -56,11 +58,24 @@ export default class experiencedetail extends Component<any,{}> {
                 host_name: "",
                 host_picture: "",
                 language: [],
+
             },
+            average_rating: 0.00,
+            total_rating: 0,
+            reviews:[{
+                people_name:"",
+                people_picture:"",
+                posted_time:"",
+                review_content:"",
+            }],
+            location:0,
+            value:0,
+
         },
         video: '',
         pictures:[],
         openAllAme:false,
+        openPic:false,
     }
 
     componentWillMount(){
@@ -79,17 +94,45 @@ export default class experiencedetail extends Component<any,{}> {
     }
 
     showAmenities = ()=>{
-        var a = [];
-        var first = true;
-        for(let i = 0;i<this.state.data.amenities.length;i++){
-            if(this.state.openAllAme === false && i===5)
-                break;
-            if(this.state.data.amenities[i].amenity_category !== "Basic" && first){
-                first = false;
-            }
-            a.push(<PointInfo ico={this.state.data.amenities[i].icon_url} text={this.state.data.amenities[i].icon_name} />)
-        }
-        return a;
+        var b = []
+        b.push(
+            <div className="basic-ame">
+                <div>
+                    Basic:
+                </div>
+                <div>
+                    {this.state.data.amenities.map((a:any) => {
+                        if(a.amenity_category === "Basic"){
+                            return(
+                                <span>
+                                    <PointInfo ico={a.icon_url} text={a.icon_name} />
+                                </span>)
+                        }
+                        return(<span></span>)
+                    })}
+                </div>
+            </div>
+        );
+        b.push(
+            <div className="safety-ame">
+                <div>
+                    Safety:
+                </div>
+                <div>
+                    {this.state.data.amenities.map((a:any)=>{
+                        if(a.amenity_category !== "Basic"){
+                            return(
+                                <span>
+                                    <PointInfo ico={a.icon_url} text={a.icon_name}/>
+                                </span>)
+                        }
+                        return(<span></span>)
+                    })}
+                </div>
+            </div>
+        )
+        return b;
+        
     }
 
     openCloseAme= ()=>{
@@ -97,7 +140,20 @@ export default class experiencedetail extends Component<any,{}> {
         this.setState({openAllAme: x});
     }
 
-    
+    openClosePhotos = () =>{
+        var x = !this.state.openPic;
+        this.setState({openPic: x});
+    }
+
+    playAndPause = (e:any) =>{
+        e.preventDefault();
+        if(this.state.playPause === "play"){
+            this.setState({playPause:"pause"})
+        }
+        else{
+            this.setState({playPause:"play"})
+        }
+    }
 
     render() {
         return (
@@ -119,6 +175,7 @@ export default class experiencedetail extends Component<any,{}> {
                             width={350}
                             heigh={400}
                         />
+                        <button onClick={(event) =>this.playAndPause(event)}> <i className={"fa fa-"+this.state.playPause}></i></button>
                     </div>
                     <div className="exp-summary-detail">
                         <div className="summary-header">
@@ -142,14 +199,26 @@ export default class experiencedetail extends Component<any,{}> {
                                 <PointInfo ico="map-marker" text={this.state.data.experience_loc}/>
                                 <PointInfo ico="clock-o" text={this.state.data.estimate_hour + " hour (s)"} />
                                 <div className="amenities-info">
-                                    {this.showAmenities()}
+                                    {this.state.data.amenities.slice(0,5).map((a:any) => {
+                                        return(
+                                            <PointInfo ico={a.icon_url} text={a.icon_name} />
+                                        )
+                                    })}
                                     <ReactModal
-                                        isOpen={this.state.showModal}
+                                        isOpen={this.state.openAllAme}
                                     >
-                                        
+                                        <i className="fa fa-close closeLogo" onClick={this.closeModal}></i>
+                                        <div className="amenities-modal">
+                                            <div>
+                                                All Amenities:
+                                            </div>
+                                            <div>
+                                                {this.showAmenities()}                                        
+                                            </div>
+                                        </div>
                                     </ReactModal>
                                 </div>
-                                <div onClick={this.openCloseAme}>Show All Amenities</div>
+                                <div onClick={this.openCloseAme} style={{cursor: "pointer"}}>Show All Amenities</div>
                             </div>
                         </div>
                         <hr/>
@@ -219,6 +288,47 @@ export default class experiencedetail extends Component<any,{}> {
                             <img src={this.state.pictures[4]} alt="pic"/>
                             <img src={this.state.pictures[5]} alt="pic"/>
                         </div>
+                        <div onClick={this.openClosePhotos}>
+                            See more photos
+                        </div>
+                        <PhotoModal pic={this.state.pictures} openModal={this.state.openPic} closeModal={this.openClosePhotos}/>
+                    </div>
+                </div>
+                <hr/>
+                <div className="rating-section">
+                    <div className="rating-side-section">
+                        <div>
+                            Average Rating :
+                        </div>
+                        <div>
+                            <StarRatings rating={this.state.data.average_rating} starDimension="1em" starSpacing="-0.75em"/> ({this.state.data.total_rating})
+                        </div>
+                    </div>
+                    <div>
+                        <div className="category-review">
+                            <div>
+                                <div>
+                                    <div>
+                                        Location
+                                    </div>
+                                    <StarRatings rating={this.state.data.location} starDimension="1em" starSpacing="-0.75em"/>
+                                </div>
+                                <div>
+                                    <div>
+                                        Value
+                                    </div>
+                                    <StarRatings rating={this.state.data.value} starDimension="1em" starSpacing="-0.75em"/>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Search Review"/>
+                            </div>
+                        </div>
+                        {this.state.data.reviews.map( (r:any) => {
+                            return(
+                                <UserReview img={r.people_picture} name={r.people_name} jday={r.posted_time} rating={r.review_rate} det={r.review_content}/>
+                            )
+                        })}
                     </div>
                 </div>
             </div>

@@ -3,6 +3,8 @@ import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 import StarRatings from 'react-star-ratings'
 import './placeHori.scss'
+import Save from '../save/save';
+import { Link } from 'react-router-dom';
 
 const resp= {
     o:{
@@ -45,9 +47,10 @@ export default class PlaceHori extends React.Component <any,any>{
                                 {this.props.category}
                             </div>
                             <div>
-                                <i className="fa fa-heart-o"></i>
+                                <Save id={this.props.id}/>
                             </div>
                         </div>
+                        <Link to={`/place/${this.props.id}`}>
                         <div className="placehori-name">
                             {this.props.name}
                         </div>
@@ -74,6 +77,7 @@ export default class PlaceHori extends React.Component <any,any>{
                                 )
                             })}
                         </div>
+                    </Link>
                     </div>
                     <div className="placehori-footer">
                         <div className="rating-place-hori">

@@ -38,15 +38,13 @@ export default class AllPlace extends React.Component <any,any>{
     }
     
     render(){
-        const position = [this.state.lat, this.state.lng]
         return(
             <div className="place-and-map">
                 <div className="places-container">
                 {this.state.place.map((p:any) =>{
                         return(
                             <div>
-                                <PlaceHori src = {p.pictures} category={p.place_type} name={p.place_name} price={p.average_price} D="1.5em" rating={p.average_rating} totalRating={p.total_rating} spacing="-0.75em" ame={p.amenities.slice(0,3)} bathroom={p.bath_room_count} beds={p.bed_count} bedroom={p.bed_room_count} guest={p.max_guest}/>
-                                {console.log("amenities neh",p.amenities.slice(0,3))}
+                                <PlaceHori src = {p.pictures} category={p.place_type} name={p.place_name} price={p.average_price} D="1.5em" rating={p.average_rating} totalRating={p.total_rating} spacing="-0.75em" ame={p.amenities.slice(0,3)} bathroom={p.bath_room_count} beds={p.bed_count} bedroom={p.bed_room_count} guest={p.max_guest} id={p.id} />
                             </div>
                         )
                     })}

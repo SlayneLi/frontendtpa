@@ -64,15 +64,15 @@ export default class HomeComponent extends React.Component{
                 <div className="experience-section">
                     {this.state.exp.slice(0,4).map((e:any) =>{
                         return(
-                            < Link to={`/experience/${e.id}`}>
-                                <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em"/>
-                            </Link>
+                            <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em" hour={e.estimate_hour} ame={e.amenities} isHidden = {true} id={e.id}/>
                         )
                     })}
                 </div>
-                <div className="show-all">
-                    Show all experiences>>
-                </div>
+                <Link to={"/experiences"}>
+                    <div className="show-all">
+                        Show all experiences>>
+                    </div>
+                </Link>
             </React.Fragment>
         );
     }
