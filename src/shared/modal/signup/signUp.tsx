@@ -34,23 +34,6 @@ export default class SignUpModal extends React.Component<any,any>{
         return currState["showModal"];
     }
 
-    initYears(){
-        var years = [];
-
-        for (let i = 2019; i >= 1899; i--) {
-            years.push(<option value={i}>{i}</option>);
-        }
-        return years;
-    }
-
-    initDate(){
-        var date = [];
-        for (let i = 1; i <= 31; i++) {
-            date.push(<option value={i}>{i}</option>);
-        }
-        return date;
-    }
-
     showPassword(){
         var passField = document.getElementById("pass") as HTMLInputElement;
         if(passField.type === "text"){
@@ -59,25 +42,6 @@ export default class SignUpModal extends React.Component<any,any>{
         else{
             passField.type = "text";
         }
-    }
-
-    changeDate(){
-        var month = document.getElementById("month") as HTMLSelectElement;
-        var year = document.getElementById("year") as HTMLSelectElement;
-        //var date = document.getElementById("day") as HTMLSelectElement
-        if(month.value === "2"){
-            
-            if(+year.value % 4 === 0){
-
-            }
-        }
-        else if(+month.value % 2 === 0){
-
-        }
-    }
-
-    validate(){
-
     }
 
     render(){
@@ -123,35 +87,6 @@ export default class SignUpModal extends React.Component<any,any>{
                                 <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                                 <img src={lock} alt="lockLogo"/>
                             </div>
-                        </div>
-                        <div className="birthdayText">
-                            <strong>Birthday</strong>
-                            <div>To sign up, you must be 18 or older. Other people won’t see your birthday.</div>
-                        </div>
-                        <div className="birthdayBar">
-                            <select name="month" id="month">
-                                <option value="" disabled selected>Month</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-                            <select name="day" id="day">
-                                <option value="" disabled selected>Day</option>
-                                {this.initDate()}
-                            </select>
-                            <select name="year" id="year">
-                                <option value="" disabled selected>Year</option>
-                                {this.initYears()}
-                            </select>
                         </div>
                         <div className="signUpBtn">
                             <div>Sign Up</div>
