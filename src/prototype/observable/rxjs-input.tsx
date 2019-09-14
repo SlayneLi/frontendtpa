@@ -4,12 +4,14 @@ import { throttleTime } from 'rxjs/operators'
 
 const input$ = fromEvent(document,'input')
 
+var a = "";
+
 input$
     .pipe(
         throttleTime(700)
     )
     .subscribe((e:any) => {
-        console.log('Long Button Click',e);
+        console.log('Long Button Click',e.data);
     })
 
 export default class RxJsInput extends Component {

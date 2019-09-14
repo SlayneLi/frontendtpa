@@ -4,9 +4,8 @@ import Axios from 'axios';
 export default class Login extends Component {
 
     state = {
-        user_data: {
-            first_name: "placeholder"
-        },
+        user_data: [],
+        email: ""
     }
 
     constructor(props:any){
@@ -15,21 +14,29 @@ export default class Login extends Component {
 
     }
 
-    handleSubmit(event:any){
+    async handleSubmit(event:any){
         var a = document.getElementById("i1") as HTMLInputElement;
         var b = document.getElementById("i2") as HTMLInputElement;
         
-        Axios.post("http://localhost:3001/login-user",{
+        await Axios.post("http://localhost:3001/login-user",{
             "Email": a.value,
             "Password": b.value
         }).then(res => {
-            if(res.data === null){
-                console.log("null");
-            }
-            else{
-                console.log("exist");
-            }
+            this.setState({
+                        user_data: res.data,
+                        email: res.data.email
+            })
+            console.log("data user",this.state.user_data);
+            console.log("email",this.state.email);
         });
+        // alert(a.value);
+        // alert(this.state.email);
+        // alert(this.state.email === a.value);
+        if(!this.state.user_data)
+            alert("empty");
+        else
+            alert("ada");
+        event.preventDefault();
     }
 
     render() {

@@ -10,6 +10,7 @@ import ExperienceDetail from './shared/component-template/experiences/experience
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import EditPic from './shared/pages/becomeAHost/editPic/editPic';
 import AllPlace from './shared/pages/places/places';
+import Proto from './prototype/testing-page/proto-page';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/experience/:id" exact component={ExperienceDetail} />
           <Route path="/edit-image/" exact component={EditPic}/>
           <Route path="/places/" exact component={AllPlace} />
+          <Route path="/proto/" exact component={Proto} />
         </Switch>
       <FooterComponent />
       </Router>
