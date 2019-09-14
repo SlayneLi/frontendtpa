@@ -7,9 +7,10 @@ import SignUpModal from "../modal/signup/signUp";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import firebase from 'firebase'
+import {Observable} from 'rxjs';
 
 class HeaderComponent extends React.Component<any,any>{
-    
+
     signOut(){
         firebase.auth().signOut(); 
         this.props.onLogout();
@@ -41,6 +42,12 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
+    handleStream(){
+        var observable = Observable.create((observer:any) => {
+            observer.next('hi');
+        })
+        
+    }
 
     checkCache = () =>{
         if(localStorage.getItem("email") !== null && localStorage.getItem("email")!== ""){
@@ -57,7 +64,7 @@ class HeaderComponent extends React.Component<any,any>{
                 <div className="search">
                     <div className="searchBar">
                         <img src={magnifierSeach} alt="searchLogo" className="searchLogo"/>
-                        <input type="text" name="stays" id="stays" placeholder="Stays"/>
+                        <input type="text" name="stays" id="stays" placeholder="Stays" onChange={this.handleStream}/>
                     </div>
                 </div>
                 <div className="menu">

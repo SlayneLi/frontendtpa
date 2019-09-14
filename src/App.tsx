@@ -13,6 +13,7 @@ import AllPlace from './shared/pages/places/places';
 import AllExperience from './shared/pages/experiences/experiences';
 import DatePicker from './shared/component-template/date-picker/date-picker';
 import UserReview from './shared/component-template/review/userReview';
+import Proto from './prototype/testing-page/proto-page';
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
           <Route path="/experiences/" exact component={AllExperience} />
           <Route path="/reviewTest/" exact component={UserReview} />
           <Route path="/testDate" exact component={DatePicker} />
+          <Route path="/proto/" exact component={Proto} />
         </Switch>
       <FooterComponent />
       </Router>
