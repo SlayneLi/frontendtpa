@@ -70,7 +70,7 @@ class LoginModal extends React.Component<any,any>{
             return;
         }
 
-        // Axios.get("")
+        Axios.get("")
         var fName = "dummy";
         var lName = "dummy";
         this.props.onLogin(email.value,fName,lName);

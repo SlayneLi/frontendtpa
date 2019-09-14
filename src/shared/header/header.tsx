@@ -7,18 +7,13 @@ import SignUpModal from "../modal/signup/signUp";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import firebase from 'firebase'
+import {Observable} from 'rxjs';
 
 class HeaderComponent extends React.Component<any,any>{
-    
-<<<<<<< HEAD
-    constructor(props:any){
-        super(props);
-        this.streamHandle = this.streamHandle.bind(this);
-=======
+
     signOut(){
         firebase.auth().signOut(); 
         this.props.onLogout();
->>>>>>> 84031c57aed38334789c78d10aeea32a9847b8b8
     }
 
     usercontrol(){
@@ -47,17 +42,18 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
-<<<<<<< HEAD
-    public streamHandle(event:any){
-
-=======
+    handleStream(){
+        var observable = Observable.create((observer:any) => {
+            observer.next('hi');
+        })
+        
+    }
 
     checkCache = () =>{
         console.log(localStorage)
         if(localStorage.getItem("email") !== null && localStorage.getItem("email")!== ""){
             this.props.onLogin(localStorage.getItem("email"),localStorage.getItem("firstname"),localStorage.getItem("lastname"))
         }
->>>>>>> 84031c57aed38334789c78d10aeea32a9847b8b8
     }
 
     render(){
@@ -69,7 +65,7 @@ class HeaderComponent extends React.Component<any,any>{
                 <div className="search">
                     <div className="searchBar">
                         <img src={magnifierSeach} alt="searchLogo" className="searchLogo"/>
-                        <input type="text" name="stays" id="stays" placeholder="Stays" onChange={this.streamHandle}/>
+                        <input type="text" name="stays" id="stays" placeholder="Stays" onChange={this.handleStream}/>
                     </div>
                 </div>
                 <div className="menu">
