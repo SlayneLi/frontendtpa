@@ -9,6 +9,7 @@ import lock from "../../Images/lock.svg";
 import person from "../../Images/person.svg";
 import "./signUp.scss";
 import Input from "../../component-template/input/input";
+import Axios from "axios";
 
 export default class SignUpModal extends React.Component<any,any>{
     constructor(props:any){
@@ -19,6 +20,7 @@ export default class SignUpModal extends React.Component<any,any>{
 
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.handleRegis = this.handleRegis.bind(this);
     }
 
     openModal (){
@@ -42,6 +44,28 @@ export default class SignUpModal extends React.Component<any,any>{
         else{
             passField.type = "text";
         }
+    }
+
+    handleRegis(event:any){
+        let email = document.getElementById('email') as HTMLInputElement;
+        let fname = document.getElementById('fname') as HTMLInputElement;
+        let lname = document.getElementById('lname') as HTMLInputElement;
+        let pass = document.getElementById('pass') as HTMLInputElement;
+        
+        if(email.value === "" || fname.value === "" || lname.value === "" || pass.value === ""){
+            alert("missing data needed for registration");
+            return;
+        }
+        Axios.post("http://localhost:3001/register-user",{
+            "first_name" : fname.value,
+            "last_name" : lname.value,
+            "email" : email.value,
+            "password": pass.value
+        })
+        .then(res => {
+            console.log(res);
+        })
+        document.location.reload(true);
     }
 
     render(){
@@ -70,15 +94,16 @@ export default class SignUpModal extends React.Component<any,any>{
                             <Input
                                 type="email"
                                 placeholder="Email"
+                                id="email"
                             />
                             <img src={email} alt="emailLogo"/>
                         </div>
                         <div className="firstNameBar">
-                            <Input type="text" name="" id="" placeholder="First Name"/>
+                            <Input type="text" name="" id="fname" placeholder="First Name"/>
                             <img src={person} alt="person"/>
                         </div>
                         <div className="lastNameBar">
-                            <Input type="text" name="" id="" placeholder="Last Name"/>
+                            <Input type="text" name="" id="lname" placeholder="Last Name"/>
                             <img src={person} alt="person"/>
                         </div>
                         <div className="passBar">
@@ -88,7 +113,7 @@ export default class SignUpModal extends React.Component<any,any>{
                                 <img src={lock} alt="lockLogo"/>
                             </div>
                         </div>
-                        <div className="signUpBtn">
+                        <div className="signUpBtn" onClick={this.handleRegis}>
                             <div>Sign Up</div>
                         </div>
                     </div>

@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
-import {FacebookShareButton,EmailShareButton} from 'react-share'
+import FacebookShareLink from 'react-facebook-share-link'
 
 export default class FacebookShare extends Component<any,any> {
     render() {
         return (
             <div>
-                <FacebookShareButton
-                    url = {this.props.url}
-                >
+                <FacebookShareLink link={this.props.link}>
                     {
-                        (shareCount:any) => (
-                            <span>{shareCount}</span>
+                        (link:any) => (
+                            <a href={link} target='_blank'>Share this on Facebook!</a>
                         )
                     }
-                </FacebookShareButton>
-                <EmailShareButton url={this.props.url}/>
+                </FacebookShareLink>
             </div>
         )
     }

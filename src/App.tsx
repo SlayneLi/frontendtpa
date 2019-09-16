@@ -16,6 +16,8 @@ import UserReview from './shared/component-template/review/userReview';
 import Proto from './prototype/testing-page/proto-page';
 
 const App: React.FC = () => {
+  localStorage.setItem("currency","USD");
+  localStorage.setItem("value","555");
   return (
     <div className="App">
       <Router>

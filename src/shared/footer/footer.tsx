@@ -9,7 +9,7 @@ export default class FooterComponent extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <div className="container">
+                <div className="footer-container">
                     <div className="links-vertical">
                         <div className="title-section">
                             AirBnb

@@ -44,3 +44,20 @@ header{
         align-items: center;
     }
 }
+
+.out-button{
+    background-color:#FF8F93;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:1% 1%;
+	text-decoration:none;
+	text-shadow:1px 0px 0px black;
+}
+
+.out-button:hover{
+    background-color: #F9B1FF;
+}
