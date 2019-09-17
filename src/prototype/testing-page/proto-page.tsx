@@ -4,8 +4,8 @@ import RxJsInput from '../observable/rxjs-input'
 import ImageUploader from '../image-upload/image-upload'
 import FacebookShare from '../shareable-link/facebook-share'
 import Profile from '../../shared/pages/profile/profile'
+import ImageUpload from '../../shared/image-upload/imageUpload'
 import Axios from 'axios'
-import ImageUpload from '../../shared/firebase/imageUpload'
 
 export default class ProtoPage extends Component {
     
@@ -19,13 +19,13 @@ export default class ProtoPage extends Component {
     render() {
         return (
             <div>
+                This is a Testing Prototype Page
                 {/* <Profile id={1} /> */}
                 {/* <br/> */}
                 {/* <FacebookShare link="http://127.0.0.1:3000/experience/5d727c60a22d2ae0c9c36f67" /> */}
                 {/* <ImageUploader /> */}
-                This is a Testing Prototype Page
                 {/* <Stepper /> */}
-                <ImageUpload />
+                {/* <ImageUpload /> */}
             </div>
         )
     }
