@@ -53,36 +53,37 @@ export default class Profile extends Component<any,any> {
                         </div>
                     </div>
                     <hr/>
-                    <div className="gender-section">
-                        <div className="gender-title">
-                            Gender
+                    <div className="combo-box-section">
+                        <div className="gender-section">
+                            <div className="gender-title">
+                                Gender
+                            </div>
+                            <div className="gender-selection">
+                                <select name="" id="">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
-                        <div className="gender-selection">
-                            <select name="" id="">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div className="currency-section">
-                        <div className="currency-title">
-                            Preffered Currency
-                        </div>
-                        <div className="currency-selection">
-                            <select name="" id="">
-                                <option value="USD">USD</option>
-                                <option value="JPY">JPY</option>
-                                <option value="IDR">IDR</option>
-                                <option value="SGD">SGD</option>
-                                <option value="KRW">KRW</option>
-                                <option value="THB">THB</option>
-                                <option value="CAD">CAD</option>
-                                <option value="CNY">CNY</option>
-                                <option value="PHP">PHP</option>
-                                <option value="GBP">GBP</option>
-                            </select>
+                        <div className="currency-section">
+                            <div className="currency-title">
+                                Preffered Currency
+                            </div>
+                            <div className="currency-selection">
+                                <select name="" id="">
+                                    <option value="USD">USD</option>
+                                    <option value="JPY">JPY</option>
+                                    <option value="IDR">IDR</option>
+                                    <option value="SGD">SGD</option>
+                                    <option value="KRW">KRW</option>
+                                    <option value="THB">THB</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="CNY">CNY</option>
+                                    <option value="PHP">PHP</option>
+                                    <option value="GBP">GBP</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <hr/>
