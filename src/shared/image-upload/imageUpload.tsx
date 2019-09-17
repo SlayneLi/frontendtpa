@@ -41,9 +41,11 @@ export default class ImageUpload extends Component<any,any>{
     render() {
         return (
             <div className="upload-container">
+                <div className="image-container">
+                    <img src={this.state.url} alt="upl-file"/>
+                </div>
                 <input type="file" name="" id="" onChange={this.handleChange}/>
                 <button onClick={this.handleUpload}>UPLOAD</button>
-                <img src={this.state.url} alt="uploaded image" height={400} width={400}/>
             </div>
         )
     }

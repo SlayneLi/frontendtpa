@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import ImageUpload from '../../image-upload/imageUpload'
 import './profile.scss'
 
 export default class Profile extends Component<any,any> {
@@ -27,11 +28,8 @@ export default class Profile extends Component<any,any> {
                 <div>
                     <div className="display-picture">
                         <div className="pic-title">PROFILE PICTURE</div>
-                        <div className="picture-content">
-                            <img src="https://avatars2.githubusercontent.com/u/30569446?s=400&v=4" alt="display-pic"/>
-                        </div>
                         <div>
-                            <button onClick={this.changePicture}>CHANGE PICTURE</button>
+                            <ImageUpload src="https://avatars2.githubusercontent.com/u/30569446?s=400&v=4"/>
                         </div>
                     </div>
                     <hr/>
