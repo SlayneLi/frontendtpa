@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './imageUpload.scss'
-import {storage} from '../firebase'
+import {storage} from './index'
 
 export default class ImageUpload extends Component<any,any>{
     constructor(props:any){

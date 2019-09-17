@@ -3,6 +3,7 @@ import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import { connect } from 'react-redux'
 import "./auth.scss"
+import '../image-upload/index'
 
 class Authentication extends Component <any,any> {
     state = {
@@ -18,9 +19,6 @@ class Authentication extends Component <any,any> {
             firebase.auth.FacebookAuthProvider.PROVIDER_ID,
             firebase.auth.GoogleAuthProvider.PROVIDER_ID
         ]
-        // CallBacks: {
-        //     signInSuccess: () => false
-        // }
     }
 
     componentDidMount= () => {        
