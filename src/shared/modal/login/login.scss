@@ -4,6 +4,7 @@
 
 .ReactModal__Overlay{
     background-color : rgba($color: #000000, $alpha: 0.75) !important;
+    z-index: 5;
 }
 
 .ReactModal__Content{
@@ -11,8 +12,9 @@
     left: 50% !important;
     transform: translateX(-50%) !important;
     animation-name: fade-in;
-    animation-duration: 1.5s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
+    z-index: 5;
 }
 
 @keyframes fade-in {
@@ -50,26 +52,6 @@
         border-radius: 10px;
     }
 
-    .fbLogin{
-        color: white;
-        background-color: #3b5998;
-        border: #3b5998 solid 2px;
-        >i{
-            width: 4%;
-            padding: 0 1%;
-        }
-    }
-
-    .googleLogin{
-        color: #202020;
-        background-color: white;
-        border: #202020 solid 2px; 
-        >img{
-            width: 4%;
-            padding: 0 1%;
-        }
-    }
-
     .divider{
         display: flex;
         justify-content: space-between !important;
@@ -100,7 +82,7 @@
         }
     }
     .passBar{
-        .passwordLogo{
+        .pass-logo{
             display: flex;
             justify-content: flex-end;
             width: 12%;

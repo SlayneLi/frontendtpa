@@ -1,10 +1,3 @@
-// .ReactModal__Content{
-//     width: 50%;
-//     bottom: 50% !important;
-//     left: 50% !important;
-//     transform: translate3d(-50%,50%,0);
-// }
-
 *{
     transition: 2s ease-in-out;
 }
@@ -94,29 +87,10 @@
             }
         }
     }
-    .birthdayText{
-        align-items: flex-start;
-        flex-direction: column;
-        margin: 1% 0;
-        padding: 0;
-        strong,div{
-            padding: 1% 0;
-        }
-    }
-    .birthdayBar{
-        margin: 1% 0;
-        padding: 0;
-        select{
-            width: 33%;
-            margin: 0 1.5%;
-            font-size: 20px;
-        }
-    }
     .signUpBtn{
+        cursor: pointer;
         color: white;
         background-color: #c04848;
-        //kalo di klik warnany gini gk sih?
-        //background-color: #e09494;
         border: #c04848 solid 2px;
 
     }

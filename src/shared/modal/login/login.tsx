@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import google from "../../Images/GoogleLogo.svg";
 import email from "../../Images/email.svg";
 import eye from "../../Images/eye.svg";
 import lock from "../../Images/lock.svg";
 import "./login.scss";
 import Input from '../../component-template/input/input';
 import {connect} from 'react-redux'
+import Authenticate from '../authentication'
+import Axios from 'axios';
 
-class LoginModal extends React.Component<any,any>{
+class LoginModal extends React.Component<any,any>{    
     constructor(props:any){
         super(props);
         this.state = {
-            showModal: false
-        };
-
+            showModal: false,
+            user_data: {
+                email: "",
+                first_name: "",
+                last_name: ""
+            }
+        }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
@@ -42,36 +47,52 @@ class LoginModal extends React.Component<any,any>{
         }
     }
 
-    login(e:any){
+    async login(e:any){
         e.preventDefault();
         console.log("bing bong");
         var email = document.getElementById("email-login") as HTMLInputElement;
         var password = document.getElementById("password-login") as HTMLInputElement;
         var flag = 0;
         if(email.value === ""){
-            var emailErr = document.getElementById("emailErr") as HTMLDivElement;
+            let emailErr = document.getElementById("emailErr") as HTMLDivElement;
             emailErr.hidden = false;
             flag++;
         }
         else{
-            var emailErr = document.getElementById("emailErr") as HTMLDivElement;
+            let emailErr = document.getElementById("emailErr") as HTMLDivElement;
             emailErr.hidden = true;
         }
         if(password.value === ""){
-            var passErr = document.getElementById("passErr") as HTMLDivElement;
+            let passErr = document.getElementById("passErr") as HTMLDivElement;
             passErr.hidden = false;
             flag++;
         }
         else{
-            var passErr = document.getElementById("passErr") as HTMLDivElement;
+            let passErr = document.getElementById("passErr") as HTMLDivElement;
             passErr.hidden = true;
         }
         if(flag>=1){
             return;
         }
-        var fName = "dummy";
-        var lName = "dummy";
-        this.props.onLogin(email.value,fName,lName);
+
+        await Axios.post("http://localhost:3001/login-user",{
+            "Email": email.value,
+            "Password": password.value
+        })
+        .then(result => {
+            this.setState({
+                            showModal: this.state.showModal,
+                            user_data:result.data
+                        });
+            console.log(this.state.showModal);
+            console.log(this.state.user_data);
+        })
+        if(!this.state.user_data){
+            alert("invalid email/password");
+        }
+        else{
+            this.props.onLogin(email.value,this.state.user_data.first_name,this.state.user_data.last_name);
+        }
     }
 
     render(){
@@ -82,14 +103,8 @@ class LoginModal extends React.Component<any,any>{
                     isOpen={this.modalState()}
                 >
                     <i className="fa fa-close closeLogo" onClick={this.closeModal}></i>
+                    <Authenticate />
                     <form className="login" method="POST">
-                        <div className="fbLogin">
-                            <div><i className="fa fa-facebook fbLogo"></i> Login with Facebook</div>
-                        </div>
-                        <div className="googleLogin">
-                            <img src={google} alt="google logo" className="gLogo"/>
-                            <div>Sign Up with Google</div>
-                        </div>
                         <div className="divider">
                             <hr/>
                             <div>Or</div>
@@ -101,7 +116,7 @@ class LoginModal extends React.Component<any,any>{
                         </div>
                         <div className="passBar">
                             <Input type="password" id="password-login" name="pass" placeholder="Password" errId="passErr" errorText="Invalid Password"/>
-                            <div className="passwordLogo">
+                            <div className="pass-logo">
                                 <img src={eye} alt="eyeLogo" onClick={this.showPassword}/>
                                 <img src={lock} alt="lockLogo"/>
                             </div>

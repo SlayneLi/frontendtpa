@@ -1,0 +1,21 @@
+.place-and-map{
+    width: 100%;
+    display: flex;
+    >div{
+        width: 50%;
+    }
+    .places-container{
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        a{
+            text-decoration: none;
+            color: #202020;
+        }
+    }
+
+}
+.leaflet-container {
+    height: calc(500px + 1em);
+    width: calc(500px + 0.6em);
+}
