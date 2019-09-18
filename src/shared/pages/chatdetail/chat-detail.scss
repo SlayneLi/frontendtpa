@@ -6,7 +6,6 @@
     display: flex;
     justify-content: center;
     width: 70%;
-    height: 100vh;
     .trans-detail{
         border: 2px solid whitesmoke;
         display: flex;
@@ -14,7 +13,6 @@
         width: 25%;
         display: flex;
         margin: 0% 5% 0% 5%;
-        background-color: red;
         .photo-circular{
             padding: 10% 10% 2.5% 10%;
             img{
@@ -66,10 +64,16 @@
                 text-align: left;
             }
             .check-in-out-font{
+                font-size: 80%;
                 display: flex;
                 text-align: left;
                 .check-in-title{
                     width: 45%;
+                    display: flex;
+                    flex-direction: column;
+                    .date-time{
+                        margin-top: 10%;
+                    }
                 }
                 .to-symbol{
                     width: 15%;
@@ -78,6 +82,102 @@
                 }
                 .check-out-title{
                     width: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    .date-time{
+                        margin-top: 10%;
+                    }
+                }
+            }
+        }
+        hr{
+            width: 80%;
+            color: black;
+        }
+        .payment-detail{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            margin: 0% 5% 0% 5%;
+            .guest-detail{
+                text-align: left;
+                font-size: 80%;
+                .guest-title{
+                    margin-bottom: 5%;
+                }
+                .guest-count{
+                    margin-bottom: 15%;
+                }
+            }
+            .confirmation-detail{
+                font-size: 80%;
+                text-align: left;
+                .confirmation-title{
+                    margin-bottom: 5%;
+                }
+                .confirmation-code{
+                    margin-bottom: 10%;
+                }
+            }
+            .total-payment-detail{
+                display: flex;
+                flex-direction: column;
+                .payment-title{
+                    text-align: left;
+                    font-size: 80%;
+                    margin-bottom: 10%;
+                }
+                .night-fee-section{
+                    display: flex;
+                    font-size: 80%;
+                    margin-bottom: 2.5%;
+                    .nightfee{
+                        width: 50%;
+                        text-align: left;
+                    }
+                    .total-fee{
+                        width: 50%;
+                        text-align: right;
+                    }
+                }
+                .cleaning-fee-section{
+                    display: flex;
+                    font-size: 80%;
+                    margin-bottom: 2.5%;
+                    .cleaning-title{
+                        width: 50%;
+                        text-align: left;
+                    }
+                    .total-cleaning{
+                        width: 50%;
+                        text-align: right;
+                    }
+                }
+                .service-fee-section{
+                    display: flex;
+                    font-size: 80%;
+                    margin-bottom: 2.5%;
+                    .service-title{
+                        width: 50%;
+                        text-align: left;
+                    }
+                    .total-service{
+                        width: 50%;
+                        text-align: right;
+                    }
+                }
+            }
+            .final-fee{
+                display: flex;
+                font-size: 80%;
+                margin-bottom: 5%;
+                .final-title{
+                    width: 50%;
+                    text-align: left;
+                }
+                .final-amount{
+                    width: 50%;
+                    text-align: right;
                 }
             }
         }
@@ -85,7 +185,16 @@
     .chat-detail{
         width: 75%;
         display: flex;
+        flex-direction: column;
         margin-right: 5%;
-        background-color: aqua;
+        background-color: dodgerblue;
+        .conversation-title{
+            font-size: 3em;
+            justify-content: center;
+            background-color: orange;
+        }
+        .conversation-box{
+            background-color: green;
+        }
     }
 }
