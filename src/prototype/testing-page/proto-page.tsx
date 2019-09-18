@@ -6,6 +6,8 @@ import Profile from '../../shared/pages/profile/profile'
 import ImageUpload from '../../shared/image-upload/imageUpload'
 import ChatDetail from '../../shared/pages/chatdetail/chat-detail'
 import ImagesUpload from 'react-images-upload'
+import SavePlan from '../../shared/component-template/saved-plan/save-plan-component'
+import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
 import Axios from 'axios'
 import './proto-page.scss'
 
@@ -37,7 +39,7 @@ export default class ProtoPage extends Component {
                 {/* <ImageUploader /> */}
                 {/* <Stepper /> */}
                 {/* <ImageUpload /> */}
-                <ChatDetail />
+                {/* <ChatDetail /> */}
                 {/* <div className="image-upload">
                     <ImagesUpload 
                         withIcon={true}
@@ -48,6 +50,8 @@ export default class ProtoPage extends Component {
                         withPreview={true}
                     />
                 </div> */}
+                {/* <SavePlan /> */}
+                <SaveDetail />
             </div>
         )
     }
