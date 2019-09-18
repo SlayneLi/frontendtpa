@@ -29,15 +29,6 @@ io.on('connection', (socket) => {
     })
 
     socket.on('send message', (data) => {
-        // console.log(data.receiver)
-        // for(let i = 0 ; i < users.length ; i++){
-        //     const e = users[i]
-        //     if((e === data.receiver || e === data.sender) && connections[i] !== socket.id){
-        //         console.log(i)
-        //         socket.to(connections[i].emit('new message',data))
-        //     }
-        // }
-        // socket.emit('new message', data)
         io.sockets.emit(data);
     })
 })
