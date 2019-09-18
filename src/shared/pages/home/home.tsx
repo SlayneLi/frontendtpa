@@ -5,6 +5,7 @@ import Place from "../../component-template/Places/placeCard";
 import axios from 'axios';
 import Experience from "../../component-template/experiences/experience";
 import { Link } from "react-router-dom";
+import Gopher from "../../Images/Background/galaxy-gopher.png"
 
 export default class HomeComponent extends React.Component{
     state = {
@@ -36,9 +37,10 @@ export default class HomeComponent extends React.Component{
     render(){
         return(
             <React.Fragment>
+                <img src={Gopher} alt="background" className="background-home-image"/>
                 <QuickCard />
                 <div className="recomended-place">
-                    Recomended Places
+                    Recomended Places based on Ratings
                 </div>
                 <div className="place-around-section">
                     {this.state.place.slice(0,4).map((p:any) =>{
@@ -49,18 +51,28 @@ export default class HomeComponent extends React.Component{
                         )
                     })}
                 </div>
+                {
+                    <Link to={"/places"}>
+                        <div className="show-all">
+                            Show all places>>
+                        </div>
+                    </Link>
+                }
                 <div className="experiences-in-the-spotlight">
-                    Experiences in the spotlight
+                    Experiences in the spotlight based on reviews
                 </div>
                 <div className="experience-section">
                     {this.state.exp.slice(0,4).map((e:any) =>{
                         return(
-                            < Link to={`/experience/${e.id}`}>
-                                <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em"/>
-                            </Link>
+                            <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em" hour={e.estimate_hour} ame={e.amenities} isHidden = {true} id={e.id}/>
                         )
                     })}
                 </div>
+                <Link to={"/experiences"}>
+                    <div className="show-all">
+                        Show all experiences>>
+                    </div>
+                </Link>
             </React.Fragment>
         );
     }

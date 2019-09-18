@@ -1,0 +1,30 @@
+.PhotoModal {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+.OverlayPhoto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+
+.photos-carousel{
+    width: 50%;
+    margin: 0 25%;
+}
+
+// .mini-photos-carousel{
+//     width: 10%;
+//     margin: 0 2%;
+// }
+
+.close-logo-photo{
+    color: wheat;
+}
