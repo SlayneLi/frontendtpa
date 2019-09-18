@@ -3,7 +3,6 @@
 }
 
 .profile-container{
-    // background-color: red;
     display: flex;
     padding: 0% 5% 0% 5%;
     justify-content: center;
@@ -23,19 +22,6 @@
                 display: flex;
                 justify-content: center;
                 width: 100%;
-            }
-            >div{
-                button{
-                    border: none;
-                    background-color: #277d1c;
-                    width: 10%;
-                    border-radius: 5% 5%;
-                    color: white;
-                }
-                button:hover{
-                    color: black;
-                    opacity: 1;
-                }
             }
         }
         .first-name-section{
