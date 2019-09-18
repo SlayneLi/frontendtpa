@@ -63,7 +63,6 @@ export default class placedetail extends Component<any,any> {
         b.push(
             <div className="basic-ame">
                 <div>
-                    Basic:
                 </div>
                 <div>
                     {this.state.data.amenities.map((a:any) => {
@@ -128,7 +127,8 @@ export default class placedetail extends Component<any,any> {
             <div className="place-detail-container">
                 <div className="flying-button">
                     <div onClick={this.openClosePhotos}>
-                        View
+                        View<i className={"fa fa-wifi"}/>
+                    Basic:<PointInfo ico="fire-extinguisher" text="Fire Extinguisher" />
                     </div>
                     <PhotoModal pic={this.state.pic} openModal={this.state.openPic} closeModal={this.openClosePhotos}/>
                     <Share link={this.props.match.params.id} type="place"/>

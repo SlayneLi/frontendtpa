@@ -26,6 +26,8 @@ export default class PlaceHori extends React.Component <any,any>{
         this.state = {
             amenity: this.props.ame,
         }
+
+        console.log(this.state.amenity)
     }
 
     render(){
