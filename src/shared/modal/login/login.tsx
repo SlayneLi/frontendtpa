@@ -7,7 +7,7 @@ import "./login.scss";
 import Input from '../../component-template/input/input';
 import {connect} from 'react-redux'
 import Authenticate from '../authentication'
-// import Axios from 'axios';
+import Axios from 'axios';
 
 class LoginModal extends React.Component<any,any>{    
     constructor(props:any){

@@ -20,8 +20,13 @@ class HeaderComponent extends React.Component<any,any>{
         if(this.props.email !== ""){
             return(
                 <React.Fragment>
+                    <Link to={"/become-place-host/"}>
+                        <div>
+                            Become a Place Host
+                        </div>
+                    </Link>
                     <div>
-                        Become a host
+                        Become a Experience Host
                     </div>
                     <div>
                         Hello, {this.props.firstname}
@@ -35,15 +40,17 @@ class HeaderComponent extends React.Component<any,any>{
         else{
             return(
                 <React.Fragment>
-                    <SignUpModal />
-                    <LoginModal />
+                    <div className="session-ctrl">
+                        <SignUpModal />
+                        <LoginModal />
+                    </div>
                 </React.Fragment>
             )
         }
     }
 
     handleStream(){
-        var observable = Observable.create((observer:any) => {
+        Observable.create((observer:any) => {
             observer.next('hi');
         })
         

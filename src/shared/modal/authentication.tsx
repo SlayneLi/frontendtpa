@@ -3,11 +3,7 @@ import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import { connect } from 'react-redux'
 import "./auth.scss"
-
-firebase.initializeApp({
-    apiKey: "AIzaSyBtkO-LDEX8pmKx1-e7r1rHvUkQ9XqM8Xs",
-    authDomain: "tpa-web-auth.firebaseapp.com"
-})
+import '../image-upload/index';
 
 class Authentication extends Component <any,any> {
     state = {
