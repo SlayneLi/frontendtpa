@@ -100,12 +100,12 @@ export default class BookingPlace extends Component<any,any> {
                             </div>
                             <div className="buttons">
                                 <div className="postpone-button">
-                                    <div className="button">
+                                    <div className="button" onClick={this.onPostpone}>
                                         POSTPONE
                                     </div>
                                 </div>
                                 <div className="pay-button">
-                                    <div className="button">
+                                    <div className="button" onClick={this.onPay}>
                                         PAY
                                     </div>
                                 </div>
