@@ -8,11 +8,16 @@ import ChatDetail from '../../shared/pages/chatdetail/chat-detail'
 import ImagesUpload from 'react-images-upload'
 import SavePlan from '../../shared/component-template/saved-plan/save-plan-component'
 import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
+import BookingPlace from '../../shared/pages/bookingplace/bookingplace'
 import Axios from 'axios'
 import './proto-page.scss'
 
-export default class ProtoPage extends Component {
-    
+export default class ProtoPage extends Component<any,any> {
+
+    constructor(props:any) {
+        super(props);
+    }
+
     state = {
         pictures: [],
     }
@@ -33,6 +38,19 @@ export default class ProtoPage extends Component {
     render() {
         return (
             <div>
+                <BookingPlace />
+                {/* <i className="fas fa-camera"></i>
+                <i className="fab fa-product-hunt"></i>
+                <i className="fas fa-wifi"></i>
+                <i className="fas fa-utensils"></i>
+                <i className="fas fa-bus"></i>
+                <i className="fas fa-suitcase"></i>
+                <i className="fas fa-language"></i>
+                <i className="fas fa-ticket-alt"></i>
+                <i className="fas fa-bath"></i>
+                <i className="fas fa-fire-extinguisher"></i>
+                <i className="fas fa-medkit"></i>
+                <i className="fas fa-bell"></i> */}
                 {/* <Profile name="Reich Vitz" /> */}
                 {/* <br/> */}
                 {/* <FacebookShare link="http://127.0.0.1:3000/experience/5d727c60a22d2ae0c9c36f67" /> */}
@@ -51,7 +69,7 @@ export default class ProtoPage extends Component {
                     />
                 </div> */}
                 {/* <SavePlan /> */}
-                <SaveDetail />
+                {/* <SaveDetail /> */}
             </div>
         )
     }
