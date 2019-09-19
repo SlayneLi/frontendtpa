@@ -10,6 +10,8 @@ import SavePlan from '../../shared/component-template/saved-plan/save-plan-compo
 import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
 import BookingPlace from '../../shared/pages/bookingplace/bookingplace'
 import BookingExperience from '../../shared/pages/bookingexperience/bookingexperience'
+import Account from '../../shared/pages/account/account'
+
 import Axios from 'axios'
 import './proto-page.scss'
 
@@ -39,7 +41,8 @@ export default class ProtoPage extends Component<any,any> {
     render() {
         return (
             <div>
-                <BookingExperience />
+                <Account />
+                {/* <BookingExperience /> */}
                 {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
                 <i className="fab fa-product-hunt"></i>
