@@ -9,7 +9,7 @@ export default class HeaderExpSteps extends React.Component<any,any> {
         this.state = {
             steps: [
                 {
-                    title:'Basics',
+                    title:'Basic',
                     onClick: (e:any) => {
                         e.preventDefault();
                         this.setState({currentStep: 0})

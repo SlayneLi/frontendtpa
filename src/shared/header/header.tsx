@@ -25,14 +25,16 @@ class HeaderComponent extends React.Component<any,any>{
                             Become a Place Host
                         </div>
                     </Link>
-                    <div>
-                        Become a Experience Host
-                    </div>
+                    <Link to={"/become-experience-host"}>
+                        <div>
+                            Become a Experience Host
+                        </div>
+                    </Link>
                     <div>
                         Hello, {this.props.firstname}
                     </div>
-                    <div>
-                        <button onClick={() => this.signOut()}>SIGNOUT!!</button>
+                    <div className="out-button" onClick={() => this.signOut()}>
+                        SIGNOUT
                     </div>
                 </React.Fragment>
             )
