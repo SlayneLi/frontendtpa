@@ -168,7 +168,7 @@ export default class placedetail extends Component<any,any> {
                         </div>
                         <div className="spec-info">
                             <div>
-                                <PointInfo ico={"home"} text="Entire Apartment"/>
+                                <PointInfo ico="fas fa-home" text="Entire Apartment"/>
                                 <div className="text-spec">
                                     {this.state.data.max_guest} guest(s) {this.state.data.bed_room_count} bedroom(s) {this.state.data.bed_count} bed(s) {this.state.data.bath_room_count} bath(s)                                    
                                 </div>

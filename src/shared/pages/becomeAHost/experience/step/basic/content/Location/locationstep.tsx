@@ -22,8 +22,10 @@ export default class LocationStep extends React.Component <any,any>{
                 <div>
                     <input type="text" placeholder="Enter City" id="city-input" />
                 </div>
-                <div onClick={this.checkBasic} className="handle-step">
-                    Next
+                <div>
+                    <div onClick={this.checkBasic} className="handle-step">
+                        Next
+                    </div>
                 </div>
             </div>
         );

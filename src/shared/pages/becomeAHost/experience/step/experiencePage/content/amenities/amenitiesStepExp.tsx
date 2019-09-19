@@ -1,9 +1,8 @@
 import React from 'react';
 import PointInfo from '../../../../../../../component-template/pointInfo/pointInfo';
 import axios from 'axios';
-import './amenitiesStep.scss';
 
-export default class AmenitiesStep extends React.Component <any,any>{
+export default class AmenitiesExpStep extends React.Component <any,any> {
     state = {
         ame: [],
         count:0,
@@ -25,19 +24,21 @@ export default class AmenitiesStep extends React.Component <any,any>{
     handleAme = (a:any) => {
         let ck = document.getElementById("chk-"+a) as HTMLInputElement;
         let nb = document.getElementById("nmb-"+a) as HTMLInputElement;
-        if(ck.checked === false){
-            nb.value = "0";
-            nb.hidden = true;
-            let c = this.state.count;
-            c--;
-            this.setState({count: c});
-        }
-        else{
-            nb.value = "0";
-            nb.hidden = false;
-            let c = this.state.count;
-            c++;
-            this.setState({count: c});
+        if(ck !== null && nb !== null){
+            if(ck.checked === false){
+                nb.value = "0";
+                nb.hidden = true;
+                let c = this.state.count;
+                c--;
+                this.setState({count: c});
+            }
+            else{
+                nb.value = "0";
+                nb.hidden = false;
+                let c = this.state.count;
+                c++;
+                this.setState({count: c});
+            }
         }
     }
 
@@ -74,7 +75,7 @@ export default class AmenitiesStep extends React.Component <any,any>{
     
     render(){
         return(
-            <div className="amenities-step">
+            <div className="amenities-exp-step">
                 <div className="as-title">
                     Amenities
                 </div>

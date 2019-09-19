@@ -196,8 +196,8 @@ export default class experiencedetail extends Component<any,any> {
                                 {this.state.data.experience_name}
                             </div>
                             <div className="main-info">
-                                <PointInfo ico="map-marker" text={this.state.data.experience_loc}/>
-                                <PointInfo ico="clock-o" text={this.state.data.estimate_hour + " hour (s)"} />
+                                <PointInfo ico="fas fa-map-marker-alt" text={this.state.data.experience_loc}/>
+                                <PointInfo ico="far fa-clock" text={this.state.data.estimate_hour + " hour (s)"} />
                                 <div className="amenities-info">
                                     {this.state.data.amenities.slice(0,5).map((a:any) => {
                                         return(

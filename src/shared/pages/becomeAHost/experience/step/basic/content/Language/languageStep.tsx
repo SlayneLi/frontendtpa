@@ -16,6 +16,10 @@ export default class LanguageStep extends React.Component<any,any> {
         this.props.next();
     }
 
+    handlePrev = () => {
+        this.props.prev();
+    }
+
     
     render(){
         let lang = [];
@@ -29,8 +33,8 @@ export default class LanguageStep extends React.Component<any,any> {
             </React.Fragment>
         )
         return(
-            <div>
-                <div>
+            <div className="language-step">
+                <div className="title-text">
                     Primary Language
                 </div>
                 <div>
@@ -38,7 +42,7 @@ export default class LanguageStep extends React.Component<any,any> {
                         {lang}
                     </select>
                 </div>
-                <div>
+                <div className="title-text">
                     Spoken Language
                 </div>
                 <div>
@@ -47,8 +51,13 @@ export default class LanguageStep extends React.Component<any,any> {
                     </select>
                 </div>
                 <div>
-                <div onClick={this.checkBasic} className="handle-step">
-                    Next
+                <div className="handle-bt">
+                    <div className="handle-step" onClick={this.handlePrev}>
+                        Prev
+                    </div>
+                    <div className="handle-step" onClick={this.checkBasic}>
+                        Next
+                    </div>
                 </div>
             </div>
         </div>

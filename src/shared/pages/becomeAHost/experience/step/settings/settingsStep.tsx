@@ -1,34 +1,42 @@
 import React from 'react';
 import Stepper from 'react-stepper-horizontal';
-import LocationStep from './content/Location/locationstep';
-import LanguageStep from './content/Language/languageStep';
-import CategoriesStep from './content/categories/categoriesStep';
-import './basicExpStep.scss';
+import MeetingLocationStep from './content/meetingLocation/meetingLocationStep';
+import './settingsStep.scss'
+import MaximumAllowedPersonStep from './content/maximumAllowedPerson/maximumAllowedPersonStep';
+import PricePerPersonStep from './content/pricePerPerson/pricePerPersonStep';
+import ExpScheduleStep from './content/expSchedule/expScheduleStep';
 
-export default class BasicExpStep extends React.Component <any,any>{
+export default class SettingStep extends React.Component <any,any> {
     constructor(props:any){
         super(props);
         this.state = {
             steps: [
                 {
-                    title:'Location',
+                    title:'Meeting Location',
                     onClick: (e:any) => {
                         e.preventDefault();
                         this.setState({currentStep: 0})
                     }
                 },
                 {
-                    title:'Language',
+                    title:'Maximum Allowed Person',
                     onClick: (e:any) => {
                         e.preventDefault();
                         this.setState({currentStep: 1})
                     }
                 },
                 {
-                    title:'Categories',
+                    title:'Price Per Person',
                     onClick: (e:any) => {
                         e.preventDefault();
                         this.setState({currentStep: 2})
+                    }
+                },
+                {
+                    title:'Experience Schedule',
+                    onClick: (e:any) => {
+                        e.preventDefault();
+                        this.setState({currentStep: 3})
                     }
                 },
             ],
@@ -54,17 +62,22 @@ export default class BasicExpStep extends React.Component <any,any>{
     handleCurrStep= ()=>{
         if(this.state.currentStep === 0){
             return(
-                <LocationStep next={this.handleStep}/>
+                <MeetingLocationStep next={this.handleStep} />
             )
         }
         else if(this.state.currentStep === 1){
             return(
-                <LanguageStep next={this.handleStep} prev={this.handlePrevStep} />
+                <MaximumAllowedPersonStep next={this.handleStep} prev={this.handlePrevStep} />
             )
         }
         else if(this.state.currentStep === 2){
             return(
-                <CategoriesStep next={this.props.next} prev={this.handlePrevStep} />
+                <PricePerPersonStep next={this.handleStep} prev={this.handlePrevStep} />
+                )
+            }
+        else if(this.state.currentStep === 3){
+            return(
+                <ExpScheduleStep next={this.props.next} prev={this.handlePrevStep} />
             )
         }
     }
@@ -72,7 +85,7 @@ export default class BasicExpStep extends React.Component <any,any>{
     render(){
         const {steps,currentStep} = this.state
         return(
-            <div className="basic-exp-step">
+            <div className="settings-step">
                 <div>
                     <Stepper steps={ steps } activeStep={ currentStep } />
                 </div>

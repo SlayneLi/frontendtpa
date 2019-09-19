@@ -2,6 +2,8 @@ import React from 'react';
 import Stepper from 'react-stepper-horizontal';
 import './headerStep.scss'
 import BasicExpStep from '../basic/basicExpStep';
+import ExperiencePageStep from '../experiencePage/experiencePageStep';
+import SettingStep from '../settings/settingsStep';
 
 export default class HeaderExpSteps extends React.Component<any,any> {
     constructor(props:any){
@@ -49,6 +51,11 @@ export default class HeaderExpSteps extends React.Component<any,any> {
         });
     }
 
+    handleSubmit = ()=>{
+        alert("Success input new Experiences!");
+        window.location.href = "http://localhost:3000/"
+    }
+
     handleCurrStep= ()=>{
         if(this.state.currentStep === 0){
             return(
@@ -57,12 +64,12 @@ export default class HeaderExpSteps extends React.Component<any,any> {
         }
         else if(this.state.currentStep === 1){
             return(
-                <div></div>
+                <ExperiencePageStep next={this.handleStep} />
             )
         }
         else if(this.state.currentStep === 2){
             return(
-                <div></div>
+                <SettingStep next={this.handleSubmit}/>
             )
         }
     }
