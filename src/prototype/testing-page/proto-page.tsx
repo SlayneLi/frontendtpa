@@ -9,6 +9,7 @@ import ImagesUpload from 'react-images-upload'
 import SavePlan from '../../shared/component-template/saved-plan/save-plan-component'
 import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
 import BookingPlace from '../../shared/pages/bookingplace/bookingplace'
+import BookingExperience from '../../shared/pages/bookingexperience/bookingexperience'
 import Axios from 'axios'
 import './proto-page.scss'
 
@@ -38,7 +39,8 @@ export default class ProtoPage extends Component<any,any> {
     render() {
         return (
             <div>
-                <BookingPlace />
+                <BookingExperience />
+                {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
                 <i className="fab fa-product-hunt"></i>
                 <i className="fas fa-wifi"></i>

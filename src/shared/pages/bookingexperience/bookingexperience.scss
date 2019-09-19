@@ -1,0 +1,187 @@
+.book-ex-container{
+    margin: 5% 5% 5% 5%;
+    height: 65vh;
+    .experience-container{
+        padding: 1% 1% 1% 1%;
+        height: 100%;
+        border: 2px solid whitesmoke;
+        display: flex;
+        .picture-container{
+            width: 50%;
+            img{
+                height: 100%;
+                width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+            }
+        }
+        .detail-container{
+            display: flex;
+            flex-direction: column;
+            width: 47.5%;
+            padding-left: 2.5%;
+            .exp-summary{
+                text-align: left;
+                font-size: 3em;
+            }
+            .exp-title{
+                padding-left: 0.25%;
+                text-align: left;
+                font-size: 1.5em;
+                margin-bottom: 1%;
+            }
+            .rate-hour{
+                display: flex;
+                .exp-rate{
+                    width: 50%;
+                    display: flex;
+                    align-items: flex-start;
+                    .star-ratings{
+                        text-align: left;
+                    }
+                }
+                .hour-host{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    .estimate-time{
+                        margin-bottom: 1%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        .est-time{
+                            display: flex;
+                            flex-direction: row;
+                            width: 40%;
+                        }
+                        .est-value{
+                            display: flex;
+                            width: 60%;
+                            .value{
+                                display: flex;
+                                width: 20%;
+                                justify-content: center;
+                            }
+                            .hour{
+                                display: flex;
+                                width: 70%;
+                            }
+                        }
+                    }
+                    .host-profile{
+                        display: flex;
+                        width: 100%;
+                        .host-title{
+                            display: flex;
+                            width: 30%;
+                        }
+                        .host-name{
+                            display: flex;
+                            width: 70%;
+                        }
+                    }
+                }
+            }
+            hr{
+                width: 100%;
+            }
+            .occurence-guest{
+                display: flex;
+                .occurence{
+                    text-align: left;
+                    width: 30%;
+                }
+                .guest-count{
+                    width: 70%;
+                    display: flex;
+                    justify-content: flex-end;
+                    .icon{
+                        width: 10%;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .guest-num{
+                        width: 7.5%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .guest-title{
+                        width: 15%;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+            .combo-amenities{
+                width: 100%;
+                height: 40%;
+                display: flex;
+                .combo-box{
+                    width: 50%;
+
+                }
+                .amenities{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    .ame-title{
+                        padding-top: 5%;
+                        display: flex;
+                        justify-content: center;
+                        font-size: 1.5em;
+                    }
+                    .ame-list{
+                        width: 100%;
+                        height: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: space-around;
+                    }
+                }
+            }
+            .buttons{
+                height: 8vh;
+                margin-top: 2%;
+                display: flex;
+                .postpone-button{
+                    width: 40%;
+                    padding: 0% 5% 0% 2.5%;
+                    .button{
+                        padding: 5% 5% 5% 5%;
+                        height: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: red;
+                        font-size: calc(15px + 1em);
+                    }
+                    .button:hover{
+                        background-color: gray;
+                    }
+                }
+                .pay-button{
+                    width: 40%;
+                    padding: 0% 5% 0% 7.5%;
+                    .button{
+                        padding: 5% 5% 5% 5%;
+                        height: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: red;
+                        font-size: calc(15px + 1em);
+                    }
+                    .button:hover{
+                        background-color: pink;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -34,7 +34,20 @@ export default class BookingPlace extends Component<any,any> {
                                 Pettinarihome Campo de FIORI
                             </div>
                             <div className="place-rating">
-                                <StarRatings />
+                                <div className="rating">
+                                    <StarRatings />
+                                </div>
+                                <div className="guest-count">
+                                    <div className="icon">
+                                        <i className="fas fa-users"></i>
+                                    </div>
+                                    <div className="guest-num">
+                                        1
+                                    </div>
+                                    <div className="guest-title">
+                                        guest(s)
+                                    </div>
+                                </div>
                             </div>
                             <div className="separator">
                                 <hr/>
