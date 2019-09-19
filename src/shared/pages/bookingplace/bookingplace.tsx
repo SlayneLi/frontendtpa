@@ -3,7 +3,21 @@ import StarRatings from 'react-star-ratings'
 import GuestComboBox from '../../component-template/guest/guest'
 import './bookingplace.scss'
 
-export default class BookingPlace extends Component {
+export default class BookingPlace extends Component<any,any> {
+    constructor(props:any){
+        super(props);
+        this.onPostpone = this.onPostpone.bind(this);
+        this.onPay = this.onPay.bind(this);
+    }
+
+    onPostpone(){
+        console.log("Postponed");
+    }
+
+    onPay(){
+        console.log("Payed");
+    }
+
     render() {
         return (
             <div className="full-booking-container">

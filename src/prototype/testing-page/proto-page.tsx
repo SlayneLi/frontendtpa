@@ -59,9 +59,8 @@ export default class ProtoPage extends Component<any,any> {
                 {/* <ImageUpload /> */}
                 {/* <ChatDetail /> */}
                 {/* <div className="image-upload">
-                    <ImagesUpload 
-                        withIcon={true}
-                        buttonText='Choose images'
+                    <ImagesUpload
+                        withIcon={false}
                         onChange={this.onDrop}
                         imgExtension={['.jpg', '.gif', '.png', '.gif']}
                         maxFileSize={5242880}
