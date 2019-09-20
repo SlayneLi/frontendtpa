@@ -41,7 +41,7 @@ export default class ProtoPage extends Component<any,any> {
     render() {
         return (
             <div>
-                <Account />
+                {/* <Account /> */}
                 {/* <BookingExperience /> */}
                 {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
@@ -62,7 +62,7 @@ export default class ProtoPage extends Component<any,any> {
                 {/* <ImageUploader /> */}
                 {/* <Stepper /> */}
                 {/* <ImageUpload /> */}
-                {/* <ChatDetail /> */}
+                {/* <ChatDetail/> */}
                 {/* <div className="image-upload">
                     <ImagesUpload
                         withIcon={false}
