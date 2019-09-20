@@ -57,6 +57,11 @@ export default class ProtoPage extends Component<any,any> {
                 <i className="fas fa-medkit"></i>
                 <i className="fas fa-bell"></i> */}
                 {/* <Profile name="Reich Vitz" /> */}
+                This is a Testing Prototype Page
+                {/* <Test/> */}
+                {/* <ProfilePage /> */}
+                <i className="fas fa-wifi"></i>
+                <Profile name="Reich Vitz" />
                 {/* <br/> */}
                 {/* <FacebookShare link="http://127.0.0.1:3000/experience/5d727c60a22d2ae0c9c36f67" /> */}
                 {/* <ImageUploader /> */}

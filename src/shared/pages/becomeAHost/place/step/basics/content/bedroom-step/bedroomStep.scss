@@ -1,0 +1,23 @@
+.bedroom-step{
+    width: 80%;
+    margin: 3% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    .bs-title{
+        font-size: calc(20px + 0.6em)
+    }
+    >div{
+        margin: 0.5%;
+        width: 40%;
+        >input{
+            width: 70%;
+        }
+    }
+    .handle-bs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
