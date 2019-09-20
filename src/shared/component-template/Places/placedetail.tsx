@@ -131,7 +131,7 @@ export default class placedetail extends Component<any,any> {
                         View
                     </div>
                     <PhotoModal pic={this.state.pic} openModal={this.state.openPic} closeModal={this.openClosePhotos}/>
-                    <Share />
+                    <Share link={this.props.match.params.id} type="place"/>
                     <Save id={this.state.id}/>
                 </div>
                 <div className="place-detail-image">

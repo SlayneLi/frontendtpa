@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal'
-
+import FacebookShare from '../../share-link/facebook-share'
 
 export default class Share extends React.Component <any,any>{
 
@@ -30,7 +30,7 @@ export default class Share extends React.Component <any,any>{
                         Share
                     </div>
                     <div>
-                        
+                        <FacebookShare link={this.props.link} type={this.props.type} />
                     </div>
                 </ReactModal>
             </React.Fragment>

@@ -19,9 +19,6 @@ class Authentication extends Component <any,any> {
             firebase.auth.FacebookAuthProvider.PROVIDER_ID,
             firebase.auth.GoogleAuthProvider.PROVIDER_ID
         ]
-        // CallBacks: {
-        //     signInSuccess: () => false
-        // }
     }
 
     componentDidMount= () => {        

@@ -8,13 +8,24 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import firebase from 'firebase'
 import {Observable} from 'rxjs';
+import Axios from "axios";
 
 class HeaderComponent extends React.Component<any,any>{
+
+    states = {
+        curval: 0.0,
+    }
+
+    constructor(props:any){
+        super(props);
+        this.onCurrencyChange = this.onCurrencyChange.bind(this);
+    }
 
     signOut(){
         firebase.auth().signOut(); 
         this.props.onLogout();
     }
+
 
     usercontrol(){
         if(this.props.email !== ""){
@@ -64,6 +75,18 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
+    async onCurrencyChange(){
+        var e = document.getElementById("currency") as HTMLSelectElement;
+        await Axios.get("https://api.exchangeratesapi.io/latest?base="+localStorage.getItem("currency")+"&symbols="+e.value)
+                    .then(result => {
+                        console.log(result.data.rates);
+                        this.setState({curval:result.data.rates});
+                        console.log("curval",this.state.curval);
+                        console.log(this.state.curval * 5);
+                        localStorage.setItem("currency",e.value);
+                    })
+    }
+
     render(){
         return(
             <header onLoad={this.checkCache}>
@@ -77,18 +100,20 @@ class HeaderComponent extends React.Component<any,any>{
                     </div>
                 </div>
                 <div className="menu">
-                    <div><select name="currBar">
-                            <option value="usd">USD</option>
-                            <option value="jpy">JPY</option>
-                            <option value="idr">IDR</option>
-                            <option value="sgd">SGD</option>
-                            <option value="krw">KRW</option>
-                            <option value="thb">THB</option>
-                            <option value="cad">CAD</option>
-                            <option value="cny">CNY</option>
-                            <option value="php">PHP</option>
-                            <option value="gbp">GBP</option>
-                        </select></div>   
+                    <div>
+                        <select name="currBar" id="currency" onChange={this.onCurrencyChange}>
+                            <option value="USD">USD</option>
+                            <option value="JPY">JPY</option>
+                            <option value="IDR">IDR</option>
+                            <option value="SGD">SGD</option>
+                            <option value="KRW">KRW</option>
+                            <option value="THB">THB</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CNY">CNY</option>
+                            <option value="PHP">PHP</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>   
                     {this.usercontrol()}
                 </div>
             </header>
