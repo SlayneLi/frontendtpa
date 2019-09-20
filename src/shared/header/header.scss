@@ -16,6 +16,15 @@ header{
     }
     .search{
         width: 35%;
+        >#search-bar-result{
+            position: absolute;
+            background-color: #fff;
+            width:35%;
+            z-index:5000;
+            >div>a{
+                text-decoration: none
+            }
+        }
         .searchBar{
             padding: 1% 0;
             width: 100%;
@@ -52,6 +61,12 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        input:focus ~.search-bar-result{
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
     }
 }
 

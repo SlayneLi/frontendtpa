@@ -19,6 +19,7 @@ import DatePicker from './shared/component-template/date-picker/date-picker';
 import UserReview from './shared/component-template/review/userReview';
 import Profile from './shared/pages/profile/profile';
 import Proto from './prototype/testing-page/proto-page';
+import SavedPlan from './shared/pages/savedPlan/savedPlan';
 
 const App: React.FC = () => {
   localStorage.setItem("currency","USD");
@@ -42,6 +43,7 @@ const App: React.FC = () => {
           <Route path="/testDate" exact component={DatePicker} />
           <Route path="/proto/" exact component={Proto} />
           <Route path="/profile/:id" exact component={Profile} />
+          <Route path="/save-plan" exact component={SavedPlan}/>
         </Switch>
       <FooterComponent />
       </Router>

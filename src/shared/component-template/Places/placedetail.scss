@@ -95,6 +95,30 @@
                     }
                 }
             }
+            .host-complete-info{
+                width: 100%;
+                margin: 3% 0;
+                text-align: left;
+                .host-main-info{
+                    display: flex;
+                    width: 100%;
+                    .host-desc{
+                        width: 70%;
+                        .host-name{
+                            font-size: calc(16px + 0.6em);
+                            font-weight: 400;             
+                        }
+                    }
+                    .host-pp{
+                        width: 25%;
+                        margin-left: 5%;
+                        img{
+                            width: 60%;
+                            border-radius: 50%; 
+                        }
+                    }
+                }
+            }
         }
         .guest-info-container{
             width: 30%;

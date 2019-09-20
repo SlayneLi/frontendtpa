@@ -9,7 +9,7 @@ import PointInfo from '../pointInfo/pointInfo';
 import ReactModal from 'react-modal'
 import DatePicker from '../date-picker/date-picker';
 import StarRatings from 'react-star-ratings';
-import UserReview from '../review/userReview';
+import Review from '../review/review';
 
 export default class placedetail extends Component<any,any> {
     state = {
@@ -20,7 +20,13 @@ export default class placedetail extends Component<any,any> {
             place_loc: "",
             host_info: {
                 host_name: "",
-                host_picture: ""
+                host_picture: "",
+                host_loc:"",
+                host_date:"",
+                response_rate: 0,
+                response_time: "",
+                total_review: 0,
+                language: []
             },
             bed_room_count: 0,
             bed_count: 0,
@@ -127,8 +133,7 @@ export default class placedetail extends Component<any,any> {
             <div className="place-detail-container">
                 <div className="flying-button">
                     <div onClick={this.openClosePhotos}>
-                        View<i className={"fa fa-wifi"}/>
-                    Basic:<PointInfo ico="fire-extinguisher" text="Fire Extinguisher" />
+                        View
                     </div>
                     <PhotoModal pic={this.state.pic} openModal={this.state.openPic} closeModal={this.openClosePhotos}/>
                     <Share link={this.props.match.params.id} type="place"/>
@@ -195,7 +200,9 @@ export default class placedetail extends Component<any,any> {
                             <ReactModal
                                 isOpen={this.state.openAllAme}
                             >
-                                <i className="fa fa-close closeLogo" onClick={this.closeModal}></i>
+                                <div className=" closeLogo" onClick={this.closeModal}>
+                                    <i className="fas fa-times"/>
+                                </div>
                                 <div className="amenities-modal">
                                     <div>
                                         All Amenities:
@@ -217,9 +224,6 @@ export default class placedetail extends Component<any,any> {
                         <div className="Review-Header">
                             <div>
                                 {this.state.data.total_rating} Review(s) <StarRatings rating={this.state.data.average_rating} starDimension="1em" starSpacing="-0.75em"/>
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Search Review"/>
                             </div>
                         </div>
                         <div className="category-review">
@@ -254,22 +258,45 @@ export default class placedetail extends Component<any,any> {
                         </div>
                         <hr/>
                         <div>
-                            {this.state.data.reviews.map( (r:any) => {
-                                return(
-                                    <UserReview img={r.people_picture} name={r.people_name} jday={r.posted_time} rating={r.review_rate} det={r.review_content}/>
-                                )
-                            })}
+                            <Review review={this.state.data.reviews} />
                         </div>
                         <hr/>
                         <div className="host-complete-info">
-                            <div className="host-desc">
-                                <div className="host-name">
-                                    Hosted by {this.state.data.host_info.host_name}
+                            <div className="host-main-info">
+                                <div className="host-desc">
+                                    <div className="host-name">
+                                        Hosted by {this.state.data.host_info.host_name}
+                                    </div>
+                                    <div>
+                                        {this.state.data.host_info.host_loc} | Joined {this.state.data.host_info.host_date}
+                                    </div>
+                                    <div>
+                                        <PointInfo ico="fas fa-star" text={this.state.data.host_info.total_review +" Review (s)"} />
+                                    </div>
                                 </div>
-                                div
+                                <div className="host-pp">
+                                    <img src={this.state.data.host_info.host_picture} alt="hostPP"/>
+                                </div>                                
                             </div>
-                            <div className="host-pp">
-                                <img src={this.state.data.host_info.host_picture} alt="hostPP"/>
+                            <div>
+                                <div>
+                                    Language:
+                                </div>
+                                <div>
+                                    <ul>
+                                        {this.state.data.host_info.language.map((l:any) => {
+                                            return(
+                                                <li>{l}</li>
+                                            )
+                                        })}
+                                    </ul>
+                                </div>
+                                <div>
+                                    Response Rate : {this.state.data.host_info.response_rate} %
+                                </div>
+                                <div>
+                                    Response Time : {this.state.data.host_info.response_time}
+                                </div>
                             </div>
                         </div>
                     </div>

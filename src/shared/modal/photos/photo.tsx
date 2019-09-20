@@ -21,8 +21,10 @@ export default class PhotoModal extends React.Component <any,any>{
                     className="PhotoModal"
                     overlayClassName="OverlayPhoto"
                 >
-                    <i className="fas fa-times closeLogo close-logo-photo" onClick={this.props.closeModal}></i>
-                    <ReactAliceCarousel  infinite={true} startIndex={0} autoHeight={true} responsive={this.resp} showSlideInfo={true} stagePadding={this.pad} >
+                    <div className="closeLogo close-logo-photo" onClick={() => this.props.closeModal()} style={{cursor: "pointer"}}>
+                        <i className="fas fa-times"/>
+                    </div>
+                        <ReactAliceCarousel  infinite={true} startIndex={0} autoHeight={true} responsive={this.resp} showSlideInfo={true} stagePadding={this.pad} >
                         {this.props.pic.map( (i:any)=>{
                             return(
                                 <img src={i} alt="pic" className="photos-carousel"/>

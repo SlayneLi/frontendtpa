@@ -7,13 +7,21 @@ import SignUpModal from "../modal/signup/signUp";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import firebase from 'firebase'
-import {Observable} from 'rxjs';
+// import {Observable} from 'rxjs';
 import Axios from "axios";
+import $ from "jquery";
 
 class HeaderComponent extends React.Component<any,any>{
 
-    states = {
+    state = {
         curval: 0.0,
+        place: [],
+        exp: [],
+        res: [{
+            id: "",
+            name: "",
+            type: "",
+        }],
     }
 
     constructor(props:any){
@@ -26,6 +34,26 @@ class HeaderComponent extends React.Component<any,any>{
         this.props.onLogout();
     }
 
+    componentDidMount = () =>{
+        Axios.get("http://kentang.online:3001/get-places")
+                .then( result => {
+                    this.setState({
+                        place:result.data
+                    })
+                    console.log(result);
+                }).catch( error => {
+                    console.log(error);
+                });
+        Axios.get("http://kentang.online:3001/get-experiences")
+                .then( result=> {
+                    this.setState({
+                        exp:result.data
+                    })
+                    console.log(result);
+                }).catch( error => {
+                    console.log(error);
+                });
+    }
 
     usercontrol(){
         if(this.props.email !== ""){
@@ -62,11 +90,35 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
-    handleStream(){
-        Observable.create((observer:any) => {
-            observer.next('hi');
-        })
-        
+    handleStream = ()=>{
+        // Observable.create((observer:any) => {
+        //     observer.next('hi');
+        // })
+        let sr = $("#input-stays").val();
+        if(sr===""){
+            this.setState({res: []})
+            return;
+        }
+        let filter:any[] = [];
+        let pl = this.state.place;
+        let ex = this.state.exp;
+        pl.forEach((p:any) => {
+            if(p.place_name.search(sr) !== -1)
+                filter.push({
+                    id:p.id,
+                    name:p.place_name,
+                    type:"place"
+                })
+        });
+        ex.forEach((e:any) => {
+            if(e.experience_name.search(sr) !== -1)
+                filter.push({
+                    id:e.id,
+                    name:e.experience_name,
+                    type:"experience"
+                })
+        });
+        this.setState({res:filter});
     }
 
     checkCache = () =>{
@@ -95,8 +147,19 @@ class HeaderComponent extends React.Component<any,any>{
                 </Link>
                 <div className="search">
                     <div className="searchBar">
-                        <img src={magnifierSeach} alt="searchLogo" className="searchLogo"/>
-                        <input type="text" name="stays" id="stays" placeholder="Stays" onChange={this.handleStream}/>
+                        <img src={magnifierSeach} alt="searchLogo" className="searchLogo" />
+                        <input type="text" name="stays" id="input-stays" placeholder="Stays" onChange={this.handleStream}/>
+                    </div>
+                    <div id="search-bar-result" >
+                        {this.state.res.map( (r:any) => {
+                            return(
+                                <div>
+                                    <Link to={'/'+r.type+"/"+r.id}>
+                                        {r.name}
+                                    </Link>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
                 <div className="menu">

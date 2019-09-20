@@ -9,6 +9,7 @@ import ReactModal from 'react-modal'
 import PhotoModal from '../../modal/photos/photo';
 import StarRatings from 'react-star-ratings'
 import UserReview from '../review/userReview';
+import Review from '../review/review';
 
 function ShuffleArray(arr:any){
     let temp,num;
@@ -207,7 +208,9 @@ export default class experiencedetail extends Component<any,any> {
                                     <ReactModal
                                         isOpen={this.state.openAllAme}
                                     >
-                                        <i className="fa fa-close closeLogo" onClick={this.closeModal}></i>
+                                        <div className=" closeLogo" onClick={this.closeModal}>
+                                            <i className="fas fa-times" />
+                                        </div>
                                         <div className="amenities-modal">
                                             <div>
                                                 All Amenities:
@@ -320,15 +323,10 @@ export default class experiencedetail extends Component<any,any> {
                                     <StarRatings rating={this.state.data.value} starDimension="1em" starSpacing="-0.75em"/>
                                 </div>
                             </div>
-                            <div>
-                                <input type="text" placeholder="Search Review"/>
-                            </div>
                         </div>
-                        {this.state.data.reviews.map( (r:any) => {
-                            return(
-                                <UserReview img={r.people_picture} name={r.people_name} jday={r.posted_time} rating={r.review_rate} det={r.review_content}/>
-                            )
-                        })}
+                        <div>
+                            <Review review={this.state.data.reviews} />
+                        </div>
                     </div>
                 </div>
             </div>

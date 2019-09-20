@@ -31,7 +31,9 @@ export default class Save extends React.Component <any,any>{
                 <ReactModal
                     isOpen={this.state.saveModal}
                 >
-                    <i className="fas fa-times closeLogo" onClick={this.closeModal}/>
+                    <div className="closeLogo"  onClick={this.closeModal}>
+                        <i className="fas fa-times "/>
+                    </div>
                     <div>
                         {this.props.id}
                     </div>

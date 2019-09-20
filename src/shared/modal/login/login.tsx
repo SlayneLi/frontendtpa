@@ -102,7 +102,9 @@ class LoginModal extends React.Component<any,any>{
                 <ReactModal
                     isOpen={this.modalState()}
                 >
-                    <i className="fas fa-times closeLogo" onClick={this.closeModal}></i>
+                    <div className="closeLogo" onClick={this.closeModal}>
+                        <i className="fas fa-times" />
+                    </div>
                     <Authenticate />
                     <form className="login" method="POST">
                         <div className="divider">

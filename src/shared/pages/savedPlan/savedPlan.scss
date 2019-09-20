@@ -1,0 +1,60 @@
+.saved-plan-page{
+    width: 85%;
+    margin: 3% 7.5%;
+    .saved-plan-top{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        >div{
+            width: 10%;
+            font-size: calc(12px + 0.6em);
+            font-weight: 500;
+        }
+        .create-list-button{
+            padding: 0.5%;
+            border-radius: calc(2px + 0.3em);
+            border: calc(1px + 0.1em) solid #28B9AB;
+            color: #28B9AB;
+            cursor: pointer;
+        }
+    }
+    .sp-container{
+        width: 96%;
+        margin: 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .sp-details{
+            width: 40%;
+            margin-left: 10%;
+            .sp-title{
+                font-size: calc(30px + 2em);
+                font-weight: 600;
+                text-align: left;
+                padding: 1% 0;
+            }
+            .sp-little{
+                font-size: calc(12px + 0.4em);
+                text-align: left;
+            }
+            .create-list-button{
+                text-align: center;
+                width: 20%;
+                padding: 4%;
+                color: #ffffff;
+                background: #28B9AB;
+                border-radius: calc(5px + 0.3em);
+                font-size: calc(12px + 0.5em);
+                margin-top: 3%;
+                cursor: pointer;
+            }
+        }
+        .sp-image{
+            width: 40vw;
+            height: 40vw;
+            background-position: 50%;
+            background-size: cover;
+            background-image: url("https://a0.muscache.com/airbnb/static/startWishlistingIllustration.4b09cd02.svg");
+        }
+    }
+}
