@@ -1,7 +1,3 @@
-*{
-    transition: 2s ease-in-out;
-}
-
 header{
     z-index: 1!important;
     padding: 1%;
@@ -10,17 +6,23 @@ header{
     width: 98%;
     justify-content: space-between;
     font-size: 20px;
-    .mainLogo{
-        width: 30%;
-        transform: rotate(180deg) !important;
+    background:transparent;
+    >a{
+        width: 5%;
+        .mainLogo{
+            width: 70%;
+            transform: rotate(180deg) !important;
+        }
     }
     .search{
-        width: 60%;
+        width: 35%;
         .searchBar{
-            width: 40%;
+            padding: 1% 0;
+            width: 100%;
+            border: 1px solid #bbbbbb;
             justify-content: space-around;
             .searchLogo{
-                width: 8%;
+                width: 6%;
             }
             >input{
                 font-size: 20px;
@@ -32,19 +34,18 @@ header{
         }
     }
     .menu{
-        width: 45%;
-        >div{
-            width: 100%;
-            select{
-                width: 100%;
-                padding-bottom: 2%;
-                border-top: none;
-                border-left: none;
-                border-right: none;
-                option{
-                    font-size: 15px;
-                }
-            }
+        width: 50%;
+        margin: 0 2.5%;
+        >div,a{
+            width: max-content;
+            display: flex;
+            justify-content: space-evenly;
+            text-decoration: none;
+            font-weight: 400;
+            color: #202020;
+        }
+        .session-ctrl{
+            width: 30%;
         }
     }
     .searchBar , .menu{

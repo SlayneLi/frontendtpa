@@ -11,6 +11,10 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import EditPic from './shared/pages/becomeAHost/editPic/editPic';
 import AllPlace from './shared/pages/places/places';
 import AllExperience from './shared/pages/experiences/experiences';
+import TestStep from './prototype/stepper/stepper';
+import BecomePlaceHost from './shared/pages/becomeAHost/place/becomePlaceHost';
+import ProtoPage from './prototype/testing-page/proto-page';
+import HeaderExpSteps from './shared/pages/becomeAHost/experience/step/header/headerExpStep';
 import DatePicker from './shared/component-template/date-picker/date-picker';
 import UserReview from './shared/component-template/review/userReview';
 import Profile from './shared/pages/profile/profile';
@@ -30,6 +34,10 @@ const App: React.FC = () => {
           <Route path="/edit-image/" exact component={EditPic}/>
           <Route path="/places/" exact component={AllPlace} />
           <Route path="/experiences/" exact component={AllExperience} />
+          <Route path="/step-test/" exact component={TestStep} />
+          <Route path="/proto/" exact component={ProtoPage} />
+          <Route path="/become-place-host/" exact component={BecomePlaceHost} />
+          <Route path="/become-experience-host/" exact component={HeaderExpSteps} />
           <Route path="/reviewTest/" exact component={UserReview} />
           <Route path="/testDate" exact component={DatePicker} />
           <Route path="/proto/" exact component={Proto} />

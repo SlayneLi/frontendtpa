@@ -20,12 +20,12 @@ export default class Share extends React.Component <any,any>{
         return(
             <React.Fragment>
                 <div onClick={this.openModal} style={{cursor: "pointer"}} >
-                    <i className="fa fa-share" /> Share
+                    <i className="fas fa-share-square" /> Share
                 </div>
                 <ReactModal
                     isOpen={this.state.shareModal}
                 >
-                    <i className="fa fa-close closeLogo" onClick={this.closeModal}/>
+                    <i className="fas fa-times closeLogo" onClick={this.closeModal}/>
                     <div>
                         Share
                     </div>

@@ -31,14 +31,21 @@ class HeaderComponent extends React.Component<any,any>{
         if(this.props.email !== ""){
             return(
                 <React.Fragment>
-                    <div>
-                        Become a host
-                    </div>
+                    <Link to={"/become-place-host/"}>
+                        <div>
+                            Become a Place Host
+                        </div>
+                    </Link>
+                    <Link to={"/become-experience-host"}>
+                        <div>
+                            Become a Experience Host
+                        </div>
+                    </Link>
                     <div>
                         Hello, {this.props.firstname}
                     </div>
-                    <div className="out-button">
-                        <a onClick={() => this.signOut()}>SIGNOUT!!</a>
+                    <div className="out-button" onClick={() => this.signOut()}>
+                        SIGNOUT
                     </div>
                 </React.Fragment>
             )
@@ -46,15 +53,17 @@ class HeaderComponent extends React.Component<any,any>{
         else{
             return(
                 <React.Fragment>
-                    <SignUpModal />
-                    <LoginModal />
+                    <div className="session-ctrl">
+                        <SignUpModal />
+                        <LoginModal />
+                    </div>
                 </React.Fragment>
             )
         }
     }
 
     handleStream(){
-        var observable = Observable.create((observer:any) => {
+        Observable.create((observer:any) => {
             observer.next('hi');
         })
         

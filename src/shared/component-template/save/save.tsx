@@ -26,12 +26,12 @@ export default class Save extends React.Component <any,any>{
         return(
             <React.Fragment>
                 <div onClick={this.openModal}  style={{cursor: "pointer"}}>
-                    <i className="fa fa-heart-o"/> Save
+                    <i className="fas fa-heart"/> Save
                 </div>
                 <ReactModal
                     isOpen={this.state.saveModal}
                 >
-                    <i className="fa fa-close closeLogo" onClick={this.closeModal}/>
+                    <i className="fas fa-times closeLogo" onClick={this.closeModal}/>
                     <div>
                         {this.props.id}
                     </div>

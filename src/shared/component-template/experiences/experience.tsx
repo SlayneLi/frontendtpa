@@ -32,7 +32,7 @@ export default class Experience extends React.Component<any,any>{
                             {this.props.price} / person
                         </div>
                         <div className="hour-spent">
-                            <PointInfo ico="clock-o" text={this.props.hour + " hour (s)"} />
+                            <PointInfo ico="far fa-clock" text={this.props.hour + " hour (s)"} />
                         </div>
                         <div className="top-two-ame">
                             {this.props.ame.slice(0,2).map((a:any)=>{

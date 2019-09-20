@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import ImageUpload from '../../image-upload/imageUpload'
+import ImageUpload from '../../image-upload/image-upload'
 import './profile.scss'
 
 export default class Profile extends Component<any,any> {

@@ -3,7 +3,7 @@ import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import { connect } from 'react-redux'
 import "./auth.scss"
-import '../image-upload/index'
+import '../image-upload/index';
 
 class Authentication extends Component <any,any> {
     state = {
