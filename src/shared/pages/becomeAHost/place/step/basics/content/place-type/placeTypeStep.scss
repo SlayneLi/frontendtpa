@@ -1,0 +1,15 @@
+.places-type-step{
+    width: 80%;
+    margin: 3% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    .title-pts{
+        font-size: calc(20px + 0.6em);
+    }
+    >div{
+        width: 40%;
+        margin: 0.5%;
+    }
+}

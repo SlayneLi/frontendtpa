@@ -1,0 +1,59 @@
+.experience-page-step{
+    .self-desc-step, .amenities-exp-step , .activities-rundown-step, .activity-held-step, .guest-bring-step{
+        width: 80%;
+        margin: 3% 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        .title-text{
+            font-size: calc(20px + 0.6em)
+        }
+        >div{
+            margin: 0.5%;
+            width: 40%;
+            >input, >select , >textarea{
+                width: 70%;
+            }
+        }
+        .handle-bt{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    .amenity-stp{
+        display: flex;
+        width: 100%;
+        >input{
+            margin: 2%;
+            width: 10%;
+        }
+        >div{
+            width: 90%;
+        }
+    }
+    .photo-step-upload{
+        display: flex;
+        height: 20vh;
+        .photo-upload{
+            input{
+
+                margin-top: 25px !important;
+            }
+            button{
+                display: none;
+            }
+            width: 50%;
+        }
+        .video-upload{
+            input{
+                margin-top: 25px !important;
+            }
+            button{
+                display: none;
+            }
+            width: 50%;
+        }
+    }
+}
