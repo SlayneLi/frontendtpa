@@ -57,4 +57,14 @@
             background-image: url("https://a0.muscache.com/airbnb/static/startWishlistingIllustration.4b09cd02.svg");
         }
     }
+    .popular-list-sp{
+        display: flex;
+        flex-direction: column;
+        >div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 2% 0;
+        }
+    }
 }

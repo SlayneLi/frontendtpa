@@ -4,7 +4,7 @@ import './save-plan.scss'
 export default class SavePlan extends Component<any,any> {
     
     customStyle = {
-        backgroundImage: 'url(' + 'https://animemangalnvn.files.wordpress.com/2017/06/araragi-koyomi-hentai-face-amlnvn.png' + ')',
+        backgroundImage: 'url('+this.props.url+')',
         backgroundSize: 'cover',
         width: '20vw',
         height: '25vh'
@@ -14,7 +14,7 @@ export default class SavePlan extends Component<any,any> {
         return (
             <div className="save-container" style={this.customStyle}>
                 <div className="title">
-                    Rencana Bulan Madu
+                    {this.props.title}
                 </div>
             </div>
         )

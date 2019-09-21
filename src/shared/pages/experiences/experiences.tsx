@@ -2,8 +2,6 @@ import React from 'react';
 import Axios from 'axios';
 import Experience from '../../component-template/experiences/experience';
 import './experiences.scss'
-import { Link } from 'react-router-dom';
-import $ from 'jquery';
 
 export default class AllExperience extends React.Component {
     state = {
