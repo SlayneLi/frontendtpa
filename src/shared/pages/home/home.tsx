@@ -7,7 +7,7 @@ import Experience from "../../component-template/experiences/experience";
 import { Link } from "react-router-dom";
 import Gopher from "../../Images/Background/galaxy-gopher.png"
 
-export default class HomeComponent extends React.Component{
+export default class HomeComponent extends React.Component <any,any>{
     state = {
         place: [],
         exp: []
@@ -46,7 +46,7 @@ export default class HomeComponent extends React.Component{
                     {this.state.place.slice(0,4).map((p:any) =>{
                         return(
                             <Link to={`/place/${p.id}`}>
-                                <Place src = {p.pictures} category={p.place_type} loc={p.place_loc} name={p.place_name} price={p.average_price} D="1.5em" rating={p.average_rating} totalRating={p.total_rating} spacing="-0.75em"/>
+                                <Place src = {p.pictures} category={p.place_type} loc={p.place_loc} name={p.place_name} currency={this.props.currency} price={p.average_price} D="1.5em" rating={p.average_rating} totalRating={p.total_rating} spacing="-0.75em"/>
                             </Link>
                         )
                     })}
@@ -64,7 +64,7 @@ export default class HomeComponent extends React.Component{
                 <div className="experience-section">
                     {this.state.exp.slice(0,4).map((e:any) =>{
                         return(
-                            <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em" hour={e.estimate_hour} ame={e.amenities} isHidden = {true} id={e.id}/>
+                            <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} currency={this.props.currency} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em" hour={e.estimate_hour} ame={e.amenities} isHidden = {true} id={e.id}/>
                         )
                     })}
                 </div>

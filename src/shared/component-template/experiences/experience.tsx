@@ -4,8 +4,9 @@ import './experience.scss';
 import PointInfo from '../pointInfo/pointInfo';
 import { Link } from 'react-router-dom';
 import Save from '../save/save';
+import { connect } from 'react-redux';
 
-export default class Experience extends React.Component<any,any>{
+class Experience extends React.Component<any,any>{
     render(){
         return (
             <React.Fragment>
@@ -29,7 +30,7 @@ export default class Experience extends React.Component<any,any>{
                             {this.props.name}
                         </div>
                         <div className="exp-price">
-                            {this.props.price} / person
+                            {Math.round(this.props.price * this.props.rates)} {this.props.currency}/ person
                         </div>
                         <div className="hour-spent">
                             <PointInfo ico="far fa-clock" text={this.props.hour + " hour (s)"} />
@@ -50,3 +51,11 @@ export default class Experience extends React.Component<any,any>{
         )
     }
 }
+
+const mapStateToProps = (state:any) =>{
+    return{
+        currency: state.currency,
+        rates:state.rates
+    }
+}
+export default connect(mapStateToProps)(Experience);

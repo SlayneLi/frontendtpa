@@ -8,7 +8,6 @@ import './experiencedetail.scss'
 import ReactModal from 'react-modal'
 import PhotoModal from '../../modal/photos/photo';
 import StarRatings from 'react-star-ratings'
-import UserReview from '../review/userReview';
 import Review from '../review/review';
 
 function ShuffleArray(arr:any){

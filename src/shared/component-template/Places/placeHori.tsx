@@ -5,6 +5,7 @@ import StarRatings from 'react-star-ratings'
 import './placeHori.scss'
 import Save from '../save/save';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const resp= {
     o:{
@@ -16,7 +17,7 @@ const pad ={
     paddingRight: 0
 }
 
-export default class PlaceHori extends React.Component <any,any>{
+class PlaceHori extends React.Component <any,any>{
     state = {
         amenity: [],
     }
@@ -87,10 +88,18 @@ export default class PlaceHori extends React.Component <any,any>{
                             <div>({this.props.totalRating})</div>
                         </div>
                         <div>
-                            {this.props.price} / night
+                            {Math.round(this.props.price* this.props.rates)} {this.props.currency} / night
                         </div>
                     </div>
                 </div>
             </div>
         );
 }}
+
+const mapStateToProps = (state:any) =>{
+    return{
+        currency: state.currency,
+        rates:state.rates
+    }
+}
+export default connect(mapStateToProps)(PlaceHori);

@@ -1,8 +1,9 @@
 import React from 'react';
 import StarRatings  from 'react-star-ratings'
 import './placesCard.scss'
+import { connect } from 'react-redux';
 
-export default class Place extends React.Component<any,any>{
+class Place extends React.Component<any,any>{
     render(){
         return(
             <div className = "place-content">
@@ -17,7 +18,7 @@ export default class Place extends React.Component<any,any>{
                     {this.props.name}
                 </div>
                 <div className="price-plc">
-                    {this.props.price} / night
+                    {Math.round(this.props.price* this.props.rates)} {this.props.currency} / night
                 </div>
                 <div className="rating-plc">
                     <StarRatings rating={this.props.rating} name={this.props.ratName} starDimension={this.props.D} starSpacing={this.props.spacing} starRatedColor = {this.props.rateColor} starHoverColor={this.props.hoverColor}/>
@@ -27,3 +28,11 @@ export default class Place extends React.Component<any,any>{
         )
     }
 }
+
+const mapStateToProps = (state:any) =>{
+    return{
+        currency: state.currency,
+        rates:state.rates
+    }
+}
+export default connect(mapStateToProps)(Place);

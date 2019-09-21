@@ -10,8 +10,9 @@ import ReactModal from 'react-modal'
 import DatePicker from '../date-picker/date-picker';
 import StarRatings from 'react-star-ratings';
 import Review from '../review/review';
+import { connect } from 'react-redux';
 
-export default class placedetail extends Component<any,any> {
+class placedetail extends Component<any,any> {
     state = {
         id : "",
         data : {
@@ -302,7 +303,7 @@ export default class placedetail extends Component<any,any> {
                     </div>
                     <div className="guest-info-container">
                         <div style={{textAlign:"left",margin: "0 7%"}}>
-                            {this.state.data.average_price} / night
+                            {Math.round(this.state.data.average_price * this.props.rates)} {this.props.currency} / night
                         </div>
                         <div style={{textAlign:"left",margin: "0 7%"}}>
                         <StarRatings rating={this.state.data.average_rating} starDimension="1em" starSpacing="-0.75em"/> ({this.state.data.total_rating})
@@ -318,3 +319,10 @@ export default class placedetail extends Component<any,any> {
         )
     }
 }
+const mapStateToProps = (state:any) =>{
+    return{
+        currency: state.currency,
+        rates:state.rates
+    }
+}
+export default connect(mapStateToProps)(placedetail);

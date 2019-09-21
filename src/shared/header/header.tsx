@@ -14,6 +14,7 @@ import $ from "jquery";
 class HeaderComponent extends React.Component<any,any>{
 
     state = {
+        currency:"",
         curval: 0.0,
         place: [],
         exp: [],
@@ -26,6 +27,7 @@ class HeaderComponent extends React.Component<any,any>{
 
     constructor(props:any){
         super(props);
+        this.setState({currency:this.props.currency})
         this.onCurrencyChange = this.onCurrencyChange.bind(this);
     }
 
@@ -127,16 +129,43 @@ class HeaderComponent extends React.Component<any,any>{
         }
     }
 
-    async onCurrencyChange(){
+    onCurrencyChange=()=>{
         var e = document.getElementById("currency") as HTMLSelectElement;
-        await Axios.get("https://api.exchangeratesapi.io/latest?base="+localStorage.getItem("currency")+"&symbols="+e.value)
-                    .then(result => {
-                        console.log(result.data.rates);
-                        this.setState({curval:result.data.rates});
-                        console.log("curval",this.state.curval);
-                        console.log(this.state.curval * 5);
-                        localStorage.setItem("currency",e.value);
-                    })
+        Axios.get("https://api.exchangeratesapi.io/latest?base=USD&symbols="+e.value)
+            .then(result => {
+                this.setState({currency:e.value});
+                if(e.value === "USD"){
+                    this.props.changeCurrency(e.value,result.data.rates.USD);
+                }
+                else if(e.value === "JPY"){
+                    this.props.changeCurrency(e.value,result.data.rates.JPY);
+                }
+                else if(e.value === "IDR"){
+                    this.props.changeCurrency(e.value,result.data.rates.IDR);
+                }
+                else if(e.value === "SGD"){
+                    this.props.changeCurrency(e.value,result.data.rates.SGD);
+                }
+                else if(e.value === "KRW"){
+                    this.props.changeCurrency(e.value,result.data.rates.KRW);
+                }
+                else if(e.value === "THB"){
+                    this.props.changeCurrency(e.value,result.data.rates.THB);
+                }
+                else if(e.value === "CAD"){
+                    this.props.changeCurrency(e.value,result.data.rates.CAD);
+                }
+                else if(e.value === "CNY"){
+                    this.props.changeCurrency(e.value,result.data.rates.CNY);
+                }
+                else if(e.value === "PHP"){
+                    this.props.changeCurrency(e.value,result.data.rates.PHP);
+                }
+                else if(e.value === "GBP"){
+                    this.props.changeCurrency(e.value,result.data.rates.GBP);
+                }
+                console.log(this.props.rates);
+            })
     }
 
     render(){
@@ -188,14 +217,17 @@ const mapStateToProps = (state:any) =>{
     return{
         email: state.email,
         firstname: state.firstname,
-        lastname: state.lastname
+        lastname: state.lastname,
+        rates: state.rates,
+        currency: state.currency,
     }
 }
 
 const mapDispatchToProps = (dispatch:any) =>{
     return{
         onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname }),
-        onLogout: () => dispatch({type: 'LOGOUT'})
+        onLogout: () => dispatch({type: 'LOGOUT'}),
+        changeCurrency: (currency:string,rates:number) => dispatch({type: 'CHANGE_CURRENCY',currency:currency,rates:rates})
     };
 }
 
