@@ -1,7 +1,72 @@
 import React, { Component } from 'react'
 import './chat-detail.scss'
+import io from "socket.io-client";
+import { connect } from 'react-redux';
+import Axios from 'axios';
 
-export default class ChatDetail extends Component {
+class ChatDetail extends React.Component<any,any> {
+    
+    getSocket = () => {
+        const port = process.env.PORT || 6969;
+        const url = "http://localhost:" + port;
+        return io(url);
+    }
+
+    state = {
+        socket: this.getSocket(),
+    }
+
+    handleNewMessage = (message: any) => {
+        const chatContainer: any = document.getElementById("chats");
+        chatContainer.innerHTML += `<div>${message.content}</div>`
+    }
+
+    onUpload = (e:any) => {
+        let reader = new FileReader()
+        reader.onload = () => {
+            console.log(reader.result)
+        }
+        reader.readAsDataURL(e.target.files[0])
+    }
+
+    onSubmit = (e:any) => {
+        e.preventDefault()
+        const messageInput: any = document.getElementById("form-input")
+        if(messageInput.value === "")
+            return
+                const data = {
+                    sender: this.props.email,
+                    type: "text",
+                    content: messageInput.value
+            }
+        //masukin ke axios
+        this.state.socket.emit('send message', data, this.handleNewMessage)
+        messageInput.value = "";
+    }
+
+    componentDidMount(){
+        
+        this.state.socket.on('new message', this.handleNewMessage);
+        
+    
+        // socket.on('new message', function(data) {
+        //     let c = "ours"
+        //     let image = user.profileImage;
+        //     if(data.sender !== user.id){
+        //         c = "theirs"
+        //         image = otherUser.profileImage
+        //     }
+        // })
+    
+        // messageContainer.innerHTML += `<div class="message-container $(c)">
+        //     <img src=$(image) class="profile-image" />
+        //     <div>
+        //         <div class="message-content">$(data.content)</div>
+        //         <small>${getMessageTime({})}</small>
+        //     </div>
+        // </div>`
+    }
+
     render() {
         return (
             <div className="chat-container">
@@ -112,11 +177,36 @@ export default class ChatDetail extends Component {
                     <div className="conversation-title">
                         CHAT PAGE
                     </div>
+                    <hr/>
                     <div className="conversation-box">
-                        CHAT BOX
+                        CHAT HERE
+                    </div>
+                    <div className="form-section">
+                        <form action="" id="form-message" onSubmit={this.onSubmit.bind(this)}>
+                            <div className="input-section">
+                                <input type="text" name="" id="form-input"/>
+                            </div>
+                            <div className="button-section">
+                                <input type="file" accept="image/*" onChange={this.onUpload.bind(this)} style={{display: "none"}} id="file"/>
+                                <label htmlFor="file">image</label>
+                                <input type="submit" value="SUBMIT"/>
+                            </div>
+                        </form>
+                    </div>
+                    <hr/>
+                    <div id="chats">
+
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state:any) =>{
+    return{
+        email: state.email
+    };
+};
+
+export default connect(mapStateToProps, {})(ChatDetail);

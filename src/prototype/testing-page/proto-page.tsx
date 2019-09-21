@@ -77,7 +77,7 @@ export default class ProtoPage extends Component<any,any> {
                 {/* <ImageUploader /> */}
                 {/* <Stepper /> */}
                 {/* <ImageUpload /> */}
-                {/* <ChatDetail /> */}
+                {/* <ChatDetail/> */}
                 {/* <div className="image-upload">
                     <ImagesUpload
                         withIcon={false}
@@ -88,7 +88,7 @@ export default class ProtoPage extends Component<any,any> {
                     />
                 </div> */}
                 {/* <SavePlan /> */}
-                {/* <SaveDetail /> */}
+                <SaveDetail />
             </div>
         )
     }

@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     width: 70%;
+    margin-bottom: 2.5%;
     .trans-detail{
         border: 2px solid whitesmoke;
         display: flex;
@@ -187,14 +188,47 @@
         display: flex;
         flex-direction: column;
         margin-right: 5%;
-        background-color: dodgerblue;
+        padding: 0.5% 0.5% 0.5% 0.5%;
+        border: 2px solid gray;
+        background-color: #1089ff;
         .conversation-title{
             font-size: 3em;
             justify-content: center;
-            background-color: orange;
+            // background-color: orange;
+        }
+        hr{
+            width: 100%;
         }
         .conversation-box{
-            background-color: green;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .form-section{
+            height: 5vh;
+            display: flex;
+            >form{
+                width: 100%;
+                display: flex;
+                .input-section{
+                    display: flex;
+                    width: 80%;
+                    input{
+                        width: 95%;
+                    }
+                }
+                .button-section{
+                    display: flex;
+                    width: 20%;
+                    input{
+                        width: 100%;
+                        background-color: #e5e5e5;
+                    }
+                }
+            }
         }
     }
+}
+#chats {
+    display: flex;
+    flex-direction: column-reverse;
 }
