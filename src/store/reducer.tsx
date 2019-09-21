@@ -4,7 +4,9 @@ const initState = {
     lastname: "",
     adultCount: 0,
     childCount: 0,
-    infantCount: 0
+    infantCount: 0,
+    currency: "",
+    rates: 0.0,
 }
 
 const reducer = (state = initState,action:any) =>{
@@ -58,6 +60,12 @@ const reducer = (state = initState,action:any) =>{
             return{
                 ...state,
                 infantCount: state.infantCount - 1
+            }
+        case 'CHANGE_CURRENCY':
+            return{
+                ...state,
+                currency: action.currency,
+                rates: action.rate,
             }
     }
     return state;

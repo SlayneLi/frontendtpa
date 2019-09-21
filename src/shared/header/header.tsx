@@ -136,6 +136,7 @@ class HeaderComponent extends React.Component<any,any>{
                         console.log("curval",this.state.curval);
                         console.log(this.state.curval * 5);
                         localStorage.setItem("currency",e.value);
+                        // this.props.changeCurrency(e.value , result.data.rates)
                     })
     }
 
@@ -188,14 +189,17 @@ const mapStateToProps = (state:any) =>{
     return{
         email: state.email,
         firstname: state.firstname,
-        lastname: state.lastname
+        lastname: state.lastname,
+        currency: state.currency,
+        rates: state.rates,
     }
 }
 
 const mapDispatchToProps = (dispatch:any) =>{
     return{
         onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname }),
-        onLogout: () => dispatch({type: 'LOGOUT'})
+        onLogout: () => dispatch({type: 'LOGOUT'}),
+        changeCurrency: (currency:string, rates:number) => dispatch({type:'CHANGE_CURRENCY', currency:currency , rate:rates})
     };
 }
 
