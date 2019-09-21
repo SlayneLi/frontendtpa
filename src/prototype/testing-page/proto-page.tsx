@@ -30,6 +30,16 @@ export default class ProtoPage extends Component<any,any> {
             .then(result => {
                 console.log(result);
             })
+        
+        Axios.post("http://kentang.online:3001/insert-save-plan",{
+            "plan_name" : "reiven plan", // this.state.plan_name
+            "place_id" : "6aasdasda",
+            "experience_id": "asd",
+            "pic_url": "ads",
+            "privacy": "asd",
+            "total_guest": 1,
+            "plan_dates": "asd" 
+        })
     }
 
     onDrop = (picture:any) =>{

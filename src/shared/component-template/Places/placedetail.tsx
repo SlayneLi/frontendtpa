@@ -308,7 +308,7 @@ export default class placedetail extends Component<any,any> {
                         <StarRatings rating={this.state.data.average_rating} starDimension="1em" starSpacing="-0.75em"/> ({this.state.data.total_rating})
                         </div>
                         <div>
-                            <input type="date" placeholder="Check-in"/> -> <input type="date" placeholder="Checkout"/>
+                            <input type="date" placeholder="Check-in" id="check-in-pd"/> -> <input type="date" placeholder="Checkout" id="check-out-pd"/>
                         </div>
                         <Guest maxGuest={this.state.data.max_guest}/>
                         <button>Book</button>

@@ -87,7 +87,7 @@ export default class PlaceHori extends React.Component <any,any>{
                             <div>({this.props.totalRating})</div>
                         </div>
                         <div>
-                            {this.props.price}
+                            {this.props.price} / night
                         </div>
                     </div>
                 </div>

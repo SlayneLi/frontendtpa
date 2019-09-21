@@ -86,3 +86,10 @@ header{
 .out-button:hover{
     background-color: #F9B1FF;
 }
+
+.DayPicker{
+    animation: unset !important;
+    div{
+        animation: unset !important;
+    }
+}
