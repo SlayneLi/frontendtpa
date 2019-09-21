@@ -5,8 +5,13 @@ const initState = {
     adultCount: 0,
     childCount: 0,
     infantCount: 0,
+<<<<<<< HEAD
     currency: "USD",
     rates: 1.0,
+=======
+    currency: "",
+    rates: 0.0,
+>>>>>>> ca18c07f21f07aa45148ea4d134b4ea317d386ba
 }
 
 const reducer = (state = initState,action:any) =>{
@@ -65,7 +70,11 @@ const reducer = (state = initState,action:any) =>{
             return{
                 ...state,
                 currency: action.currency,
+<<<<<<< HEAD
                 rates: action.rates
+=======
+                rates: action.rate,
+>>>>>>> ca18c07f21f07aa45148ea4d134b4ea317d386ba
             }
     }
     return state;
