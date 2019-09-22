@@ -23,8 +23,6 @@ import SavedPlan from './shared/pages/savedPlan/savedPlan';
 import SaveDetail from './shared/pages/saveplanDetail/save-detail-page';
 
 const App: React.FC = () => {
-  localStorage.setItem("currency","USD");
-  localStorage.setItem("value","555");
   return (
     <div className="App">
       <Router>

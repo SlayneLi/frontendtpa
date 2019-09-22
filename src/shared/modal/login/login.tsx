@@ -49,7 +49,6 @@ class LoginModal extends React.Component<any,any>{
 
     async login(e:any){
         e.preventDefault();
-        console.log("bing bong");
         var email = document.getElementById("email-login") as HTMLInputElement;
         var password = document.getElementById("password-login") as HTMLInputElement;
         var flag = 0;

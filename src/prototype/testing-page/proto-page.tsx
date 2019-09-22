@@ -54,7 +54,7 @@ export default class ProtoPage extends Component<any,any> {
                 This is a Testing Prototype Page
                 {/* <Account /> */}
                 {/* <BookingExperience /> */}
-                <BookingPlace />
+                {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
                 <i className="fab fa-product-hunt"></i>
                 <i className="fas fa-wifi"></i>
@@ -67,7 +67,7 @@ export default class ProtoPage extends Component<any,any> {
                 <i className="fas fa-fire-extinguisher"></i>
                 <i className="fas fa-medkit"></i>
                 <i className="fas fa-bell"></i> */}
-                {/* <Profile name="Reich Vitz" /> */}
+                <Profile email="vintzclagoz@gmail.com" />
                 {/* <Test/> */}
                 {/* <ProfilePage /> */}
                 {/* <i className="fas fa-wifi"></i> */}
@@ -88,7 +88,7 @@ export default class ProtoPage extends Component<any,any> {
                     />
                 </div> */}
                 {/* <SavePlan /> */}
-                <SaveDetail />
+                {/* <SaveDetail /> */}
             </div>
         )
     }
