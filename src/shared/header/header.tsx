@@ -61,7 +61,17 @@ class HeaderComponent extends React.Component<any,any>{
         if(this.props.email !== ""){
             return(
                 <React.Fragment>
-                    <Link to={"/become-place-host/"}>
+                    <Link to={"/become-host/"}>
+                        <div>
+                            Become a Host
+                        </div>
+                    </Link>
+                    <Link to={"/"} >
+                        <div>
+                            Bookings
+                        </div>
+                    </Link>
+                    {/* <Link to={"/become-place-host/"}>
                         <div>
                             Become a Place Host
                         </div>
@@ -70,7 +80,7 @@ class HeaderComponent extends React.Component<any,any>{
                         <div>
                             Become a Experience Host
                         </div>
-                    </Link>
+                    </Link> */}
                     <div>
                         Hello, {this.props.firstname}
                     </div>
@@ -192,7 +202,7 @@ class HeaderComponent extends React.Component<any,any>{
                     </div>
                 </div>
                 <div className="menu">
-                    <div>
+                    <div className="curr-menu">
                         <select name="currBar" id="currency" onChange={this.onCurrencyChange}>
                             <option value="USD">USD</option>
                             <option value="JPY">JPY</option>
