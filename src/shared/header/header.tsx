@@ -71,16 +71,6 @@ class HeaderComponent extends React.Component<any,any>{
                             Bookings
                         </div>
                     </Link>
-                    {/* <Link to={"/become-place-host/"}>
-                        <div>
-                            Become a Place Host
-                        </div>
-                    </Link>
-                    <Link to={"/become-experience-host"}>
-                        <div>
-                            Become a Experience Host
-                        </div>
-                    </Link> */}
                     <div>
                         Hello, {this.props.firstname}
                     </div>
