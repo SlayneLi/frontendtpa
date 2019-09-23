@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import StarRating from 'react-star-ratings'
-import ComboBox from '../../component-template/guest/guest'
+import ComboBox from '../../../component-template/guest/guest'
 import './bookingexperience.scss'
 
 export default class BookingExperience extends Component<any,any> {

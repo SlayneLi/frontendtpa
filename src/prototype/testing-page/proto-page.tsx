@@ -8,8 +8,8 @@ import ChatDetail from '../../shared/pages/chatdetail/chat-detail'
 import ImagesUpload from 'react-images-upload'
 import SavePlan from '../../shared/component-template/saved-plan/save-plan-component'
 import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
-import BookingPlace from '../../shared/pages/bookingplace/bookingplace'
-import BookingExperience from '../../shared/pages/bookingexperience/bookingexperience'
+import BookingPlace from '../../shared/pages/booking/bookingplace/bookingplace'
+import BookingExperience from '../../shared/pages/booking/bookingexperience/bookingexperience'
 import Account from '../../shared/pages/account/account'
 
 import Axios from 'axios'
@@ -54,7 +54,7 @@ export default class ProtoPage extends Component<any,any> {
                 This is a Testing Prototype Page
                 {/* <Account /> */}
                 {/* <BookingExperience /> */}
-                <BookingPlace />
+                {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
                 <i className="fab fa-product-hunt"></i>
                 <i className="fas fa-wifi"></i>
@@ -67,7 +67,7 @@ export default class ProtoPage extends Component<any,any> {
                 <i className="fas fa-fire-extinguisher"></i>
                 <i className="fas fa-medkit"></i>
                 <i className="fas fa-bell"></i> */}
-                {/* <Profile name="Reich Vitz" /> */}
+                <Profile email="vintzclagoz@gmail.com" />
                 {/* <Test/> */}
                 {/* <ProfilePage /> */}
                 {/* <i className="fas fa-wifi"></i> */}
@@ -88,7 +88,7 @@ export default class ProtoPage extends Component<any,any> {
                     />
                 </div> */}
                 {/* <SavePlan /> */}
-                <SaveDetail />
+                {/* <SaveDetail /> */}
             </div>
         )
     }

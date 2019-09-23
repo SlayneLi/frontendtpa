@@ -15,11 +15,11 @@ export default class Profile extends Component<any,any> {
         console.log("change picture clicked")
     }
 
-    async componentDidMount(){
-        await Axios.get(`http://localhost:3001/get-user/${this.props.id}`)
-                    .then(res => {
-                        console.log(res);
-                    })
+    componentDidMount(){
+        Axios.get(`http://localhost:3001/get-user/${this.props.email}`)
+            .then(res => {
+                console.log(res);
+            })
     }
 
     render() {

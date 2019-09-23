@@ -1,13 +1,20 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class BookingHistory extends React.Component {
+class BookingHistory extends React.Component <any,any>{
     state={
         booking:[],
+        
     }
     
     componentDidMount(){
-        axios.get("http://kentang.online:3001/get-booking-history/vintzclagoz@gmail.com")
+        if(localStorage.getItem("email") === null){
+            alert("Please login first");
+            window.location.href = "http://localhost:3000/";
+            return;
+        }
+        axios.get("http://kentang.online:3001/get-booking-history/"+this.props.email)
                 .then( result => {
                     this.setState({
                         booking:result.data
@@ -30,3 +37,11 @@ export default class BookingHistory extends React.Component {
             </div>
         );
 }}
+
+const mapStateToProps = (state:any) =>{
+    return{
+        email: state.email,
+    }
+}
+
+export default connect(mapStateToProps)(BookingHistory)

@@ -45,16 +45,27 @@ header{
     .menu{
         width: 50%;
         margin: 0 2.5%;
-        >div,a{
-            width: max-content;
-            display: flex;
-            justify-content: space-evenly;
-            text-decoration: none;
-            font-weight: 400;
-            color: #202020;
+        padding-top: 1.5%;
+        display: flex;
+        .curr-menu{
+            width: 20%;
+            select{
+                width: 100%;
+                height: 100%;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+            }
         }
         .session-ctrl{
-            width: 30%;
+            width: 100%;
+            display: flex; 
+            justify-content: flex-end;
+            >div{
+                width: 25%;
+                display: flex;
+                justify-content: flex-end;
+            }
         }
     }
     .searchBar , .menu{
@@ -92,4 +103,9 @@ header{
     div{
         animation: unset !important;
     }
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
