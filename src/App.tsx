@@ -47,7 +47,7 @@ const App: React.FC = () => {
           <Route path="/profile/:id" exact component={Profile} />
           <Route path="/save-plans" exact component={SavedPlan}/>
           <Route path="/save-plan/:id" exact component={SaveDetail} />
-          <Route path="/bookings" exact component={BookingHistory} />
+          <Route path="/booking-history" exact component={BookingHistory} />
         </Switch>
       <FooterComponent />
       </Router>

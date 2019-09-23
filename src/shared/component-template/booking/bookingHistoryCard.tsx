@@ -1,4 +1,5 @@
 import React from 'react';
+import './bookingHistoryCard.scss'
 
 export default class BookingHistoryCard extends React.Component<any,any> {
     render(){
@@ -15,13 +16,20 @@ export default class BookingHistoryCard extends React.Component<any,any> {
                             <div> | </div>
                             <div>{this.props.name}</div>
                         </div>
-                        <div className="bh-check">
-                            <div>Check in : </div>
-                            <div></div>
+                        <div className="bh-check-in">
+                            <div>Check in : {this.props.checkIn}</div>
+                        </div>
+                        <div className="bh-check-out">
+                            <div>Check Out : {this.props.checkout}</div>
                         </div>
                     </div>
                     <div className="bh-right">
-
+                        <div>
+                            {this.props.currency}
+                        </div>
+                        <div>
+                            {this.props.price}
+                        </div>
                     </div>
                 </div>
             </div>

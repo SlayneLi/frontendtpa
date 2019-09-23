@@ -58,6 +58,7 @@ class HeaderComponent extends React.Component<any,any>{
     }
 
     usercontrol(){
+        console.log(this.props)
         if(this.props.email !== ""){
             return(
                 <React.Fragment>
