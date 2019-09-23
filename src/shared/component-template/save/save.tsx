@@ -29,7 +29,7 @@ export default class Save extends React.Component <any,any>{
                 <div onClick={this.openModal}  style={{cursor: "pointer"}}>
                     <i className="fas fa-heart"/> Save
                 </div>
-                <SavedPlanModal id={this.props.id} modalState={this.state.saveModal} closeModal={this.closeModal}/>
+                <SavedPlanModal place={this.props.place} exp={this.props.exp} modalState={this.state.saveModal} closeModal={this.closeModal}/>
             </React.Fragment>
         );
 }}
