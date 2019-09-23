@@ -22,6 +22,7 @@ import Profile from './shared/pages/profile/profile';
 import Proto from './prototype/testing-page/proto-page';
 import SavedPlan from './shared/pages/savedPlan/savedPlan';
 import SaveDetail from './shared/pages/saveplanDetail/save-detail-page';
+import Booking from './shared/pages/booking/bookingmain/booking'
 
 const App: React.FC = () => {
   return (
@@ -40,6 +41,7 @@ const App: React.FC = () => {
           <Route path="/become-host/" exact component={BecomeHost}/>
           <Route path="/become-place-host/" exact component={BecomePlaceHost} />
           <Route path="/become-experience-host/" exact component={HeaderExpSteps} />
+          <Route path="/booking/" exact component={Booking}/>
           <Route path="/reviewTest/" exact component={UserReview} />
           <Route path="/testDate" exact component={DatePicker} />
           <Route path="/proto/" exact component={Proto} />

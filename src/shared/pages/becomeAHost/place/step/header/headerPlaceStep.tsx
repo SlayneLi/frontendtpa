@@ -78,9 +78,6 @@ export default class HeaderPlaceSteps extends React.Component<any,any> {
         const {steps,currentStep} = this.state
         return (
             <div>
-                <div onClick={this.handleStep}>
-                    a
-                </div>
                 <div>
                     <Stepper steps={ steps } activeStep={ currentStep } />
                 </div>

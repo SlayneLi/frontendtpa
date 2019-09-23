@@ -66,7 +66,7 @@ class HeaderComponent extends React.Component<any,any>{
                             Become a Host
                         </div>
                     </Link>
-                    <Link to={"/"} >
+                    <Link to={"/booking/"} >
                         <div>
                             Bookings
                         </div>
