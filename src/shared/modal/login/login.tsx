@@ -85,6 +85,8 @@ class LoginModal extends React.Component<any,any>{
                         });
             console.log(this.state.showModal);
             console.log(this.state.user_data);
+            localStorage.setItem("url",result.data.display_picture);
+            console.log(localStorage.getItem("url"));
         })
         if(!this.state.user_data){
             alert("invalid email/password");

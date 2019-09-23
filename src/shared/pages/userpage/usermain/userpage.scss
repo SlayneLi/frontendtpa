@@ -1,0 +1,31 @@
+
+.userpage-container{
+    width: 80%;
+    height: 125vh;
+    padding: 0% 10% 0% 10%;
+    .nav{
+        display: flex;
+        margin-bottom: 5%;
+        #left{
+            width: 33.33%;
+            >svg{
+                height: 25px;
+                width: 25px;
+            }
+        }
+        #title{
+            width: 33.33%;
+            display: flex;
+            justify-content: space-around;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        #right{
+            width: 33.33%;
+            >svg{
+                height: 25px;
+                width: 25px;
+            }
+        }
+    }
+}
