@@ -20,7 +20,8 @@ export default class SaveDetail extends Component <any,any> {
             pic_url: "",
             privacy: "",
             id: "",
-            plan_date: "",
+            start_date: "",
+            end_date: "",
             guest_count: 0,
         },
         places:[{
@@ -111,7 +112,7 @@ export default class SaveDetail extends Component <any,any> {
                         {this.state.data.plan_name}
                     </div>
                     <div>
-                        {this.state.data.plan_date} | {this.state.data.guest_count} Guest(s)
+                        {this.state.data.start_date} - {this.state.data.end_date} | {this.state.data.guest_count} Guest(s)
                     </div>
                     <div>
                         <img src={this.state.data.pic_url} alt=""/>

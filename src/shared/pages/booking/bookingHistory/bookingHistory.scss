@@ -1,0 +1,15 @@
+.booking-history{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .booking-history-title{
+        font-size: calc(18px + 0.6em);
+    }
+    .booking-list{
+        width: 80%;
+        margin: 2% 10%;
+        >div{
+            margin: 2% 0;
+        }
+    }
+}

@@ -50,7 +50,7 @@ class PlaceHori extends React.Component <any,any>{
                                 {this.props.category}
                             </div>
                             <div>
-                                <Save id={this.props.id}/>
+                                <Save place={this.props.id}/>
                             </div>
                         </div>
                         <Link to={`/place/${this.props.id}`}>

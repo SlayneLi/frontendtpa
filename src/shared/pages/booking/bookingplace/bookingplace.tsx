@@ -2,12 +2,48 @@ import React, { Component } from 'react'
 import StarRatings from 'react-star-ratings'
 import GuestComboBox from '../../../component-template/guest/guest'
 import './bookingplace.scss'
+import Axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class BookingPlace extends Component<any,any> {
+class BookingPlace extends Component<any,any> {
     constructor(props:any){
         super(props);
         this.onPostpone = this.onPostpone.bind(this);
         this.onPay = this.onPay.bind(this);
+    }
+
+    state = {
+        id:"",
+        place: {
+            pictures: [],
+            place_name: "",
+            place_type: "",
+            average_rating: 0.0,
+            average_price: 0,
+            max_guest: 0,
+        },
+        booking: {
+            total_guest: 0,
+            check_in: "",
+            check_out: "",
+        },
+    }
+
+    componentWillMount(){
+        this.setState({id: this.props.match.params.id});
+        Axios.get(`http://kentang.online:3001/get-book/${this.props.match.params.id}`)
+            .then( result => {
+                this.setState({booking: result.data, guest: result.data.total_guest});
+                Axios.get("http://kentang.online:3001/get-place/"+result.data.occurence_id)
+                    .then( res => {
+                        this.setState({place: res.data});
+                    }).catch(error=>{
+                        console.log(error);
+                    })
+            })
+            .catch( error => {
+                console.log(error);
+            })
     }
 
     onPostpone(){
@@ -24,28 +60,28 @@ export default class BookingPlace extends Component<any,any> {
                 <div className="bookingplace-container">
                     <div className="book-summary-section">
                         <div className="picture-section">
-                            <img src="https://66.media.tumblr.com/134f2a70fe4dfe6990fce8a83bc216f7/tumblr_mzry6uGppu1rzs4vyo1_500.png" alt=""/>
+                            <img src={this.state.place.pictures[0]} alt=""/>
                         </div>
                         <div className="summary-section">
                             <div className="place-summary">
                                 Place Summary
                             </div>
                             <div className="place-title">
-                                Pettinarihome Campo de FIORI
+                                {this.state.place.place_name}
                             </div>
                             <div className="place-rating">
                                 <div className="rating">
-                                    <StarRatings />
+                                    <StarRatings rating={this.state.place.average_rating} starDimension="1em" starSpacing="-0.75em"/>
                                 </div>
                                 <div className="guest-count">
                                     <div className="icon">
                                         <i className="fas fa-users"></i>
                                     </div>
                                     <div className="guest-num">
-                                        1
+                                        {this.props.totalCount}
                                     </div>
                                     <div className="guest-title">
-                                        guest(s)
+                                        / {this.state.place.max_guest} guest(s) 
                                     </div>
                                 </div>
                             </div>
@@ -57,18 +93,18 @@ export default class BookingPlace extends Component<any,any> {
                                     <i className="far fa-calendar"></i>
                                 </div>
                                 <div className="check-in check">
-                                    Jul 15, 2019
+                                    {this.state.booking.check_in}
                                 </div>
                                 <div className="to-symbol">
                                     &rarr;
                                 </div>
                                 <div className="check-out check">
-                                    Jul 16, 2019
+                                    {this.state.booking.check_out}
                                 </div>
                             </div>
                             <div className="combo-section">
                                 <div className="guest-combo">
-                                    <GuestComboBox />
+                                    <GuestComboBox maxGuest={this.state.place.max_guest} />
                                 </div>
                                 <div className="detail-status">
                                     <div className="detail-title">
@@ -77,7 +113,7 @@ export default class BookingPlace extends Component<any,any> {
                                     <hr/>
                                     <div className="rent-fee">
                                         <div className="base-fee">
-                                            107
+                                            {Math.round(this.state.place.average_price * this.props.rates)} {this.props.currency}
                                         </div>
                                         <div className="cross">
                                             x
@@ -86,18 +122,18 @@ export default class BookingPlace extends Component<any,any> {
                                             1
                                         </div>
                                         <div className="night-title">
-                                            night(s)
+                                            person(s)
                                         </div>
                                         <div className="total-night-fee">
-                                            107
+                                            {Math.round(this.state.place.average_price * this.props.totalCount * this.props.rates)} {this.props.currency}
                                         </div>
                                     </div>
                                     <div className="service-fee">
                                         <div className="service-title">
-                                            Service Fee
+                                            Service Fee (10%)
                                         </div>
                                         <div className="fee">
-                                            13
+                                            {Math.round(this.state.place.average_price * this.props.totalCount * this.props.rates * 10 / 100)} {this.props.currency}
                                         </div>
                                     </div>
                                     <hr/>
@@ -106,7 +142,7 @@ export default class BookingPlace extends Component<any,any> {
                                             Total
                                         </div>
                                         <div className="total-price">
-                                            120
+                                            {(Math.round(this.state.place.average_price * this.props.totalCount * this.props.rates * 10 / 100)) + Math.round(this.state.place.average_price * this.props.totalCount * this.props.rates)} {this.props.currency}
                                         </div>
                                     </div>
                                 </div>
@@ -130,3 +166,12 @@ export default class BookingPlace extends Component<any,any> {
         )
     }
 }
+const mapStateToProps = (state:any) =>{
+    return{
+        currency: state.currency,
+        rates:state.rates,
+        totalCount: state.totalCount,
+    }
+}
+
+export default connect(mapStateToProps)(BookingPlace);

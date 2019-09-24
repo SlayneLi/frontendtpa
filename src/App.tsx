@@ -18,11 +18,14 @@ import ProtoPage from './prototype/testing-page/proto-page';
 import HeaderExpSteps from './shared/pages/becomeAHost/experience/step/header/headerExpStep';
 import DatePicker from './shared/component-template/date-picker/date-picker';
 import UserReview from './shared/component-template/review/userReview';
-import Profile from './shared/pages/profile/profile';
+import Profile from './shared/pages/userpage/profile/profile';
 import Proto from './prototype/testing-page/proto-page';
 import SavedPlan from './shared/pages/savedPlan/savedPlan';
 import SaveDetail from './shared/pages/saveplanDetail/save-detail-page';
 import BookingHistory from './shared/pages/booking/bookingHistory/bookingHistory';
+import UserPage from './shared/pages/userpage/usermain/userpage'
+import BookingPlace from './shared/pages/booking/bookingplace/bookingplace';
+import BookingExperience from './shared/pages/booking/bookingexperience/bookingexperience';
 
 const App: React.FC = () => {
   return (
@@ -44,10 +47,13 @@ const App: React.FC = () => {
           <Route path="/reviewTest/" exact component={UserReview} />
           <Route path="/testDate" exact component={DatePicker} />
           <Route path="/proto/" exact component={Proto} />
-          <Route path="/profile/:id" exact component={Profile} />
+          <Route path="/profile/" exact component={Profile} />
           <Route path="/save-plans" exact component={SavedPlan}/>
           <Route path="/save-plan/:id" exact component={SaveDetail} />
-          <Route path="/booking-history" exact component={BookingHistory} />
+          <Route path="/booking-history/" exact component={BookingHistory} />
+          <Route path="/booking-place/:id" exact component={BookingPlace}/>
+          <Route path="/booking-experience/:id" exact component={BookingExperience}/> 
+          <Route path="/userpage" exact component={UserPage}/>
         </Switch>
       <FooterComponent />
       </Router>

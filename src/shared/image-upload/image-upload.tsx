@@ -7,7 +7,7 @@ export default class ImageUpload extends Component<any,any>{
         super(props);
         this.state = {
             image: null,
-            url: '',
+            url: localStorage.getItem("url"),
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleUpload = this.handleUpload.bind(this);
@@ -34,6 +34,7 @@ export default class ImageUpload extends Component<any,any>{
             storage.ref('images').child(image.name).getDownloadURL().then(url => {
                 console.log(url);
                 this.setState({url});
+                localStorage.setItem("url",this.state.url);
             })
         });
     }
@@ -44,8 +45,13 @@ export default class ImageUpload extends Component<any,any>{
                 <div className="image-container">
                     <img src={this.state.url} alt="upl-file"/>
                 </div>
-                <input type="file" name="" id="" onChange={this.handleChange}/>
-                <button onClick={this.handleUpload}>UPLOAD</button>
+                <div className="file-upload">
+                    <input type="file" name="" id="file" onChange={this.handleChange} hidden/>
+                    <label htmlFor="file">Choose File</label>
+                </div>
+                <div className="upload-button">
+                    <button onClick={this.handleUpload}>UPLOAD</button>
+                </div>
             </div>
         )
     }

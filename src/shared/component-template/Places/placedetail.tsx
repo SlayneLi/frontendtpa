@@ -138,7 +138,7 @@ class placedetail extends Component<any,any> {
                     </div>
                     <PhotoModal pic={this.state.pic} openModal={this.state.openPic} closeModal={this.openClosePhotos}/>
                     <Share link={this.props.match.params.id} type="place"/>
-                    <Save id={this.state.id}/>
+                    <Save place={this.state.id}/>
                 </div>
                 <div className="place-detail-image">
                     <div>

@@ -67,13 +67,16 @@ class HeaderComponent extends React.Component<any,any>{
                             Become a Host
                         </div>
                     </Link>
-                    <Link to={"/booking/"} >
+                    <Link to={"/booking-history/"} >
                         <div>
                             Bookings
                         </div>
                     </Link>
                     <div>
-                        Hello, {this.props.firstname}
+                        Hello,
+                        <Link to={"/userpage"}>
+                            {this.props.firstname}
+                        </Link>
                     </div>
                     <div className="out-button" onClick={() => this.signOut()}>
                         SIGNOUT

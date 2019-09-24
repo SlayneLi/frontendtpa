@@ -5,6 +5,7 @@ const initState = {
     adultCount: 0,
     childCount: 0,
     infantCount: 0,
+    totalCount: 0,
     currency: "USD",
     rates: 1.0,
 }
@@ -34,22 +35,26 @@ const reducer = (state = initState,action:any) =>{
         case 'ADULT_COUNT_INCREMENT':
             return{
                 ...state,
-                adultCount: state.adultCount + 1
+                adultCount: state.adultCount + 1,
+                totalCount: state.adultCount + 1 + state.childCount
             }
         case 'ADULT_COUNT_DECREMENT':
             return{
                 ...state,
-                adultCount: state.adultCount - 1
+                adultCount: state.adultCount - 1,
+                totalCount: state.adultCount - 1 + state.childCount                
             }
         case 'CHILD_COUNT_INCREMENT':
             return{
                 ...state,
-                childCount: state.childCount + 1
+                childCount: state.childCount + 1,
+                totalCount: state.adultCount + state.childCount + 1
             }
         case 'CHILD_COUNT_DECREMENT':
             return{
                 ...state,
-                childCount: state.childCount - 1
+                childCount: state.childCount - 1,
+                totalCount: state.adultCount + state.childCount - 1
             }
         case 'INFANT_COUNT_INCREMENT':
             return{
