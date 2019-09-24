@@ -29,14 +29,26 @@ class UserPage extends Component<any,any> {
         }],
     }
 
-    componentDidMount(){
-        Axios.get("http://kentang.online:3001/get-user-reviews/"+this.props.email)
+    async componentDidMount(){
+        let a = new Date();
+        let login_time = a.getFullYear() + "-" + (a.getMonth()+1) + "-" + a.getDate() + " " + a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds() 
+        await Axios.get("http://kentang.online:3001/get-user-reviews/"+this.props.email)
             .then(ures => {
                 this.setState({user_reviews : ures.data});
             });
-        Axios.get("http://kentang.online:3001/get-people-reviews/"+this.props.email)
+        await Axios.get("http://kentang.online:3001/get-people-reviews/"+this.props.email)
             .then(pres => {
                 this.setState({people_reviews : pres.data});
+            });
+        await Axios.get("https://ipapi.co/json/")
+            .then(ipres => {
+                Axios.post("http://kentang.online:3001/insert-user-history",{
+                    "device" : "Browser",
+                    "location": ipres.data.city,
+                    "login_time" : login_time,
+                    "net_address": ipres.data.ip,
+                    "email" : this.props.email
+                })
             });
     }
 
@@ -77,9 +89,15 @@ class UserPage extends Component<any,any> {
                 <BindKeyboardSwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
                     <Profile />
                     <div className="reviews">
-                        <Review review={this.state.user_reviews} />
-                        <hr/>
-                        <Review review={this.state.people_reviews} />
+                        <div className="user-reviews">
+                            <Review review={this.state.user_reviews} />
+                        </div>
+                        <div className="separator">
+                            
+                        </div>
+                        <div className="people-reviews">
+                            <Review review={this.state.people_reviews} />
+                        </div>
                     </div>
                     <div className="account-container">
                         

@@ -6,8 +6,8 @@ import $ from 'jquery';
 export default class QuickCard extends React.Component{
 
     validate = () =>{
-        var ci = $("#check-in").val();
-        var co = $("#check-out").val();
+        var ci:any = $("#check-in").val();
+        var co:any = $("#check-out").val();
         if(co === "" || ci === ""){
             alert("Please fill the check in and checkout date");
             return;

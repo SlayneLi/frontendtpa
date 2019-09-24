@@ -29,3 +29,27 @@
         }
     }
 }
+
+.reviews{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    .user-reviews{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+    }
+    .separator{
+        width: 1%;
+        margin-top: 2%;
+        margin-left: 1%;
+        border-left: 2px solid black;
+        height: 100vh;
+    }
+    .people-reviews{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+    }
+}

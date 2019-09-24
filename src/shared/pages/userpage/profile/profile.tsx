@@ -112,9 +112,6 @@ class Profile extends Component<any,any> {
                     <div className="image-container">
                         <ImageUpload />
                     </div>
-                    <div className="review-section">
-                        !!Review Here!!
-                    </div>
                 </div>
                 <div className="separator-section">
                     
