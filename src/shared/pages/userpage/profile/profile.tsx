@@ -3,7 +3,6 @@ import Axios from 'axios'
 import ImageUpload from '../../../image-upload/image-upload'
 import {connect} from 'react-redux'
 import './profile.scss'
-import e from 'express'
 
 class Profile extends Component<any,any> {
     
@@ -19,15 +18,14 @@ class Profile extends Component<any,any> {
         password: '',
         phone_number: '',
         self_description: '',
+        updated: false,
     }
 
     constructor(props:any){
         super(props);
-        this.changePicture = this.changePicture.bind(this);
-    }
-
-    changePicture(){
-        console.log("change picture clicked")
+        this.handleCurrencyChange = this.handleCurrencyChange.bind(this);
+        this.handleGenderChange = this.handleGenderChange.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     componentDidMount(){
@@ -52,7 +50,56 @@ class Profile extends Component<any,any> {
     }
 
     handleUpdate(){
-        console.log(this.state.first_name);
+        let fn:any = document.getElementById("fn") as HTMLInputElement;
+        let ln:any = document.getElementById("ln") as HTMLInputElement;
+        let gender:any = document.getElementById("gender") as HTMLSelectElement;
+        let currency:any = document.getElementById("currency") as HTMLSelectElement;
+        let desc:any = document.getElementById("desc") as HTMLInputElement;
+        let lang:any = document.getElementById("language") as HTMLInputElement;
+
+        if(fn.value === ""){
+            alert("no content on first name input");
+            return;
+        }
+        else if(ln.value === ""){
+            alert("no content on last name input");
+            return;
+        }
+        else if(desc.value === ""){
+            alert("no content on self description input");
+            return;
+        }
+        else if(lang.value === ""){
+            alert("no content on language input");
+            return;
+        }
+        Axios.post("http://localhost:3001/update-user-profile/" + this.props.email,{
+            "FirstName" : this.state.first_name,
+            "LastName" : this.state.last_name,
+            "Gender": this.state.gender,
+            "Currency": this.state.currency,
+            "Language": this.state.language,
+            "SelfDescription" : this.state.self_description,
+            "DisplayPicture": localStorage.getItem("url")
+        })
+    }
+
+    setAccess(){
+        let a:any = document.getElementById("upd-btn") as HTMLButtonElement;
+        if(this.state.updated === false)
+            a.setAttribute("disabled", true);
+        else
+            a.setAttribute("disabled", false);
+    }
+
+    handleCurrencyChange = (e:React.ChangeEvent < HTMLSelectElement >) =>{
+        this.setState({currency:e.target.value});
+        console.log(this.state.currency);
+    }
+
+    handleGenderChange = (e:React.ChangeEvent < HTMLSelectElement >) =>{
+        this.setState({gender:e.target.value});
+        console.log(this.state.gender);
     }
 
     render() {
@@ -64,6 +111,9 @@ class Profile extends Component<any,any> {
                     </div>
                     <div className="image-container">
                         <ImageUpload />
+                    </div>
+                    <div className="review-section">
+                        !!Review Here!!
                     </div>
                 </div>
                 <div className="separator-section">
@@ -81,9 +131,12 @@ class Profile extends Component<any,any> {
                             <input 
                                 type="text"
                                 name=""
-                                id=""
+                                id="fn"
                                 value={this.state.first_name}
-                                onChange={(e:any) => this.setState({first_name:e.target.value})}
+                                onChange={(e:any) => this.setState({
+                                                                        first_name:e.target.value,
+                                                                        updated: true,
+                                                                    })}
                             />
                         </div>
                     </div>
@@ -96,9 +149,12 @@ class Profile extends Component<any,any> {
                             <input
                                 type="text"
                                 name=""
-                                id="" 
+                                id="ln" 
                                 value={this.state.last_name}
-                                onChange={(e:any)=> this.setState({last_name:e.target.value})}
+                                onChange={(e:any)=> this.setState({
+                                                                    last_name:e.target.value,
+                                                                    updated: true,
+                                                                })}
                             />
                         </div>
                     </div>
@@ -109,7 +165,7 @@ class Profile extends Component<any,any> {
                                 Gender
                             </div>
                             <div className="gender-selection">
-                                <select name="" id="">
+                                <select name="" id="gender" value={this.state.gender} onChange={this.handleGenderChange}>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Other">Other</option>
@@ -121,7 +177,7 @@ class Profile extends Component<any,any> {
                                 Preffered Currency
                             </div>
                             <div className="currency-selection">
-                                <select name="" id="">
+                                <select name="" id="currency" value={this.state.currency} onChange={this.handleCurrencyChange}>
                                     <option value="USD">USD</option>
                                     <option value="JPY">JPY</option>
                                     <option value="IDR">IDR</option>
@@ -142,7 +198,15 @@ class Profile extends Component<any,any> {
                             Describe Yourself
                         </div>
                         <div className="description-container">
-                            <textarea name="" id="">
+                            <textarea
+                                name=""
+                                id="desc"
+                                value={this.state.self_description}
+                                onChange={(e:any) => this.setState({
+                                                                    self_description: e.target.value,
+                                                                    updated: true,
+                                                                    })}
+                            >
                             </textarea>
                         </div>
                     </div>
@@ -155,9 +219,12 @@ class Profile extends Component<any,any> {
                             <input
                                 type="text"
                                 name=""
-                                id=""
+                                id="language"
                                 value={this.state.language}
-                                onChange={(e:any)=> this.setState({language:e.target.value})}
+                                onChange={(e:any)=> this.setState({
+                                                                    language:e.target.value,
+                                                                    updated: true,
+                                                                })}
                             />
                         </div>
                     </div>
@@ -182,7 +249,7 @@ class Profile extends Component<any,any> {
                     </div>
                     <hr/>
                     <div className="update-button">
-                        <button onClick={this.handleUpdate.bind(this)}>UPDATE</button>
+                        <button onClick={this.handleUpdate.bind(this)} id="upd-btn">UPDATE</button>
                     </div>
                 </div>
             </div>
