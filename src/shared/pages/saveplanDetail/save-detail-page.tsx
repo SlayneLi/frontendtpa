@@ -7,6 +7,7 @@ import Axios from 'axios';
 import PlaceHori from '../../component-template/Places/placeHori';
 import {Map as LeafletMap,TileLayer,Marker,Popup} from 'react-leaflet';
 import Experience from '../../component-template/experiences/experience';
+import Save from '../../component-template/save/save';
 
 const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 
@@ -124,14 +125,17 @@ export default class SaveDetail extends Component <any,any> {
                         <div>
                             {this.state.places.map( (p:any) => {
                                 return(
-                                    <PlaceHori src = {p.pictures} category={p.place_type} name={p.place_name} price={p.average_price} D="1.5em" rating={p.average_rating} totalRating={p.total_rating} spacing="-0.75em" ame={p.amenities.slice(0,3)} bathroom={p.bath_room_count} beds={p.bed_count} bedroom={p.bed_room_count} guest={p.max_guest} id={p.id} />
+                                    <PlaceHori src = {p.pictures} category={p.place_type} name={p.place_name} price={p.average_price} D="1.5em" rating={p.average_rating} totalRating={p.total_rating} spacing="-0.75em" ame={p.amenities.slice(0,3)} bathroom={p.bath_room_count} beds={p.bed_count} bedroom={p.bed_room_count} guest={p.max_guest} id={p.id} save={this.state.id} />
                                 )
                             } )}
                         </div>
                         <div>
                             {this.state.exp.map( (e:any) => {
                                 return(
-                                    <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em" hour={e.estimate_hour} ame={e.amenities} isHidden = {true} id={e.id}/>
+                                    <React.Fragment>
+                                        <Save exp={e.id} save={this.state.id} type="exp"/>
+                                        <Experience src = {e.pictures} cat={e.experience_type} place={e.experience_loc} name={e.experience_name} price={e.price} D="1.5em" rating={e.average_rating} totalRatings={e.total_rating} spacing="-0.75em" hour={e.estimate_hour} ame={e.amenities} isHidden = {true} id={e.id} save={this.state.id}/>
+                                    </React.Fragment>
                                 )
                             })}
                         </div>
