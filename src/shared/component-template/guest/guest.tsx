@@ -181,7 +181,8 @@ const mapStateToProps = (state:any) => {
     return{
         adultCount: state.adultCount,
         childCount: state.childCount,
-        infantCount: state.infantCount
+        infantCount: state.infantCount,
+        totalCount: state.totalCount,
     };
 }
 

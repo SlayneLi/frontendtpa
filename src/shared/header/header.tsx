@@ -58,6 +58,7 @@ class HeaderComponent extends React.Component<any,any>{
     }
 
     usercontrol(){
+        console.log(this.props)
         if(this.props.email !== ""){
             return(
                 <React.Fragment>
@@ -66,7 +67,7 @@ class HeaderComponent extends React.Component<any,any>{
                             Become a Host
                         </div>
                     </Link>
-                    <Link to={"/booking/"} >
+                    <Link to={"/booking-history/"} >
                         <div>
                             Bookings
                         </div>

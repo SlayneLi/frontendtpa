@@ -11,7 +11,7 @@ class Experience extends React.Component<any,any>{
         return (
             <React.Fragment>
                 <div id="save-div" hidden={this.props.isHidden}>
-                    <Save id={this.props.id}/>
+                    <Save exp={this.props.id}/>
                 </div>
                 < Link to={`/experience/${this.props.id}`}>
                     <div className="exp-content">

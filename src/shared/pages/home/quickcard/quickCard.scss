@@ -42,5 +42,14 @@
                 }
             }
         }
+        .book{
+            width: max-content;
+            padding: 1%;
+            border-radius: calc(1px + 0.3em);
+            border: #40B35E solid calc(1px + 0.3em);
+            background: #40B35E;
+            margin: auto;
+            cursor: pointer;
+        }        
     }
 }

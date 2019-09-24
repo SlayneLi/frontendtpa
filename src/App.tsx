@@ -24,6 +24,8 @@ import SavedPlan from './shared/pages/savedPlan/savedPlan';
 import SaveDetail from './shared/pages/saveplanDetail/save-detail-page';
 import BookingHistory from './shared/pages/booking/bookingHistory/bookingHistory';
 import UserPage from './shared/pages/userpage/usermain/userpage'
+import BookingPlace from './shared/pages/booking/bookingplace/bookingplace';
+import BookingExperience from './shared/pages/booking/bookingexperience/bookingexperience';
 
 const App: React.FC = () => {
   return (
@@ -48,7 +50,9 @@ const App: React.FC = () => {
           <Route path="/profile/" exact component={Profile} />
           <Route path="/save-plans" exact component={SavedPlan}/>
           <Route path="/save-plan/:id" exact component={SaveDetail} />
-          <Route path="/bookings" exact component={BookingHistory} />
+          <Route path="/booking-history/" exact component={BookingHistory} />
+          <Route path="/booking-place/:id" exact component={BookingPlace}/>
+          <Route path="/booking-experience/:id" exact component={BookingExperience}/> 
           <Route path="/userpage" exact component={UserPage}/>
         </Switch>
       <FooterComponent />

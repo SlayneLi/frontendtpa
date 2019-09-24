@@ -187,7 +187,7 @@ export default class experiencedetail extends Component<any,any> {
                                     <Share link={this.props.match.params.id} type="experience"/>
                                 </div>
                                 <div>
-                                    <Save />
+                                    <Save exp={this.state.id}/>
                                 </div>
                             </div>
                         </div>

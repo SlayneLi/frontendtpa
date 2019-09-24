@@ -1,0 +1,61 @@
+.bh-card{
+    width: 98%;
+    padding: 1%;
+    border: calc(1px + 0.2px) #202020 solid;
+    border-radius: calc(2px + 0.5em);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    .bh-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        >div{
+            width: max-content;
+            padding: 0.5%;
+            border: calc(1px + 0.2px) #202020 solid;
+            border-radius: calc(2px + 0.5em);
+            background-color:#FF8F93;
+        }
+    }
+    .bh-content{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .bh-left{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .bh-title{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                font-size: calc(12px + 1em);
+                >div{
+                    margin: 0 1%;
+                }
+            }
+        }
+        .bh-right{
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            font-size: calc(16px + 1em);
+            align-items: flex-end;
+            >div{
+                text-align: end;
+            }
+            .cancel-booking{
+                width: max-content;
+                padding: 3%;
+                font-size: calc(10px + 0.4em);
+                border: calc(1px + 0.2px) #202020 solid;
+                border-radius: calc(2px + 0.5em);
+                background-color:#FF8F93;
+            }
+        }
+    }
+}

@@ -127,22 +127,16 @@
                     width: 50%;
                     display: flex;
                     flex-direction: column;
-                    .ame-title{
-                        padding-top: 5%;
-                        display: flex;
-                        justify-content: center;
-                        font-size: 1.5em;
+                    >div{
+                        width: 80%;
+                        margin: 0 10%;
                     }
-                    .ame-list{
-                        width: 100%;
-                        height: 80%;
-                        display: flex;
-                        flex-direction: column;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        align-items: center;
-                        align-content: space-around;
-                    }
+                }
+                .rent-fee , .service-fee, .total-fee{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
                 }
             }
             .buttons{

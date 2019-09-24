@@ -7,6 +7,34 @@ import Experience from "../../component-template/experiences/experience";
 import { Link } from "react-router-dom";
 import Gopher from "../../Images/Background/galaxy-gopher.png"
 
+function compareR(a:any,b:any){
+    const rateA = a.average_rating;
+    const rateB = b.average_rating;
+
+    let comparition = 0;
+    if(rateA <= rateB){
+        comparition = 1;
+    }
+    else{
+        comparition = -1;
+    }
+    return comparition;
+}
+
+function compareRev(a:any,b:any){
+    const rateA = a.total_rating;
+    const rateB = b.total_rating;
+
+    let comparition = 0;
+    if(rateA <= rateB){
+        comparition = 1;
+    }
+    else{
+        comparition = -1;
+    }
+    return comparition;
+}
+
 export default class HomeComponent extends React.Component <any,any>{
     state = {
         place: [],
@@ -16,6 +44,8 @@ export default class HomeComponent extends React.Component <any,any>{
     componentDidMount(){
         axios.get("http://kentang.online:3001/get-places")
                 .then( result => {
+                    result.data = result.data.sort(compareR)
+                    console.log(result.data)
                     this.setState({
                         place:result.data
                     })
@@ -25,6 +55,7 @@ export default class HomeComponent extends React.Component <any,any>{
                 });
         axios.get("http://kentang.online:3001/get-experiences")
                 .then( result=> {
+                    result.data = result.data.sort(compareRev)
                     this.setState({
                         exp:result.data
                     })
@@ -59,7 +90,7 @@ export default class HomeComponent extends React.Component <any,any>{
                     </Link>
                 }
                 <div className="experiences-in-the-spotlight">
-                    Experiences in the spotlight based on reviews
+                    Experiences in the spotlight based on most reviews
                 </div>
                 <div className="experience-section">
                     {this.state.exp.slice(0,4).map((e:any) =>{
