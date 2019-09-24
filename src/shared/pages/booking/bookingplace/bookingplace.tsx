@@ -47,7 +47,7 @@ class BookingPlace extends Component<any,any> {
     }
 
     onPostpone(){
-        console.log("Postponed");
+        window.location.href = "http://localhost:3000/booking-history/";
     }
 
     onPay(){
