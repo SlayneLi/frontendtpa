@@ -4,6 +4,7 @@ import ImageUpload from '../../../image-upload/image-upload'
 import {connect} from 'react-redux'
 import './profile.scss'
 
+
 class Profile extends Component<any,any> {
     
     state = {
@@ -29,7 +30,7 @@ class Profile extends Component<any,any> {
     }
 
     componentDidMount(){
-        Axios.get(`http://localhost:3001/get-user/${this.props.email}`)
+        Axios.get(`http://localhost:3001/get-user/`+localStorage.getItem("email"))
             .then(res => {
                 let data = res.data;
                 this.setState({

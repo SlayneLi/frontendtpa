@@ -8,6 +8,8 @@ const initState = {
     totalCount: 0,
     currency: "USD",
     rates: 1.0,
+    fdata: [],
+    gdata: [],
 }
 
 const reducer = (state = initState,action:any) =>{
@@ -26,11 +28,17 @@ const reducer = (state = initState,action:any) =>{
             localStorage.removeItem("email");
             localStorage.removeItem("firstname");
             localStorage.removeItem("lastname");
+            localStorage.removeItem("currency");
+            localStorage.removeItem("rates");
+            var a = document.getElementById("currency") as HTMLSelectElement
+            a.value = "USD"
             return{
                 ...state,
                 email: "",
                 firstname: "",
-                lastname: ""
+                lastname: "",
+                currency: "USD",
+                rates: 1.0,
             }
         case 'ADULT_COUNT_INCREMENT':
             return{
@@ -67,10 +75,22 @@ const reducer = (state = initState,action:any) =>{
                 infantCount: state.infantCount - 1
             }
         case 'CHANGE_CURRENCY':
+            localStorage.setItem("currency",action.currency);
+            localStorage.setItem("rates",action.rates);
             return{
                 ...state,
                 currency: action.currency,
-                rates: action.rates
+                rates: action.rates,
+            }
+        case 'RETRIEVE_FACEBOOK_DATA':
+            return{
+                ...state,
+                fdata: action.fdata,
+            }
+        case 'RETRIEVE_GOOGLE_DATA':
+            return{
+                ...state,
+                gdata: action.gdata,
             }
     }
     return state;

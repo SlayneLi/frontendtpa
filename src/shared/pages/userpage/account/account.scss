@@ -1,0 +1,173 @@
+.account-container{
+    display: flex;
+    height: 100%;
+    .credential-content{
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        .credential-title{
+            display: flex;
+            justify-content: center;
+            font-size: 2em;
+        }
+        .form-input{
+            display: flex;
+            flex-direction: column;
+            .email-content{
+                display: flex;
+                flex-direction: column;
+                .email-title{
+                    font-size: 1.5em;
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-bottom: 1%;
+                }
+                .email-input{
+                    display: flex;
+                    width: 50%;
+                    margin-bottom: 2.5%;
+                    >input{
+                        height: 4vh;
+                        width: 100%;
+                        border-top: none;
+                        border-left: none;
+                        border-right: none;
+                        background-color: whitesmoke;
+                        font-size: 1em;
+                    }
+                }
+            }
+            .old-password-content{
+                display: flex;
+                flex-direction: column;
+                .old-password-title{
+                    font-size: 1.5em;
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-bottom: 1%;
+                }
+                .old-password-input{
+                    display: flex;
+                    width: 50%;
+                    margin-bottom: 2.5%;
+                    >input{
+                        height: 4vh;
+                        width: 100%;
+                        border-top: none;
+                        border-left: none;
+                        border-right: none;
+                        background-color: whitesmoke;
+                        font-size: 1em;
+                    }
+                    >img{
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
+            .new-password-content{
+                display: flex;
+                flex-direction: column;
+                .new-password-title{
+                    font-size: 1.5em;
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-bottom: 1%;
+                }
+                .new-password-input{
+                    display: flex;
+                    width: 50%;
+                    margin-bottom: 2.5%;
+                    input{
+                        height: 4vh;
+                        width: 100%;
+                        border-top: none;
+                        border-left: none;
+                        border-right: none;
+                        background-color: whitesmoke;
+                        font-size: 1em;
+                    }
+                    >img{
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+        hr{
+            width: 100%;
+        }
+        .link-content{
+            display: flex;
+            flex-direction: column;
+            .link-title{
+                display: flex;
+                justify-content: center;
+                font-size: 2em;
+                margin-bottom: 2.5%;
+            }
+            .google-section{
+                display: flex;
+                flex-direction: row;
+                .google-favicon{
+                    display: flex;
+                    justify-content: flex-start;
+                    width: 80%;
+                    height: 7.5vh;
+                    margin-bottom: 2.5%;
+                    >svg{
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                .google-status{
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 20%;
+                }
+            }
+            .facebook-section{
+                display: flex;
+                flex-direction: row;
+                .facebook-favicon{
+                    display: flex;
+                    justify-content: flex-start;
+                    width: 80%;
+                    >svg{
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                .facebook-status{
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 20%;
+                }
+            }
+        }
+        .button-section{
+            display: flex;
+            justify-content: center;
+            .button{
+                font-size: 1.5em;
+                background-color: palevioletred;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        }
+    }
+    .history-log-content{
+        width: 22.5%;
+        .log-title{
+            width: 100%;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            padding-left: 5%;
+            margin-bottom: 2.5%;
+        }
+        >div{
+            width: 100%;
+        }
+    }
+}

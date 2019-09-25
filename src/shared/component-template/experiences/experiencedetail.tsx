@@ -4,11 +4,12 @@ import Share from '../share/share';
 import PointInfo from '../pointInfo/pointInfo';
 import Save from '../save/save';
 import Stories from 'react-insta-stories';
-import './experiencedetail.scss'
 import ReactModal from 'react-modal'
 import PhotoModal from '../../modal/photos/photo';
 import StarRatings from 'react-star-ratings'
 import Review from '../review/review';
+import { Link } from 'react-router-dom'
+import './experiencedetail.scss'
 
 function ShuffleArray(arr:any){
     let temp,num;
@@ -247,8 +248,10 @@ export default class experiencedetail extends Component<any,any> {
                                         )
                                 })}
                             </div>
-                            <div>
-                                Contact Host
+                            <div className="contact-host">
+                                <Link to={"/chat-details"} >
+                                    Contact Host
+                                </Link>
                             </div>
                         </div>
                         <hr/>

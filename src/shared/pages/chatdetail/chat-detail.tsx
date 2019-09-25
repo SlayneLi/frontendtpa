@@ -45,26 +45,7 @@ class ChatDetail extends React.Component<any,any> {
     }
 
     componentDidMount(){
-        
         this.state.socket.on('new message', this.handleNewMessage);
-        
-    
-        // socket.on('new message', function(data) {
-        //     let c = "ours"
-        //     let image = user.profileImage;
-        //     if(data.sender !== user.id){
-        //         c = "theirs"
-        //         image = otherUser.profileImage
-        //     }
-        // })
-    
-        // messageContainer.innerHTML += `<div class="message-container $(c)">
-        //     <img src=$(image) class="profile-image" />
-        //     <div>
-        //         <div class="message-content">$(data.content)</div>
-        //         <small>${getMessageTime({})}</small>
-        //     </div>
-        // </div>`
     }
 
     render() {

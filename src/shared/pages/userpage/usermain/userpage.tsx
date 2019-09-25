@@ -6,6 +6,7 @@ import Profile from '../profile/profile'
 import {connect} from 'react-redux'
 import Axios from 'axios';
 import Review from '../../../component-template/review/review'
+import Account from '../account/account'
 
 const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 
@@ -29,19 +30,19 @@ class UserPage extends Component<any,any> {
         }],
     }
 
-    async componentDidMount(){
+    componentDidMount(){
         var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
         let a = new Date();
         let login_time = monthNames[a.getMonth()] + " " + a.getDate() + ", " + a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds() 
-        await Axios.get("http://kentang.online:3001/get-user-reviews/"+this.props.email)
+        Axios.get("http://kentang.online:3001/get-user-reviews/"+localStorage.getItem("email"))
             .then(ures => {
                 this.setState({user_reviews : ures.data});
             });
-        await Axios.get("http://kentang.online:3001/get-people-reviews/"+this.props.email)
+        Axios.get("http://kentang.online:3001/get-people-reviews/"+localStorage.getItem("email"))
             .then(pres => {
                 this.setState({people_reviews : pres.data});
             });
-        await Axios.get("https://ipapi.co/json/")
+        Axios.get("https://ipapi.co/json/")
             .then(ipres => {
                 Axios.post("http://kentang.online:3001/insert-user-history",{
                     "device" : "Browser",
@@ -100,9 +101,7 @@ class UserPage extends Component<any,any> {
                             <Review review={this.state.people_reviews} />
                         </div>
                     </div>
-                    <div className="account-container">
-                        
-                    </div>      
+                    <Account/>
                 </BindKeyboardSwipeableViews>
             </div>
         )

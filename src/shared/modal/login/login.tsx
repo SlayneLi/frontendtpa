@@ -8,6 +8,7 @@ import Input from '../../component-template/input/input';
 import {connect} from 'react-redux'
 import Authenticate from '../authentication'
 import Axios from 'axios';
+import $ from 'jquery'
 
 class LoginModal extends React.Component<any,any>{    
     constructor(props:any){
@@ -94,6 +95,7 @@ class LoginModal extends React.Component<any,any>{
         else{
             this.props.onLogin(email.value,this.state.user_data.first_name,this.state.user_data.last_name);
             this.props.onAutoCurrencyChange("IDR",14112.4965918386);
+            $("#currency").val("IDR")
         }
     }
 
@@ -151,7 +153,8 @@ const mapStateToProps = (state:any) =>{
     return{
         email: state.email,
         firstname: state.firstname,
-        lastname: state.lastname
+        lastname: state.lastname,
+        currency: state.currency,
     };
 }
 

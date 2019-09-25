@@ -26,6 +26,7 @@ import BookingHistory from './shared/pages/booking/bookingHistory/bookingHistory
 import UserPage from './shared/pages/userpage/usermain/userpage'
 import BookingPlace from './shared/pages/booking/bookingplace/bookingplace';
 import BookingExperience from './shared/pages/booking/bookingexperience/bookingexperience';
+import ChatDetail from './shared/pages/chatdetail/chat-detail'
 
 const App: React.FC = () => {
   return (
@@ -54,6 +55,7 @@ const App: React.FC = () => {
           <Route path="/booking-place/:id" exact component={BookingPlace}/>
           <Route path="/booking-experience/:id" exact component={BookingExperience}/> 
           <Route path="/userpage" exact component={UserPage}/>
+          <Route path="/chat-details" exact component={ChatDetail} />
         </Switch>
       <FooterComponent />
       </Router>
