@@ -23,7 +23,7 @@ export default class BookingHistoryCard extends React.Component<any,any> {
     isReviewed = () =>{
         if(this.props.status === "Payed"){
             let x = [];
-            if(this.props.review.length = 0){
+            if(this.props.review.review_content=== undefined){
                 x.push(
                     <div>
                         Please enter a review 

@@ -30,6 +30,7 @@ class ChatDetail extends React.Component<any,any> {
     }
 
     onSubmit = (e:any) => {
+        let d = new Date();
         e.preventDefault()
         const messageInput: any = document.getElementById("form-input")
         if(messageInput.value === "")
@@ -39,7 +40,12 @@ class ChatDetail extends React.Component<any,any> {
                     type: "text",
                     content: messageInput.value
             }
-        //masukin ke axios
+        Axios.post("http://kentang.online:3001/insert-chat",{
+            "sender" : data.sender,
+            "chat_time":d.getHours() + ":" + d.getMinutes(),
+            "chat_type": data.type,
+            "chat_content": data.content
+        })
         this.state.socket.emit('send message', data, this.handleNewMessage)
         messageInput.value = "";
     }
