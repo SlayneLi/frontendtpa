@@ -93,6 +93,7 @@ class LoginModal extends React.Component<any,any>{
         }
         else{
             this.props.onLogin(email.value,this.state.user_data.first_name,this.state.user_data.last_name);
+            this.props.onAutoCurrencyChange("IDR",14112.4965918386);
         }
     }
 
@@ -156,7 +157,8 @@ const mapStateToProps = (state:any) =>{
 
 const mapDispatchToProps = (dispatch:any) =>{
     return{
-        onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname })
+        onLogin: (email:string,firstname:string,lastname:string) => dispatch({type: 'LOGIN',email:email, fName:firstname, lName:lastname }),
+        onAutoCurrencyChange: (currency:string,rates:number) => dispatch({type:'CHANGE_CURRENCY', currency:currency, rates: rates})
     };
 }
 

@@ -11,6 +11,7 @@ import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
 import BookingPlace from '../../shared/pages/booking/bookingplace/bookingplace'
 import BookingExperience from '../../shared/pages/booking/bookingexperience/bookingexperience'
 import LoginHistory from '../../shared/component-template/login-history/login-history'
+import ChatFragment from '../../shared/component-template/chat-fragment/chat-fragment'
 
 import Axios from 'axios'
 import './proto-page.scss'
@@ -42,7 +43,8 @@ export default class ProtoPage extends Component<any,any> {
         return (
             <div>
                 This is a Testing Prototype Page
-                <LoginHistory location="Jakarta" login="September 21"/>
+                <ChatFragment />
+                {/* <LoginHistory location="Jakarta" login="September 21"/> */}
                 {/* <BookingExperience /> */}
                 {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
