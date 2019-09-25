@@ -30,8 +30,9 @@ class UserPage extends Component<any,any> {
     }
 
     async componentDidMount(){
+        var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
         let a = new Date();
-        let login_time = a.getFullYear() + "-" + (a.getMonth()+1) + "-" + a.getDate() + " " + a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds() 
+        let login_time = monthNames[a.getMonth()] + " " + a.getDate() + ", " + a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds() 
         await Axios.get("http://kentang.online:3001/get-user-reviews/"+this.props.email)
             .then(ures => {
                 this.setState({user_reviews : ures.data});

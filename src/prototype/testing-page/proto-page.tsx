@@ -10,7 +10,7 @@ import SavePlan from '../../shared/component-template/saved-plan/save-plan-compo
 import SaveDetail from '../../shared/pages/saveplanDetail/save-detail-page'
 import BookingPlace from '../../shared/pages/booking/bookingplace/bookingplace'
 import BookingExperience from '../../shared/pages/booking/bookingexperience/bookingexperience'
-import Account from '../../shared/pages/userpage/account/account'
+import LoginHistory from '../../shared/component-template/login-history/login-history'
 
 import Axios from 'axios'
 import './proto-page.scss'
@@ -30,16 +30,6 @@ export default class ProtoPage extends Component<any,any> {
             .then(result => {
                 console.log(result);
             })
-        
-        Axios.post("http://kentang.online:3001/insert-save-plan",{
-            "plan_name" : "reiven plan", // this.state.plan_name
-            "place_id" : "6aasdasda",
-            "experience_id": "asd",
-            "pic_url": "ads",
-            "privacy": "asd",
-            "total_guest": 1,
-            "plan_dates": "asd" 
-        })
     }
 
     onDrop = (picture:any) =>{
@@ -52,7 +42,7 @@ export default class ProtoPage extends Component<any,any> {
         return (
             <div>
                 This is a Testing Prototype Page
-                {/* <Account /> */}
+                <LoginHistory location="Jakarta" login="September 21"/>
                 {/* <BookingExperience /> */}
                 {/* <BookingPlace /> */}
                 {/* <i className="fas fa-camera"></i>
@@ -67,7 +57,7 @@ export default class ProtoPage extends Component<any,any> {
                 <i className="fas fa-fire-extinguisher"></i>
                 <i className="fas fa-medkit"></i>
                 <i className="fas fa-bell"></i> */}
-                <Profile email="vintzclagoz@gmail.com" />
+                {/* <Profile email="vintzclagoz@gmail.com" /> */}
                 {/* <Test/> */}
                 {/* <ProfilePage /> */}
                 {/* <i className="fas fa-wifi"></i> */}

@@ -1,0 +1,38 @@
+.history-outer{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    .login-history-container{
+        display: flex;
+        flex-direction: row;
+        .favicon-device{
+            width: 25%;
+            >svg{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .credentials{
+            margin-left: 2.5%;
+            width: 100%;
+            .location{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                text-align: left;
+                margin-bottom: 1%;
+            }
+            .login-time{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                text-align: left;
+                margin-bottom: 1%;
+            }
+        }
+    }
+    hr{
+        width: 100%;
+        margin-left: 5.5%;
+    }
+}

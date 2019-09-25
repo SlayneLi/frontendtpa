@@ -47,11 +47,14 @@ class BookingPlace extends Component<any,any> {
     }
 
     onPostpone(){
+        Axios.post("http://kentang.online:3001/update-trans-postponed/"+this.props.match.params.id);
         window.location.href = "http://localhost:3000/booking-history/";
     }
 
     onPay(){
-        console.log("Payed");
+        Axios.post("http://kentang.online:3001/update-trans-payed/"+this.props.match.params.id);
+        alert("Transaction Status Updated");
+        window.location.href = "http://localhost:3000/booking-history/";
     }
 
     render() {
